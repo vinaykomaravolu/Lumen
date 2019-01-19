@@ -14,7 +14,6 @@ public class IncreaseSize : MonoBehaviour
     public bool invert;
 
     private Rigidbody objectRigidbody;
-
     private void Start()
     {
         objectRigidbody = GetComponent<Rigidbody>();
