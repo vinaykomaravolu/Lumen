@@ -31,7 +31,14 @@ public class PlayerControl : MonoBehaviour{
         //jump
         if (canJump()){
             velocity.y = 0;
-            if (contactNorm.y > 0.7f)
+            Vector3 norm = new Vector3(0, 1, 0);
+            if (contactNorm.y > 0.7f){
+                norm = contactNorm;
+                norm.y = 0;
+                norm.Normalize();
+                norm.y = 1;
+                norm.Normalize();
+            }
             velocity.y = jumpSpeed;
             jumpCount--;
         }
