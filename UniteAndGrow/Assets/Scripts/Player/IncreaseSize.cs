@@ -27,11 +27,8 @@ public class IncreaseSize : MonoBehaviour
             {
                 if (increaseSizeOnMovement)
                 {
-                    // Only increase size if moving on an object
-                    if (objectRigidbody.velocity.magnitude != 0)
-                    {
-                        transform.localScale = transform.localScale + (new Vector3(increaseFactor_X / 100.0f, increaseFactor_Y / 100.0f, increaseFactor_Z / 100.0f));
-                    }
+                    transform.localScale = transform.localScale + (new Vector3(increaseFactor_X / 100.0f, increaseFactor_Y / 100.0f, increaseFactor_Z / 100.0f)) * objectRigidbody.velocity.magnitude;
+
                 }
                 else
                 {
@@ -45,11 +42,8 @@ public class IncreaseSize : MonoBehaviour
                 {
                     if (increaseSizeOnMovement)
                     {
-                        // Only increase size if moving on an object
-                        if (objectRigidbody.velocity.magnitude != 0)
-                        {
-                            transform.localScale = transform.localScale - (new Vector3(increaseFactor_X / 100.0f, increaseFactor_Y / 100.0f, increaseFactor_Z / 100.0f));
-                        }
+                        transform.localScale = transform.localScale - (new Vector3(increaseFactor_X / 100.0f, increaseFactor_Y / 100.0f, increaseFactor_Z / 100.0f)) * objectRigidbody.velocity.magnitude;
+
                     }
                     else
                     {
