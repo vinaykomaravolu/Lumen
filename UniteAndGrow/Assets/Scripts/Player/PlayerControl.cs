@@ -7,11 +7,14 @@ public class PlayerControl : MonoBehaviour{
     public GameObject playerCamera;
     public float speed;
     public float jumpSpeed;
+    public float force;
     private Rigidbody body;
 
     public float maxJumpCount;
     private float jumpCount = 0;
     private Vector3 contactNorm;
+
+    private float wallSlope = 0.7f;
     
     // Start is called before the first frame update
     void Start(){
@@ -22,24 +25,28 @@ public class PlayerControl : MonoBehaviour{
     void Update(){
         Vector3 velocity = body.velocity;
         Vector3 controlStick = new Vector3(Input.GetAxis("Horizontal"), 
-                                   0, Input.GetAxis("Vertical")) * speed;
+                                   0, Input.GetAxis("Vertical"));
         
         //movement
-        velocity.x =setSpeed(Input.GetAxis("Horizontal") * speed, velocity.x);
-        velocity.z = setSpeed(Input.GetAxis("Vertical") * speed, velocity.z);
+        if (contactNorm.y < wallSlope){
+            body.AddForce(controlStick * force);
+        } else{
+            print(contactNorm + " con " + controlStick);
+            velocity.x = setSpeed(controlStick.x * speed, velocity.x);
+            velocity.z = setSpeed(controlStick.z * speed, velocity.z);
+        }
         
         //jump
         if (canJump()){
             velocity.y = 0;
             Vector3 norm = new Vector3(0, 1, 0);
-            if (contactNorm.y > 0.7f){
+            if (contactNorm.y < wallSlope){
                 norm = contactNorm;
                 norm.y = 0;
-                norm.Normalize();
+                norm = norm.normalized * 0.5f;
                 norm.y = 1;
-                norm.Normalize();
             }
-            velocity.y = jumpSpeed;
+            velocity += jumpSpeed * norm;
             jumpCount--;
         }
 
