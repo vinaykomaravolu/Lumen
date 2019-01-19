@@ -10,8 +10,8 @@ public class IncreaseSize : MonoBehaviour
     public float minimumSize;
     public float maximumSize;
     public string increaseObjectsTag;
+    public string decreaseObjectsTag;
     public bool increaseSizeOnMovement;
-    public bool invert;
 
     private Rigidbody objectRigidbody;
     private void Start()
@@ -21,9 +21,9 @@ public class IncreaseSize : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if(collision.gameObject.tag == increaseObjectsTag)
+        if(increaseObjectsTag != null && collision.gameObject.tag == increaseObjectsTag)
         {
-            if (!invert && transform.localScale.x <= maximumSize && transform.localScale.y <= maximumSize && transform.localScale.z <= maximumSize)
+            if (transform.localScale.x <= maximumSize && transform.localScale.y <= maximumSize && transform.localScale.z <= maximumSize)
             {
                 if (increaseSizeOnMovement)
                 {
@@ -37,27 +37,27 @@ public class IncreaseSize : MonoBehaviour
                 {
                     // Always increase size when touching an object
                     transform.localScale = transform.localScale + (new Vector3(increaseFactor_X / 100.0f, increaseFactor_Y / 100.0f, increaseFactor_Z / 100.0f));
-
                 }
             }
-            else if(invert && transform.localScale.x >= minimumSize && transform.localScale.y >= minimumSize && transform.localScale.z >= minimumSize)
+        else if(decreaseObjectsTag != null && collision.gameObject.tag == decreaseObjectsTag)
             {
-                if (increaseSizeOnMovement)
+                if (transform.localScale.x >= minimumSize && transform.localScale.y >= minimumSize && transform.localScale.z >= minimumSize)
                 {
-                    // Only increase size if moving on an object
-                    if (objectRigidbody.velocity.magnitude != 0)
+                    if (increaseSizeOnMovement)
                     {
+                        // Only increase size if moving on an object
+                        if (objectRigidbody.velocity.magnitude != 0)
+                        {
+                            transform.localScale = transform.localScale - (new Vector3(increaseFactor_X / 100.0f, increaseFactor_Y / 100.0f, increaseFactor_Z / 100.0f));
+                        }
+                    }
+                    else
+                    {
+                        // Always increase size when touching an object
                         transform.localScale = transform.localScale - (new Vector3(increaseFactor_X / 100.0f, increaseFactor_Y / 100.0f, increaseFactor_Z / 100.0f));
                     }
                 }
-                else
-                {
-                    // Always increase size when touching an object
-                    transform.localScale = transform.localScale - (new Vector3(increaseFactor_X / 100.0f, increaseFactor_Y / 100.0f, increaseFactor_Z / 100.0f));
-
-                }
-            }
-           
+            }     
         }
     }
 
