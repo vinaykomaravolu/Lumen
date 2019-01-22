@@ -24,8 +24,7 @@ public class PlayerControl : MonoBehaviour{
     // Update is called once per frame
     void Update(){
         Vector3 velocity = body.velocity;
-        Vector3 controlStick = new Vector3(Input.GetAxis("Horizontal"), 
-                                   0, Input.GetAxis("Vertical"));
+        Vector3 controlStick = getControl();
         
         //movement
         if (contactNorm.y < wallSlope){
@@ -51,6 +50,17 @@ public class PlayerControl : MonoBehaviour{
         }
 
         body.velocity = velocity;
+        body.AddForce(Vector3.down * 100); // add gravity
+    }
+
+    private Vector3 getControl(){
+        Vector3 forward = playerCamera.transform.forward;
+        forward.y = 0;
+        forward.Normalize();
+        Vector3 right = playerCamera.transform.right;
+        right.y = 0;
+        right.Normalize();
+        return right * Input.GetAxis("Horizontal") + forward * Input.GetAxis("Vertical");
     }
 
     private float setSpeed(float control, float current){
