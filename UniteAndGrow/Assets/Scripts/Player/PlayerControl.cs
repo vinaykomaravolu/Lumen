@@ -31,7 +31,6 @@ public class PlayerControl : MonoBehaviour{
         if (contactNorm.y < wallSlope){
             body.AddForce(controlStick * force);
         } else{
-            print(contactNorm + " con " + controlStick);
             velocity.x = setSpeed(controlStick.x * speed, velocity.x);
             velocity.z = setSpeed(controlStick.z * speed, velocity.z);
         }
