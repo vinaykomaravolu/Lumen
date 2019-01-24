@@ -37,7 +37,6 @@ public class MovementControl : MonoBehaviour{
     void Update(){
         movement();
         body.AddForce(Vector3.down * gravity * body.mass); // add gravity
-        
     }
 
     // IMPORTANT! contactNorm is not reliable in FixedUpdate
@@ -119,7 +118,9 @@ public class MovementControl : MonoBehaviour{
 
     private float getDrag(float control, float speed){
         if (Mathf.Abs(control) > 0.1f) return 0;
-        return (speed < 0 ? dragForce : -dragForce) * Time.deltaTime;
+        float deltaSpeed = dragForce * Time.deltaTime;
+        if (Mathf.Abs(speed) < deltaSpeed) return -speed;
+        return speed < 0 ? deltaSpeed : -deltaSpeed;
     }
 
     private void OnCollisionStay(Collision other){

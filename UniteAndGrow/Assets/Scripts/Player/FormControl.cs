@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 // in charge of size and liquid or solid
@@ -14,9 +15,6 @@ public class FormControl : MonoBehaviour{
     
     public bool isWater;
     
-    public string increaseBlockTag;
-    public string decreaseBlockTag;
-    public string waterDropTag;
     public float waterDropVolumeDelta; // how much volume change per contact
     public float blockVolumeDelta; // how much volume change per second
 
@@ -35,14 +33,14 @@ public class FormControl : MonoBehaviour{
     }
 
     private void OnTriggerEnter(Collider other){
-        if (other.CompareTag(waterDropTag)){
+        if (other.CompareTag(Global.waterDropTag)){
             changeVolume(waterDropVolumeDelta);
             Destroy(other.gameObject);
         }
     }
 
     private void OnCollisionStay(Collision collision){
-        if (collision.gameObject.CompareTag(increaseBlockTag)) changeVolume(blockVolumeDelta);
-        if (collision.gameObject.CompareTag(decreaseBlockTag)) changeVolume(-blockVolumeDelta);
+        if (collision.gameObject.CompareTag(Global.increaseBlockTag)) changeVolume(blockVolumeDelta);
+        if (collision.gameObject.CompareTag(Global.decreaseBlockTag)) changeVolume(-blockVolumeDelta);
     }
 }
