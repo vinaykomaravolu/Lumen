@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControl : MonoBehaviour{
+public class MovementControl : MonoBehaviour{
 
     public GameObject playerCamera;
     public float speed; // movement speed on ground
     public float jumpSpeed;
     public float pushForce; // push force when in mid air
     public float gravity; // gravity scale
-    public bool isWater; // player form
-    public bool jumpBack; // jump back scale during wall jump
+    public float jumpBack; // jump back scale during wall jump
+    public float dragForce;
     
     private Rigidbody body;
+    private FormControl form;
 
     private bool canDoubleJump = true;
-    private Vector3 contactNorm; // contactNorm.y = -2 if in mid air
+    public Vector3 contactNorm; // contactNorm.y = -2 if in mid air
 
     private float wallSlope = 0.8f; // if contactNorm.y is less than this value, it's a wall
     private ContactMode contactMode {
@@ -29,13 +30,13 @@ public class PlayerControl : MonoBehaviour{
     // Start is called before the first frame update
     void Start(){
         body = GetComponent<Rigidbody>();
+        form = GetComponent<FormControl>();
     }
 
     // Update is called once per frame
     void Update(){
         movement();
-        body.AddForce(Vector3.down * gravity); // add gravity
-        
+        body.AddForce(Vector3.down * gravity * body.mass); // add gravity
     }
 
     // IMPORTANT! contactNorm is not reliable in FixedUpdate
@@ -43,7 +44,7 @@ public class PlayerControl : MonoBehaviour{
         
     }
 
-    private void LateUpdate(){
+    private void OnCollisionExit(Collision other){
         contactNorm = new Vector3(0, -2, 0);
     }
 
@@ -52,12 +53,20 @@ public class PlayerControl : MonoBehaviour{
         Vector3 controlStick = getControl();
         
         //horizontal movement
-        if (contactNorm.y < wallSlope){
-            body.AddForce(controlStick * pushForce);
+        if (contactMode == ContactMode.Ground){
+            velocity.x = getSpeed(controlStick.x * speed, velocity.x);
+            velocity.z = getSpeed(controlStick.z * speed, velocity.z);
         } else{
-            velocity.x = setSpeed(controlStick.x * speed, velocity.x);
-            velocity.z = setSpeed(controlStick.z * speed, velocity.z);
+            body.AddForce(controlStick * pushForce);
         }
+
+        //max horizontal speed
+        velocity.x = Mathf.Clamp(velocity.x, -speed, speed);
+        velocity.z = Mathf.Clamp(velocity.z, -speed, speed);
+
+        //set drag
+        velocity.x += getDrag(controlStick.x, velocity.x);
+        velocity.z += getDrag(controlStick.z, velocity.z);
         
         //jump
         if (Input.GetButtonDown("Jump")){
@@ -72,14 +81,14 @@ public class PlayerControl : MonoBehaviour{
                     velocity.y = jumpSpeed;
                     break;
                 case ContactMode.Wall:
-                    if (!isWater){
+                    if (!form.isWater){
                         if (!canDoubleJump) break;
                         canDoubleJump = false;
                     }
                     velocity.y = 0;
                     Vector3 norm = contactNorm;
                     norm.y = 0;
-                    norm = norm.normalized * 0.5f;
+                    norm = norm.normalized * jumpBack;
                     norm.y = 1;
                     velocity += jumpSpeed * norm;
                     break;
@@ -100,26 +109,27 @@ public class PlayerControl : MonoBehaviour{
         return right * Input.GetAxis("Horizontal") + forward * Input.GetAxis("Vertical");
     }
 
-    // return the correct velocity based on input control and current velocity
-    private float setSpeed(float control, float current){
-        if (control * current < 0){
-            // control is trying to move to the opposite direction
-            return current + control;
-        }
-        if (Mathf.Abs(control) < Mathf.Abs(current)){
-            return current;
-        }
-        return control;
+    // return control if control is trying to move towards the opposite direction
+    // or control's magnitude if greater
+    private float getSpeed(float control, float current){
+        if (control * current < 0 || Mathf.Abs(control) >= Mathf.Abs(current)) return control;
+        return current;
     }
 
-        
+    private float getDrag(float control, float speed){
+        if (Mathf.Abs(control) > 0.1f) return 0;
+        float deltaSpeed = dragForce * Time.deltaTime;
+        if (Mathf.Abs(speed) < deltaSpeed) return -speed;
+        return speed < 0 ? deltaSpeed : -deltaSpeed;
+    }
+
     private void OnCollisionStay(Collision other){
-        setWallSlope(other);
+        getContactNorm(other);
         //reset double jump when on ground
         if (contactMode == ContactMode.Ground) canDoubleJump = true;
     }
 
-    private void setWallSlope(Collision other){
+    private void getContactNorm(Collision other){
         //looking for the flattest contact surface
         for (int i = 0; i < other.contactCount; i++){
             Vector3 norm = other.GetContact(i).normal;
