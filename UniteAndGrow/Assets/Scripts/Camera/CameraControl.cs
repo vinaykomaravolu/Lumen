@@ -37,15 +37,15 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
-        mouseX = Input.GetAxis("Mouse X");
+        mouseX = Input.GetAxis("Mouse X") + Input.GetAxis("Controller X");
 
         if (invertCamera)
         {
-            mouseY = -1 * Input.GetAxis("Mouse Y");
+            mouseY = -1 * (Input.GetAxis("Mouse Y") + Input.GetAxis("Controller Y"));
         }
         else
         {
-            mouseY = Input.GetAxis("Mouse Y");
+            mouseY = Input.GetAxis("Mouse Y") + Input.GetAxis("Controller Y");
         }
         
         finalInputX = mouseX;
