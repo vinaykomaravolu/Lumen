@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -479,11 +479,17 @@ Transform:
   m_GameObject: {fileID: 1488461099}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -1, z: -4.54}
-  m_LocalScale: {x: 6.547995, y: 1.9278829, z: 8.132648}
+  m_LocalScale: {x: 6.547995, y: 1.9278829, z: 55.415054}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1587379702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5300799474710276756, guid: 903c66caba2c2bc4a93b59ea3b28aa0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5300799475458233969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1715954055
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,11 +613,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c578e822a12a48e89b43af51502fdb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 1587379702}
   speed: 5
-  jumpSpeed: 5
-  force: 5
-  maxJumpCount: 1
+  jumpSpeed: 10
+  pushForce: 2
+  gravity: 0
+  isWater: 0
+  jumpBack: 0
 --- !u!114 &1715954062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -704,5 +712,10 @@ PrefabInstance:
       propertyPath: cameraFollowObject
       value: 
       objectReference: {fileID: 473838537}
+    - target: {fileID: 5300799474710276759, guid: 903c66caba2c2bc4a93b59ea3b28aa0a,
+        type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1715954055}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 903c66caba2c2bc4a93b59ea3b28aa0a, type: 3}

@@ -21,6 +21,7 @@ public class CameraControl : MonoBehaviour
     public float finalInputZ;
     public float smoothX;
     public float smoothY;
+    public bool invertCamera = false;
     private float rotationY = 0.0f;
     private float rotationX = 0.0f;
 
@@ -37,7 +38,16 @@ public class CameraControl : MonoBehaviour
     void Update()
     {
         mouseX = Input.GetAxis("Mouse X");
-        mouseY =  -1 * Input.GetAxis("Mouse Y");
+
+        if (invertCamera)
+        {
+            mouseY = -1 * Input.GetAxis("Mouse Y");
+        }
+        else
+        {
+            mouseY = Input.GetAxis("Mouse Y");
+        }
+        
         finalInputX = mouseX;
         finalInputZ = mouseY;
 
