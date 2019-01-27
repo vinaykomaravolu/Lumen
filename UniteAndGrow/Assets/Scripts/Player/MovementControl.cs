@@ -11,9 +11,9 @@ public class MovementControl : MonoBehaviour{
     public float gravity; // gravity scale
     public float jumpBack; // jump back scale during wall jump
     public float dragForce;
-    
+
+    private bool canWallJump = true;
     private Rigidbody body;
-    private FormControl form;
 
     private bool canDoubleJump = true;
     public Vector3 contactNorm; // contactNorm.y = -2 if in mid air
@@ -30,29 +30,23 @@ public class MovementControl : MonoBehaviour{
     // Start is called before the first frame update
     void Start(){
         body = GetComponent<Rigidbody>();
-        form = GetComponent<FormControl>();
     }
 
     // Update is called once per frame
     void Update(){
-        movement();
-        body.AddForce(Vector3.down * gravity * body.mass); // add gravity
+        jumpMove();
     }
 
     // IMPORTANT! contactNorm is not reliable in FixedUpdate
     void FixedUpdate(){
-        
+        body.AddForce(Vector3.down * gravity * body.mass); // add gravity   
+        horizontalMove();
     }
 
-    private void OnCollisionExit(Collision other){
-        contactNorm = new Vector3(0, -2, 0);
-    }
-
-    private void movement(){
+    private void horizontalMove(){
         Vector3 velocity = body.velocity;
         Vector3 controlStick = getControl();
         
-        //horizontal movement
         if (contactMode == ContactMode.Ground){
             velocity.x = getSpeed(controlStick.x * speed, velocity.x);
             velocity.z = getSpeed(controlStick.z * speed, velocity.z);
@@ -67,32 +61,41 @@ public class MovementControl : MonoBehaviour{
         //set drag
         velocity.x += getDrag(controlStick.x, velocity.x);
         velocity.z += getDrag(controlStick.z, velocity.z);
+
+        body.velocity = velocity;
+    }
+
+    private void OnCollisionExit(Collision other){
+        contactNorm = new Vector3(0, -2, 0);
+    }
+
+    private void jumpMove(){
+        if (!Input.GetButtonDown("Jump")) return;
         
-        //jump
-        if (Input.GetButtonDown("Jump")){
-            switch (contactMode){
-                case ContactMode.Air:
-                    if (canDoubleJump){
-                        canDoubleJump = false;
-                        velocity.y = jumpSpeed;
-                    }
-                    break;
-                case ContactMode.Ground:
+        Vector3 velocity = body.velocity;
+        
+        switch (contactMode){
+            case ContactMode.Air:
+                if (canDoubleJump){
+                    canDoubleJump = false;
                     velocity.y = jumpSpeed;
-                    break;
-                case ContactMode.Wall:
-                    if (!form.isWater){
-                        if (!canDoubleJump) break;
-                        canDoubleJump = false;
-                    }
-                    velocity.y = 0;
-                    Vector3 norm = contactNorm;
-                    norm.y = 0;
-                    norm = norm.normalized * jumpBack;
-                    norm.y = 1;
-                    velocity += jumpSpeed * norm;
-                    break;
-            }
+                }
+                break;
+            case ContactMode.Ground:
+                velocity.y = jumpSpeed;
+                break;
+            case ContactMode.Wall:
+                if (!canWallJump){
+                    if (!canDoubleJump) break;
+                    canDoubleJump = false;
+                }
+                velocity.y = 0;
+                Vector3 norm = contactNorm;
+                norm.y = 0;
+                norm = norm.normalized * jumpBack;
+                norm.y = 1;
+                velocity += jumpSpeed * norm;
+                break;
         }
 
         body.velocity = velocity;

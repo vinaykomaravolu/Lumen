@@ -12,14 +12,9 @@ public class FormControl : MonoBehaviour{
     private float size => volumeToSize(volume);
     public float minSize;
     public float maxSize;
-    
-    public bool isWater;
-    
-    public float waterDropVolumeDelta; // how much volume change per contact
-    public float blockVolumeDelta; // how much volume change per second
 
     private float volumeToSize(float volume){
-        return Mathf.Pow(volume, 1/3);
+        return Mathf.Pow(volume, 1f/3f);
     }
 
     private float sizeToVolume(float size){
@@ -33,14 +28,18 @@ public class FormControl : MonoBehaviour{
     }
 
     private void OnTriggerEnter(Collider other){
-        if (other.CompareTag(Global.waterDropTag)){
-            changeVolume(waterDropVolumeDelta);
-            Destroy(other.gameObject);
-        }
+        checkSizeChange(other.gameObject);
     }
 
     private void OnCollisionStay(Collision collision){
-        if (collision.gameObject.CompareTag(Global.increaseBlockTag)) changeVolume(blockVolumeDelta);
-        if (collision.gameObject.CompareTag(Global.decreaseBlockTag)) changeVolume(-blockVolumeDelta);
+        checkSizeChange(collision.gameObject);
+    }
+
+    private void checkSizeChange(GameObject other){
+        if (other.CompareTag(Global.sizeChangerTag)){
+            SizeChanger sizeChanger = other.GetComponent<SizeChanger>();
+            changeVolume(sizeChanger.contact());
+            if (sizeChanger.killOnDry && sizeChanger.volume <= 0) Destroy(other.gameObject);
+        }
     }
 }
