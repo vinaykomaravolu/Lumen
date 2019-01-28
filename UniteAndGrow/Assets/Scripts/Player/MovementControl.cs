@@ -18,8 +18,8 @@ public class MovementControl : MonoBehaviour{
     private bool canDoubleJump = true;
     public Vector3 contactNorm; // contactNorm.y = -2 if in mid air
 
-    private float wallSlope = 0.8f; // if contactNorm.y is less than this value, it's a wall
-    private ContactMode contactMode {
+    private float wallSlope = 0.7f; // if contactNorm.y is less than this value, it's a wall
+    public ContactMode contactMode {
         get{
             if (contactNorm.y < -1) return ContactMode.Air;
             if (contactNorm.y < wallSlope) return ContactMode.Wall;
@@ -46,23 +46,23 @@ public class MovementControl : MonoBehaviour{
     private void horizontalMove(){
         Vector3 velocity = body.velocity;
         Vector3 controlStick = getControl();
+        velocity.y = 0;
         
         if (contactMode == ContactMode.Ground){
             velocity.x = getSpeed(controlStick.x * speed, velocity.x);
             velocity.z = getSpeed(controlStick.z * speed, velocity.z);
         } else{
-            body.AddForce(controlStick * pushForce);
+            velocity += controlStick * pushForce * Time.deltaTime;
         }
 
         //max horizontal speed
-        velocity.x = Mathf.Clamp(velocity.x, -speed, speed);
-        velocity.z = Mathf.Clamp(velocity.z, -speed, speed);
+        velocity = Vector3.ClampMagnitude(velocity, speed);
 
         //set drag
         velocity.x += getDrag(controlStick.x, velocity.x);
         velocity.z += getDrag(controlStick.z, velocity.z);
-
-        body.velocity = velocity;
+        
+        body.velocity = new Vector3(velocity.x, body.velocity.y, velocity.z);
     }
 
     private void OnCollisionExit(Collision other){

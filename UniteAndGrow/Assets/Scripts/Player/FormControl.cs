@@ -9,7 +9,7 @@ public class FormControl : MonoBehaviour{
     public float volume;
     public float minVolume => sizeToVolume(minSize);
     public float maxVolume => sizeToVolume(maxSize);
-    private float size => volumeToSize(volume);
+    public float size => volumeToSize(volume);
     public float minSize;
     public float maxSize;
 
