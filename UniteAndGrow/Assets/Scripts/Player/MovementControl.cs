@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementControl : MonoBehaviour{
+    
+    private const float wallSlope = 0.7f; // if contactNorm.y is less than this value, it's a wall
 
     public GameObject playerCamera;
     public float speed; // movement speed on ground
@@ -13,12 +15,8 @@ public class MovementControl : MonoBehaviour{
     public float dragForce;
 
     private bool canWallJump = true;
-    private Rigidbody body;
-
     private bool canDoubleJump = true;
-    public Vector3 contactNorm; // contactNorm.y = -2 if in mid air
-
-    private float wallSlope = 0.7f; // if contactNorm.y is less than this value, it's a wall
+    public Vector3 contactNorm{ get; private set; } // contactNorm.y = -2 if in mid air
     public ContactMode contactMode {
         get{
             if (contactNorm.y < -1) return ContactMode.Air;
@@ -27,9 +25,13 @@ public class MovementControl : MonoBehaviour{
         }
     }
     
+    private Rigidbody body;
+    private AppearanceControl appearance;
+    
     // Start is called before the first frame update
     void Start(){
         body = GetComponent<Rigidbody>();
+        appearance = GetComponent<AppearanceControl>();
     }
 
     // Update is called once per frame
@@ -79,10 +81,12 @@ public class MovementControl : MonoBehaviour{
                 if (canDoubleJump){
                     canDoubleJump = false;
                     velocity.y = jumpSpeed;
+                    appearance.jump(Vector3.up);
                 }
                 break;
             case ContactMode.Ground:
                 velocity.y = jumpSpeed;
+                appearance.jump(Vector3.up);
                 break;
             case ContactMode.Wall:
                 if (!canWallJump){
@@ -95,6 +99,7 @@ public class MovementControl : MonoBehaviour{
                 norm = norm.normalized * jumpBack;
                 norm.y = 1;
                 velocity += jumpSpeed * norm;
+                appearance.jump(velocity.normalized);
                 break;
         }
 

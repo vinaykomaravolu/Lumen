@@ -39,7 +39,7 @@ public class FormControl : MonoBehaviour{
         if (other.CompareTag(Global.sizeChangerTag)){
             SizeChanger sizeChanger = other.GetComponent<SizeChanger>();
             changeVolume(sizeChanger.contact());
-            if (sizeChanger.killOnDry && sizeChanger.volume <= 0) Destroy(other.gameObject);
+            sizeChanger.postContact();
         }
     }
 }
