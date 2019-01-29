@@ -9,12 +9,10 @@ public class AppearanceControl: MonoBehaviour {
     public float outerRestoreSpeed;
 
     private MovementControl movementControl;
-    private FormControl form;
     private Rigidbody body;
     
     void Start(){
         movementControl = GetComponent<MovementControl>();
-        form = GetComponent<FormControl>();
         body = GetComponent<Rigidbody>();
     }
 
@@ -25,7 +23,8 @@ public class AppearanceControl: MonoBehaviour {
     }
 
     public void jump(Vector3 direction){
-        outer.transform.localScale = Vector3.one + direction * jumpStretch;
+        outer.transform.rotation = Quaternion.LookRotation(direction);
+        outer.transform.localScale = Vector3.one + Vector3.forward * jumpStretch;
     }
 
     private void restoreOuterShape(){
