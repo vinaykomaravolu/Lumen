@@ -7,6 +7,8 @@ public class CameraCollision : MonoBehaviour
 
     public float minimumDistance = 1.0f;
     public float maximumDistance = 4.0f;
+    public Transform objectTransformFactor;
+    public float distanceToObjectFactor;
     public float smooth = 10.0f;
     Vector3 dollyDirection;
     public Vector3 dollyDirectionAdjusted;
@@ -21,6 +23,11 @@ public class CameraCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        maximumDistance = distanceToObjectFactor * objectTransformFactor.localScale.x;
+        if (maximumDistance < distanceToObjectFactor)
+        {
+            maximumDistance = distanceToObjectFactor;
+        }
         Vector3 desiredCameraPosition = transform.parent.TransformPoint(dollyDirection * maximumDistance);
         RaycastHit hit;
         if(Physics.Linecast(transform.parent.position,desiredCameraPosition, out hit))

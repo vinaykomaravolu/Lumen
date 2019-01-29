@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6216,6 +6216,11 @@ PrefabInstance:
       propertyPath: cameraFollowObject
       value: 
       objectReference: {fileID: 473838537}
+    - target: {fileID: 5300799474710276759, guid: 903c66caba2c2bc4a93b59ea3b28aa0a,
+        type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1715954055}
     - target: {fileID: 5300799475984219169, guid: 903c66caba2c2bc4a93b59ea3b28aa0a,
         type: 3}
       propertyPath: orthographic
@@ -6225,6 +6230,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300799475984219171, guid: 903c66caba2c2bc4a93b59ea3b28aa0a,
+        type: 3}
+      propertyPath: maximumDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300799475984219171, guid: 903c66caba2c2bc4a93b59ea3b28aa0a,
+        type: 3}
+      propertyPath: objectFactor
+      value: 
+      objectReference: {fileID: 1715954060}
+    - target: {fileID: 5300799475984219171, guid: 903c66caba2c2bc4a93b59ea3b28aa0a,
+        type: 3}
+      propertyPath: objectTransformFactor
+      value: 
+      objectReference: {fileID: 1715954060}
+    - target: {fileID: 5300799475984219171, guid: 903c66caba2c2bc4a93b59ea3b28aa0a,
+        type: 3}
+      propertyPath: distanceToObjectFactor
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 903c66caba2c2bc4a93b59ea3b28aa0a, type: 3}

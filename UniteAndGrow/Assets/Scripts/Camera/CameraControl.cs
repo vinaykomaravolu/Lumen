@@ -67,6 +67,6 @@ public class CameraControl : MonoBehaviour
     {
         Transform target = cameraFollowObject.transform;
         float step = cameraMoveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step) ;
     }
 }
