@@ -13,6 +13,7 @@ public class MovementControl : MonoBehaviour{
     public float gravity; // gravity scale
     public float jumpBack; // jump back scale during wall jump
     public float dragForce;
+    public float wallDrag;
 
     private bool canWallJump = true;
     private bool canDoubleJump = true;
@@ -41,7 +42,8 @@ public class MovementControl : MonoBehaviour{
 
     // IMPORTANT! contactNorm is not reliable in FixedUpdate
     void FixedUpdate(){
-        body.AddForce(Vector3.down * gravity * body.mass); // add gravity   
+        float factor = contactMode == ContactMode.Wall && body.velocity.y <= 0 ? wallDrag : 1;
+        body.AddForce(Vector3.down * gravity * body.mass * factor); // add gravity
         horizontalMove();
     }
 
