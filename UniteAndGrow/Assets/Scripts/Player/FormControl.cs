@@ -36,10 +36,9 @@ public class FormControl : MonoBehaviour{
     }
 
     private void checkSizeChange(GameObject other){
-        if (other.CompareTag(Global.sizeChangerTag)){
-            SizeChanger sizeChanger = other.GetComponent<SizeChanger>();
-            changeVolume(sizeChanger.contact());
-            sizeChanger.postContact();
-        }
+        if (!other.CompareTag(Global.sizeChangerTag)) return;
+        SizeChanger sizeChanger = other.GetComponent<SizeChanger>();
+        changeVolume(sizeChanger.contact());
+        sizeChanger.postContact();
     }
 }

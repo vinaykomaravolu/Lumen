@@ -1,4 +1,6 @@
+using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // a general game control that can be used for all levels
@@ -60,7 +62,15 @@ public class GameControl : MonoBehaviour{
     }
 
     private void lose(){
-        
+        restart();
+    }
+
+    public void restart(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void exit(){
+        SceneManager.LoadScene(Global.mainMenuName);
     }
 
     private void updateDebugInfo(){

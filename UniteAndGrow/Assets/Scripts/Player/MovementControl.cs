@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class MovementControl : MonoBehaviour{
@@ -14,9 +16,13 @@ public class MovementControl : MonoBehaviour{
     public float jumpBack; // jump back scale during wall jump
     public float dragForce;
     public float wallDrag;
+    public float holdJumpDuration;
 
     private bool canWallJump = true;
     private bool canDoubleJump = true;
+    private Vector3 jumpNorm;
+    private float jumpStartTime;
+    
     public Vector3 contactNorm{ get; private set; } // contactNorm.y = -2 if in mid air
     public ContactMode contactMode {
         get{
@@ -74,35 +80,59 @@ public class MovementControl : MonoBehaviour{
     }
 
     private void jumpMove(){
-        if (!Input.GetButtonDown("Jump")) return;
-        
+        if (Input.GetButtonDown(Global.jumpButton)) initialJump();
+        if (Input.GetButton(Global.jumpButton)) holdJump();
+        if (Input.GetButtonUp(Global.jumpButton)) jumpStartTime = float.NegativeInfinity; //disable hold jump
+    }
+
+    private void initialJump(){
         Vector3 velocity = body.velocity;
         
         switch (contactMode){
             case ContactMode.Air:
-                if (canDoubleJump){
-                    canDoubleJump = false;
-                    velocity.y = jumpSpeed;
-                    appearance.jump(Vector3.up);
-                }
+                if (!canDoubleJump) return;
+                canDoubleJump = false;
+                velocity.y = jumpSpeed;
+                appearance.jump(Vector3.up);
+                jumpNorm = Vector3.up;
                 break;
             case ContactMode.Ground:
                 velocity.y = jumpSpeed;
                 appearance.jump(Vector3.up);
+                jumpNorm = Vector3.up;
                 break;
             case ContactMode.Wall:
                 if (!canWallJump){
-                    if (!canDoubleJump) break;
+                    if (!canDoubleJump) return;
                     canDoubleJump = false;
                 }
                 velocity.y = 0;
                 Vector3 norm = contactNorm;
                 norm.y = 0;
                 norm = norm.normalized * jumpBack;
-                norm.y = 1;
+                norm.y += 1;
                 velocity += jumpSpeed * norm;
                 appearance.jump(velocity.normalized);
+                jumpNorm = norm;
                 break;
+        }
+
+        jumpStartTime = Time.timeSinceLevelLoad;
+        body.velocity = velocity;
+    }
+
+    private void holdJump(){
+        if (Time.timeSinceLevelLoad - jumpStartTime > holdJumpDuration) return;
+        Vector3 velocity = body.velocity;
+        if (jumpNorm == Vector3.up){
+            velocity.y = jumpSpeed;
+        } else{
+            // magic, don't touch
+            print(velocity);
+            print(Vector3.Cross(jumpNorm, Vector3.up));
+            Vector3 sideVelocity = Vector3.Project(velocity, Vector3.Cross(jumpNorm, Vector3.up));
+            print(sideVelocity);
+            velocity = sideVelocity + jumpNorm * jumpSpeed;
         }
 
         body.velocity = velocity;
@@ -116,7 +146,8 @@ public class MovementControl : MonoBehaviour{
         Vector3 right = playerCamera.transform.right;
         right.y = 0;
         right.Normalize();
-        return right * Input.GetAxis("Horizontal") + forward * Input.GetAxis("Vertical");
+        return right * Input.GetAxis(Global.moveHorizontalButton)
+               + forward * Input.GetAxis(Global.moveVerticalButton);
     }
 
     // return control if control is trying to move towards the opposite direction
@@ -145,6 +176,14 @@ public class MovementControl : MonoBehaviour{
             Vector3 norm = other.GetContact(i).normal;
             if (norm.y > contactNorm.y) contactNorm = norm;
         }
+    }
+
+    //debug
+    private void OnDrawGizmos(){
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position, contactNorm * 2);
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, Vector3.Cross(jumpNorm, Vector3.up));
     }
 }
 
