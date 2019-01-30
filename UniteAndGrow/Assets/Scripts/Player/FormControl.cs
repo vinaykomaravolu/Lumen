@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using UnityEngine;
 
 // in charge of size and liquid or solid
@@ -21,21 +20,17 @@ public class FormControl : MonoBehaviour{
         return size * size * size;
     }
 
+    private void Update(){
+        if (volume < minVolume) Global.gameControl.lose();
+    }
+
     private void changeVolume(float change){
         volume += change;
         if (volume > maxVolume) volume = maxVolume;
         transform.localScale = new Vector3(size, size, size);
     }
 
-    private void OnTriggerEnter(Collider other){
-        checkSizeChange(other.gameObject);
-    }
-
-    private void OnCollisionStay(Collision collision){
-        checkSizeChange(collision.gameObject);
-    }
-
-    private void checkSizeChange(GameObject other){
+    public void checkSizeChange(GameObject other){
         if (!other.CompareTag(Global.sizeChangerTag)) return;
         SizeChanger sizeChanger = other.GetComponent<SizeChanger>();
         changeVolume(sizeChanger.contact());

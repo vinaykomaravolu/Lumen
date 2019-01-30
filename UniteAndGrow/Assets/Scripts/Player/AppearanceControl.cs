@@ -8,11 +8,9 @@ public class AppearanceControl: MonoBehaviour {
     public float jumpStretch;
     public float outerRestoreSpeed;
 
-    private MovementControl movementControl;
     private Rigidbody body;
     
     void Start(){
-        movementControl = GetComponent<MovementControl>();
         body = GetComponent<Rigidbody>();
     }
 

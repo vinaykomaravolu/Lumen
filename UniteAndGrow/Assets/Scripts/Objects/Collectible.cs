@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Collectible : MonoBehaviour
-{
+public class Collectible : MonoBehaviour {
 
-    void Update()
-    {
+    void Update() {
         transform.Rotate(new Vector3(0, 30, 0) * 5 * Time.deltaTime);
     }
 }

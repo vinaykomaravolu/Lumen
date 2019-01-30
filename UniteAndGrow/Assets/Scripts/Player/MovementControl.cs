@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using UnityEngine;
 
 public class MovementControl : MonoBehaviour{
-    
-    private const float wallSlope = 0.7f; // if contactNorm.y is less than this value, it's a wall
 
     public GameObject playerCamera;
     public float speed; // movement speed on ground
@@ -23,26 +20,23 @@ public class MovementControl : MonoBehaviour{
     private Vector3 jumpNorm;
     private float jumpStartTime;
     
-    public Vector3 contactNorm{ get; private set; } // contactNorm.y = -2 if in mid air
-    public ContactMode contactMode {
-        get{
-            if (contactNorm.y < -1) return ContactMode.Air;
-            if (contactNorm.y < wallSlope) return ContactMode.Wall;
-            return ContactMode.Ground;
-        }
-    }
-    
     private Rigidbody body;
     private AppearanceControl appearance;
+    private ContactHandler contact;
+    private ContactMode contactMode => contact.contactMode;
+    private Vector3 contactNorm => contact.contactNorm;
     
     // Start is called before the first frame update
     void Start(){
         body = GetComponent<Rigidbody>();
         appearance = GetComponent<AppearanceControl>();
+        contact = GetComponent<ContactHandler>();
     }
 
     // Update is called once per frame
     void Update(){
+        //reset double jump when on ground
+        if (contactMode == ContactMode.Ground) canDoubleJump = true;
         jumpMove();
     }
 
@@ -73,10 +67,6 @@ public class MovementControl : MonoBehaviour{
         velocity.z += getDrag(controlStick.z, velocity.z);
         
         body.velocity = new Vector3(velocity.x, body.velocity.y, velocity.z);
-    }
-
-    private void OnCollisionExit(Collision other){
-        contactNorm = new Vector3(0, -2, 0);
     }
 
     private void jumpMove(){
@@ -128,10 +118,7 @@ public class MovementControl : MonoBehaviour{
             velocity.y = jumpSpeed;
         } else{
             // magic, don't touch
-            print(velocity);
-            print(Vector3.Cross(jumpNorm, Vector3.up));
             Vector3 sideVelocity = Vector3.Project(velocity, Vector3.Cross(jumpNorm, Vector3.up));
-            print(sideVelocity);
             velocity = sideVelocity + jumpNorm * jumpSpeed;
         }
 
@@ -164,20 +151,6 @@ public class MovementControl : MonoBehaviour{
         return speed < 0 ? deltaSpeed : -deltaSpeed;
     }
 
-    private void OnCollisionStay(Collision other){
-        getContactNorm(other);
-        //reset double jump when on ground
-        if (contactMode == ContactMode.Ground) canDoubleJump = true;
-    }
-
-    private void getContactNorm(Collision other){
-        //looking for the flattest contact surface
-        for (int i = 0; i < other.contactCount; i++){
-            Vector3 norm = other.GetContact(i).normal;
-            if (norm.y > contactNorm.y) contactNorm = norm;
-        }
-    }
-
     //debug
     private void OnDrawGizmos(){
         Gizmos.color = Color.green;
@@ -186,6 +159,3 @@ public class MovementControl : MonoBehaviour{
         Gizmos.DrawRay(transform.position, Vector3.Cross(jumpNorm, Vector3.up));
     }
 }
-
-// surface contacting with the player
-public enum ContactMode{Air, Ground, Wall}
