@@ -14,9 +14,11 @@ public class ContactHandler : MonoBehaviour{
     }
 
     private FormControl form;
+    private Rigidbody body;
 
     private void Start(){
         form = GetComponent<FormControl>();
+        body = GetComponent<Rigidbody>();
     }
 
     private void OnTriggerEnter(Collider other){

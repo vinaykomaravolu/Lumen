@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class Global{
@@ -24,7 +25,15 @@ public static class Global{
         "Collectible 1-1",
         "Collectible 2-1"
     };
-    
+
+    public static void setCollectionStatus(string name){
+        if (!collectionStatus.ContainsKey(name)){
+            Console.WriteLine("Collectible name '" + name + "' is not valid");
+            return;
+        }
+        collectionStatus[name] = true;
+    }
+
     public static void loadCollectionStatus(){
         collectionStatus = new Dictionary<string, bool>();
         foreach (string name in validCollectionNames){
@@ -36,5 +45,6 @@ public static class Global{
         foreach (string name in validCollectionNames){
             PlayerPrefs.SetInt(name, collectionStatus[name] ? 1 : 0);
         }
+        PlayerPrefs.Save();
     }
 }

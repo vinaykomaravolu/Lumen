@@ -38,13 +38,20 @@ public class MovementControl : MonoBehaviour{
         //reset double jump when on ground
         if (contactMode == ContactMode.Ground) canDoubleJump = true;
         jumpMove();
+        wallSlide();
     }
 
     // IMPORTANT! contactNorm is not reliable in FixedUpdate
     void FixedUpdate(){
-        float factor = contactMode == ContactMode.Wall && body.velocity.y <= 0 ? wallDrag : 1;
-        body.AddForce(Vector3.down * gravity * body.mass * factor); // add gravity
+        body.AddForce(Vector3.down * gravity * body.mass); // add gravity
         horizontalMove();
+    }
+
+    private void wallSlide(){
+        if (contactMode != ContactMode.Wall || body.velocity.y > -wallDrag) return;
+        Vector3 velocity = body.velocity;
+        velocity.y = -wallDrag;
+        body.velocity = velocity;
     }
 
     private void horizontalMove(){

@@ -13,11 +13,11 @@ public class FormControl : MonoBehaviour{
     public float maxSize;
 
     private float volumeToSize(float volume){
-        return Mathf.Pow(volume, 1f/3f);
+        return Mathf.Sqrt(volume);
     }
 
     private float sizeToVolume(float size){
-        return size * size * size;
+        return size * size;
     }
 
     private void Update(){
