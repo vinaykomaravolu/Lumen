@@ -3,7 +3,8 @@ using UnityEngine;
 public class ContactHandler : MonoBehaviour{
     
     private const float wallSlope = 0.7f; // if contactNorm.y is less than this value, it's a wall
-    
+
+    public ContactSurface contactSurface;
     public Vector3 contactNorm{ get; private set; } // contactNorm.y = -2 if in mid air
     public ContactMode contactMode {
         get{
@@ -14,11 +15,9 @@ public class ContactHandler : MonoBehaviour{
     }
 
     private FormControl form;
-    private Rigidbody body;
 
     private void Start(){
         form = GetComponent<FormControl>();
-        body = GetComponent<Rigidbody>();
     }
 
     private void OnTriggerEnter(Collider other){
@@ -29,10 +28,25 @@ public class ContactHandler : MonoBehaviour{
 
     private void OnCollisionExit(Collision other){
         contactNorm = new Vector3(0, -2, 0);
+        contactSurface = ContactSurface.Air;
     }
 
     private void OnCollisionStay(Collision other){
         getContactNorm(other);
+        switch (other.gameObject.tag){
+            case Global.groundTag:
+                contactSurface = ContactSurface.Ground;
+                break;
+            case Global.sizeChangerTag:
+                contactSurface = ContactSurface.SizeChanger;
+                break;
+            case Global.mushroomTag:
+                contactSurface = ContactSurface.Mushroom;
+                break;
+            default:
+                contactSurface = ContactSurface.Air;
+                break;
+        }
         form.checkSizeChange(other.gameObject);
     }
 
@@ -47,3 +61,5 @@ public class ContactHandler : MonoBehaviour{
 
 // surface contacting with the player
 public enum ContactMode{Air, Ground, Wall}
+
+public enum ContactSurface{SizeChanger, Ground, Mushroom, Air}

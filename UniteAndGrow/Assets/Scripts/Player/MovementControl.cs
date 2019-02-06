@@ -15,7 +15,7 @@ public class MovementControl : MonoBehaviour{
     public float wallDrag;
     public float holdJumpDuration;
 
-    private bool canWallJump = true;
+    private bool canWallJump => contact.contactSurface != ContactSurface.Ground;
     private bool canDoubleJump = true;
     private Vector3 jumpNorm;
     private float jumpStartTime;
