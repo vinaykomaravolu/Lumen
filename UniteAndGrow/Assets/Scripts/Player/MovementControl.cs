@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovementControl : MonoBehaviour{
 
@@ -43,7 +40,7 @@ public class MovementControl : MonoBehaviour{
         wallSlide();
     }
 
-    // IMPORTANT! contactNorm is not reliable in FixedUpdate
+    // IMPORTANT! contact is not reliable in FixedUpdate
     void FixedUpdate(){
         body.AddForce(Vector3.down * gravity * body.mass); // add gravity
         horizontalMove();
@@ -81,7 +78,6 @@ public class MovementControl : MonoBehaviour{
     private void jumpMove(){
         if (contactMode == ContactMode.Ground && contact.contactSurface == ContactSurface.Mushroom){
             float speed = Mathf.Clamp(contact.contactVelocity.y * superJumpFactor, jumpSpeed, maxJumpSpeed);
-            print("" + contact.contactVelocity + ", " + speed);
             initialJump(speed);
         }
         if (Input.GetButtonDown(Global.jumpButton)) initialJump(jumpSpeed);

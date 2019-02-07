@@ -24,7 +24,7 @@ public class ContactHandler : MonoBehaviour{
 
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag(Global.endPointTag)) Global.gameControl.win();
-        if (other.gameObject.CompareTag(Global.killZoneTag)) Global.gameControl.lose();
+        if (other.CompareTag(Global.killZoneTag)) Global.gameControl.lose();
         form.checkSizeChange(other.gameObject);
     }
 

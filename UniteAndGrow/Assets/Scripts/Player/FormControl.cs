@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 // in charge of size and liquid or solid
 public class FormControl : MonoBehaviour{
@@ -25,8 +23,8 @@ public class FormControl : MonoBehaviour{
     }
 
     private void changeVolume(float change){
-        volume += change;
-        if (volume > maxVolume) volume = maxVolume;
+        volume = Mathf.Clamp(volume + change, 0, maxVolume);
+        
         transform.localScale = new Vector3(size, size, size);
     }
 
