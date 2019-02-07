@@ -6,7 +6,7 @@ using UnityEngine;
 public static class Global{
     
     public const string playerTag = "Player";
-    public const string endPointTag = "EndPoint";
+    public const string endPointTag = "Finish";
     public const string killZoneTag = "KillZone";
     public const string collectibleTag = "Collectible";
     public const string groundTag = "Ground";
