@@ -8,9 +8,11 @@ public class MovementControl : MonoBehaviour{
     public GameObject playerCamera;
     public float speed; // movement speed on ground
     public float jumpSpeed;
+    public float superJumpFactor;
+    public float maxJumpSpeed;
     public float pushForce; // push force when in mid air
     public float gravity; // gravity scale
-    public float jumpBack; // jump back scale during wall jump
+    public float jumpBackFactor; // jump back scale during wall jump
     public float dragForce;
     public float wallDrag;
     public float holdJumpDuration;
@@ -77,13 +79,19 @@ public class MovementControl : MonoBehaviour{
     }
 
     private void jumpMove(){
-        if (Input.GetButtonDown(Global.jumpButton)) initialJump();
+        if (contactMode == ContactMode.Ground && contact.contactSurface == ContactSurface.Mushroom){
+            float speed = Mathf.Clamp(contact.contactVelocity.y * superJumpFactor, jumpSpeed, maxJumpSpeed);
+            print("" + contact.contactVelocity + ", " + speed);
+            initialJump(speed);
+        }
+        if (Input.GetButtonDown(Global.jumpButton)) initialJump(jumpSpeed);
         if (Input.GetButton(Global.jumpButton)) holdJump();
         if (Input.GetButtonUp(Global.jumpButton)) jumpStartTime = float.NegativeInfinity; //disable hold jump
     }
 
-    private void initialJump(){
+    private void initialJump(float jumpSpeed){
         Vector3 velocity = body.velocity;
+        if (jumpSpeed <= body.velocity.y) return;
         
         switch (contactMode){
             case ContactMode.Air:
@@ -106,7 +114,7 @@ public class MovementControl : MonoBehaviour{
                 velocity.y = 0;
                 Vector3 norm = contactNorm;
                 norm.y = 0;
-                norm = norm.normalized * jumpBack;
+                norm = norm.normalized * jumpBackFactor;
                 norm.y += 1;
                 velocity += jumpSpeed * norm;
                 appearance.jump(velocity.normalized);
@@ -121,6 +129,7 @@ public class MovementControl : MonoBehaviour{
     private void holdJump(){
         if (Time.timeSinceLevelLoad - jumpStartTime > holdJumpDuration) return;
         Vector3 velocity = body.velocity;
+        if (jumpSpeed < velocity.y) return;
         if (jumpNorm == Vector3.up){
             velocity.y = jumpSpeed;
         } else{

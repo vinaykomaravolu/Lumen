@@ -294,9 +294,11 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   speed: 10
   jumpSpeed: 10
+  superJumpFactor: 1.5
+  maxJumpSpeed: 30
   pushForce: 80
   gravity: 40
-  jumpBack: 1
+  jumpBackFactor: 1
   dragForce: 50
   wallDrag: 2
   holdJumpDuration: 0.2

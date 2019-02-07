@@ -4,8 +4,10 @@ public class ContactHandler : MonoBehaviour{
     
     private const float wallSlope = 0.7f; // if contactNorm.y is less than this value, it's a wall
 
-    public ContactSurface contactSurface;
+    public ContactSurface contactSurface{ get; private set; }
     public Vector3 contactNorm{ get; private set; } // contactNorm.y = -2 if in mid air
+    public Vector3 contactVelocity{ get; private set; }
+
     public ContactMode contactMode {
         get{
             if (contactNorm.y < -1) return ContactMode.Air;
@@ -26,35 +28,41 @@ public class ContactHandler : MonoBehaviour{
         form.checkSizeChange(other.gameObject);
     }
 
-    private void OnCollisionExit(Collision other){
+    private void OnCollisionExit(Collision collision){
         contactNorm = new Vector3(0, -2, 0);
-        contactSurface = ContactSurface.Air;
+        contactSurface = ContactSurface.Other;
     }
 
-    private void OnCollisionStay(Collision other){
-        getContactNorm(other);
-        switch (other.gameObject.tag){
-            case Global.groundTag:
-                contactSurface = ContactSurface.Ground;
-                break;
-            case Global.sizeChangerTag:
-                contactSurface = ContactSurface.SizeChanger;
-                break;
-            case Global.mushroomTag:
-                contactSurface = ContactSurface.Mushroom;
-                break;
-            default:
-                contactSurface = ContactSurface.Air;
-                break;
-        }
-        form.checkSizeChange(other.gameObject);
+    private void OnCollisionEnter(Collision collision){
+        getContactInfo(collision);
+        contactVelocity = collision.relativeVelocity;
     }
 
-    private void getContactNorm(Collision other){
+    private void OnCollisionStay(Collision collision){
+        getContactInfo(collision);
+        form.checkSizeChange(collision.gameObject);
+    }
+
+    private void getContactInfo(Collision collision){
         //looking for the flattest contact surface
-        for (int i = 0; i < other.contactCount; i++){
-            Vector3 norm = other.GetContact(i).normal;
-            if (norm.y > contactNorm.y) contactNorm = norm;
+        for (int i = 0; i < collision.contactCount; i++){
+            Vector3 norm = collision.GetContact(i).normal;
+            if (norm.y <= contactNorm.y) continue;
+            contactNorm = norm;
+            switch (collision.gameObject.tag){
+                case Global.groundTag:
+                    contactSurface = ContactSurface.Ground;
+                    break;
+                case Global.sizeChangerTag:
+                    contactSurface = ContactSurface.SizeChanger;
+                    break;
+                case Global.mushroomTag:
+                    contactSurface = ContactSurface.Mushroom;
+                    break;
+                default:
+                    contactSurface = ContactSurface.Other;
+                    break;
+            }
         }
     }
 }
@@ -62,4 +70,4 @@ public class ContactHandler : MonoBehaviour{
 // surface contacting with the player
 public enum ContactMode{Air, Ground, Wall}
 
-public enum ContactSurface{SizeChanger, Ground, Mushroom, Air}
+public enum ContactSurface{Ground, SizeChanger, Mushroom, Other}
