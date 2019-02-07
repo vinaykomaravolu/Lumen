@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-
 public static class Global{
     
     public const string playerTag = "Player";
@@ -18,35 +13,7 @@ public static class Global{
     public const string jumpButton = "Jump";
     public const string moveHorizontalButton = "Horizontal";
     public const string moveVerticalButton = "Vertical";
+    public const string pauseButton = "Cancel";
     
     public static GameControl gameControl;
-    
-    public static Dictionary<String, bool> collectionStatus;
-
-    public static readonly string[] validCollectionNames = {
-        "Collectible 1-1",
-        "Collectible 2-1"
-    };
-
-    public static void setCollectionStatus(string name){
-        if (!collectionStatus.ContainsKey(name)){
-            Console.WriteLine("Collectible name '" + name + "' is not valid");
-            return;
-        }
-        collectionStatus[name] = true;
-    }
-
-    public static void loadCollectionStatus(){
-        collectionStatus = new Dictionary<string, bool>();
-        foreach (string name in validCollectionNames){
-            collectionStatus[name] = PlayerPrefs.HasKey(name) && PlayerPrefs.GetInt(name) == 1;
-        }
-    }
-
-    public static void saveCollectionStatus(){
-        foreach (string name in validCollectionNames){
-            PlayerPrefs.SetInt(name, collectionStatus[name] ? 1 : 0);
-        }
-        PlayerPrefs.Save();
-    }
 }

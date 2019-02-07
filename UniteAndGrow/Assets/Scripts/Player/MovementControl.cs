@@ -13,6 +13,7 @@ public class MovementControl : MonoBehaviour{
     public float dragForce;
     public float wallDrag;
     public float holdJumpDuration;
+    public bool forceOnly; //use force even on ground
 
     private bool canWallJump => contact.contactSurface != ContactSurface.Ground;
     private bool canDoubleJump = true;
@@ -58,7 +59,7 @@ public class MovementControl : MonoBehaviour{
         Vector3 controlStick = getControl();
         velocity.y = 0;
         
-        if (contactMode == ContactMode.Ground){
+        if (contactMode == ContactMode.Ground && !forceOnly){
             velocity.x = getSpeed(controlStick.x * speed, velocity.x);
             velocity.z = getSpeed(controlStick.z * speed, velocity.z);
         } else{
@@ -137,8 +138,8 @@ public class MovementControl : MonoBehaviour{
         body.velocity = velocity;
     }
 
-    // get the vector3 of the movement input, relative to the camera
-    private Vector3 getControl(){
+    // get the vector3 of the movement input, relative to the world
+    public Vector3 getControl(){
         Vector3 forward = playerCamera.transform.forward;
         forward.y = 0;
         forward.Normalize();
@@ -165,6 +166,7 @@ public class MovementControl : MonoBehaviour{
 
     //debug
     private void OnDrawGizmos(){
+        if (contact == null) return;
         Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, contactNorm * 2);
         Gizmos.color = Color.red;

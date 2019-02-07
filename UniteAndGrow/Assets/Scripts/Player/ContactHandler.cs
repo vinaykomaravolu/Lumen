@@ -25,7 +25,8 @@ public class ContactHandler : MonoBehaviour{
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag(Global.endPointTag)) Global.gameControl.win();
         if (other.CompareTag(Global.killZoneTag)) Global.gameControl.lose();
-        form.checkSizeChange(other.gameObject);
+        if (other.CompareTag(Global.collectibleTag)) Global.gameControl.collect();
+        if (other.CompareTag(Global.sizeChangerTag)) form.checkSizeChange(other.gameObject);
     }
 
     private void OnCollisionExit(Collision collision){
@@ -38,9 +39,9 @@ public class ContactHandler : MonoBehaviour{
         contactVelocity = collision.relativeVelocity;
     }
 
-    private void OnCollisionStay(Collision collision){
-        getContactInfo(collision);
-        form.checkSizeChange(collision.gameObject);
+    private void OnCollisionStay(Collision other){
+        getContactInfo(other);
+        if (other.gameObject.CompareTag(Global.sizeChangerTag)) form.checkSizeChange(other.gameObject);
     }
 
     private void getContactInfo(Collision collision){

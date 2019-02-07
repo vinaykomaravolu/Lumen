@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // a general game control that can be used for all levels
@@ -15,6 +14,11 @@ public class GameControl : MonoBehaviour{
     public GameObject playerPrefab;
     public GameObject cameraPrefab;
 
+    [Header("Score")]
+    public float timeScoreBase;
+    public float timeScoreFactor;
+    public float collectScoreBase;
+
     private GameObject player;
     private Text debugInfo;
     private UIControl uiControl;
@@ -23,6 +27,8 @@ public class GameControl : MonoBehaviour{
     private Rigidbody playerBody;
     private ContactHandler playerContact;
     private bool paused;
+
+    private int collected = 0;
 
     private void Start(){
         Global.gameControl = this;
@@ -47,40 +53,47 @@ public class GameControl : MonoBehaviour{
 
     private void Update(){
         if (debug) updateDebugInfo();
+        if (Input.GetButtonDown(Global.pauseButton)) pause();
+    }
+
+    public void win(){
+        uiControl.showWin();
+    }
+
+    public void lose(){
+        uiControl.showLose();
+    }
+
+    public void collect(){
+        collected++;
+    }
+
+    private int getScore(float time){
+        return (int)(collected * collectScoreBase + getTimeScore(time));
+    }
+
+    private float getTimeScore(float time){
+        return timeScoreFactor / (time + timeScoreFactor / timeScoreBase);
     }
 
     public void pause(){
         paused = !paused;
         Time.timeScale = paused ? 0 : 1;
-        uiControl.show(paused);
-    }
-
-    public void win(){
-        
-    }
-
-    public void lose(){
-        restart();
-    }
-
-    public void restart(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void exit(){
-        SceneManager.LoadScene(Global.mainMenuName);
+        uiControl.showPause(paused);
     }
 
     private void updateDebugInfo(){
         Vector3 groundSpeed = playerBody.velocity;
         groundSpeed.y = 0;
         debugInfo.text = "Time: " + Time.timeSinceLevelLoad +
+                         "\nScore: " + getScore(Time.timeSinceLevelLoad) +
                          "\nSize: " + playerForm.size +
                          "\nVolume: " + playerForm.volume +
                          "\nDimension: " + player.transform.localScale +
                          "\nVelocity: " + playerBody.velocity +
                          "\nGround Speed: " + groundSpeed.magnitude +
                          "\nContact: " + playerContact.contactMode +
-                         "\nNorm: " + playerContact.contactNorm;
+                         "\nNorm: " + playerContact.contactNorm +
+                         "\nSurface: " + playerContact.contactSurface;
     }
 }

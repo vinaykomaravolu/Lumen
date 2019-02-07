@@ -4,11 +4,9 @@ using UnityEngine;
 public class StartMenu : MonoBehaviour{
     
     private void Start(){
-        Global.loadCollectionStatus();
     }
 
     private void quit(){
         Application.Quit();
-        Global.saveCollectionStatus();
     }
 }

@@ -210,7 +210,7 @@ namespace UnityEngine.PostProcessing
             }
 
 #if UNITY_EDITOR
-            // Render to a dedicated target when monitors are enabled so they can show information
+            // Render to a dedicated target when monitors are enabled so they can showPause information
             // about the final render.
             // At runtime the output will always be the backbuffer or whatever render target is
             // currently set on the camera.

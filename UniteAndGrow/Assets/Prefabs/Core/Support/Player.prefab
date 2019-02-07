@@ -294,7 +294,7 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   speed: 10
   jumpSpeed: 10
-  superJumpFactor: 1.5
+  superJumpFactor: 1
   maxJumpSpeed: 30
   pushForce: 80
   gravity: 40
@@ -302,6 +302,7 @@ MonoBehaviour:
   dragForce: 50
   wallDrag: 2
   holdJumpDuration: 0.2
+  forceOnly: 0
 --- !u!114 &8520301978439430543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +334,7 @@ MonoBehaviour:
   inner: {fileID: 6872457313337332140}
   jumpStretch: 0.3
   outerRestoreSpeed: 0.9
+  rotationSpeed: 0.1
 --- !u!114 &8716958241916032647
 MonoBehaviour:
   m_ObjectHideFlags: 0
