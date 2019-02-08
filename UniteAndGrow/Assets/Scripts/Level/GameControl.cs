@@ -8,6 +8,7 @@ public class GameControl : MonoBehaviour{
     [Header("Level Dependent")]
     public bool debug;
     public GameObject startPoint;
+    public float gravity;
     
     [Header("Prefabs")]
     public GameObject canvas;
@@ -32,6 +33,7 @@ public class GameControl : MonoBehaviour{
 
     private void Start(){
         Global.gameControl = this;
+        Global.gravity = gravity;
         
         uiControl = Instantiate(canvas).GetComponent<UIControl>();
         debugInfo = uiControl.debugInfo;

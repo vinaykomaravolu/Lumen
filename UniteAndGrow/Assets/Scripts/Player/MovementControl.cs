@@ -43,7 +43,7 @@ public class MovementControl : MonoBehaviour{
 
     // IMPORTANT! contact is not reliable in FixedUpdate
     void FixedUpdate(){
-        body.AddForce(Vector3.down * gravity * body.mass); // add gravity
+        body.AddForce(Vector3.down * Global.gravity * body.mass); // add gravity
         horizontalMove();
     }
 

@@ -25,6 +25,6 @@ public class Stick : MonoBehaviour{
             return;
         }
         Vector3 direction = transform.position - target.transform.position;
-        targetBody.AddForce(direction.normalized * force);
+        targetBody.AddForce(direction.normalized * force * targetBody.mass);
     }
 }

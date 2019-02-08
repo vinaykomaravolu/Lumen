@@ -14,6 +14,8 @@ public static class Global{
     public const string moveHorizontalButton = "Horizontal";
     public const string moveVerticalButton = "Vertical";
     public const string pauseButton = "Cancel";
+
+    public static float gravity;
     
     public static GameControl gameControl;
 }
