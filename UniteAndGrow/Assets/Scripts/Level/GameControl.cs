@@ -5,10 +5,11 @@ using UnityEngine.UI;
 //Singleton
 public class GameControl : MonoBehaviour{
 
-    [Header("Level Dependent")]
+    [Header("General")]
     public bool debug;
     public GameObject startPoint;
     public float gravity;
+    public SoundControl soundControl;
     
     [Header("Prefabs")]
     public GameObject canvas;
@@ -33,6 +34,7 @@ public class GameControl : MonoBehaviour{
 
     private void Start(){
         Global.gameControl = this;
+        Global.soundControl = soundControl;
         Global.gravity = gravity;
         
         uiControl = Instantiate(canvas).GetComponent<UIControl>();
