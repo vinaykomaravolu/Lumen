@@ -13,11 +13,9 @@ public class UIControl : MonoBehaviour{
     }
 
     public void showWin(){
-        Time.timeScale = 0;
     }
 
     public void showLose(){
-//        Time.timeScale = 0;
         restart();
     }
 
@@ -27,5 +25,9 @@ public class UIControl : MonoBehaviour{
 
     public void exit(){
         SceneManager.LoadScene(Global.mainMenuName);
+    }
+
+    public void next(){
+        SceneManager.LoadScene(Global.gameControl.nextScene);
     }
 }

@@ -4,16 +4,18 @@ using UnityEngine;
 public class Sound : MonoBehaviour{
     
     public float loopTime; // instantiate self to loop the music
-    public bool instantiateNew; // true if want to instantiate new
-    public float killDelay;
+    public float killDelay; // after loop time
+    public SoundType type;
     
     private bool fading;
     private float fadingLength;
     private float fadingStart;
+    private bool instantiateNew; // true if want to instantiate new
     private AudioSource audio;
 
     private void Start(){
         audio = GetComponent<AudioSource>();
+        instantiateNew = type != SoundType.Effect;
         StartCoroutine(life());
     }
 
@@ -23,10 +25,7 @@ public class Sound : MonoBehaviour{
 
     IEnumerator life(){
         yield return new WaitForSecondsRealtime(loopTime);
-        if (instantiateNew){
-            Sound newSound = Instantiate(gameObject).GetComponent<Sound>();
-            if (Global.soundControl.currentBgm == this) Global.soundControl.currentBgm = newSound;
-        }
+        if (instantiateNew) Global.soundControl.updateCurrent(Instantiate(gameObject));
         yield return new WaitForSecondsRealtime(killDelay);
         Destroy(gameObject);
     }
@@ -44,3 +43,5 @@ public class Sound : MonoBehaviour{
         instantiateNew = false;
     }
 }
+
+public enum SoundType {Ambient, Music, Effect}
