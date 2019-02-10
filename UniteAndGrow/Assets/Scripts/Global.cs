@@ -18,4 +18,5 @@ public static class Global{
     public static float gravity;
     
     public static GameControl gameControl;
+    public static SoundControl soundControl;
 }

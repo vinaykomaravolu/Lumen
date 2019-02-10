@@ -5,15 +5,17 @@ using UnityEngine.UI;
 //Singleton
 public class GameControl : MonoBehaviour{
 
-    [Header("Level Dependent")]
+    [Header("General")]
     public bool debug;
     public GameObject startPoint;
+    public string nextScene;
     public float gravity;
     
     [Header("Prefabs")]
     public GameObject canvas;
     public GameObject playerPrefab;
     public GameObject cameraPrefab;
+    public SoundControl soundControl;
 
     [Header("Score")]
     public float timeScoreBase;
@@ -33,6 +35,7 @@ public class GameControl : MonoBehaviour{
 
     private void Start(){
         Global.gameControl = this;
+        Global.soundControl = Instantiate(soundControl);
         Global.gravity = gravity;
         
         uiControl = Instantiate(canvas).GetComponent<UIControl>();
@@ -51,6 +54,8 @@ public class GameControl : MonoBehaviour{
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        Time.timeScale = 1;
     }
 
     private void Update(){
@@ -60,10 +65,20 @@ public class GameControl : MonoBehaviour{
 
     public void win(){
         uiControl.showWin();
+        soundControl.win();
+        Time.timeScale = 0;
     }
 
     public void lose(){
         uiControl.showLose();
+        soundControl.lose();
+        Time.timeScale = 0;
+    }
+
+    public void pause(){
+        paused = !paused;
+        Time.timeScale = paused ? 0 : 1;
+        uiControl.showPause(paused);
     }
 
     public void collect(){
@@ -76,12 +91,6 @@ public class GameControl : MonoBehaviour{
 
     private float getTimeScore(float time){
         return timeScoreFactor / (time + timeScoreFactor / timeScoreBase);
-    }
-
-    public void pause(){
-        paused = !paused;
-        Time.timeScale = paused ? 0 : 1;
-        uiControl.showPause(paused);
     }
 
     private void updateDebugInfo(){

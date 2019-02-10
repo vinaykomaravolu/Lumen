@@ -37,6 +37,7 @@ public class ContactHandler : MonoBehaviour{
     private void OnCollisionEnter(Collision collision){
         getContactInfo(collision);
         contactVelocity = collision.relativeVelocity;
+        Instantiate(Global.soundControl.landing);
     }
 
     private void OnCollisionStay(Collision other){
