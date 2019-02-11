@@ -6,7 +6,7 @@ public class SoundControl : MonoBehaviour{
     [Header("Fading")] 
     public float fadeSlow;
     public float fadeFast;
-    public float bgmShiftDelay;
+    public float shiftDelay;
 
     [Header("Effects")]
     public GameObject landing;
@@ -14,55 +14,61 @@ public class SoundControl : MonoBehaviour{
     [Header("BGMs")]
     public GameObject loseBgm;
     public GameObject winBgm;
-    private Sound currentAmbient;
-    private Sound currentMusic;
+    private readonly CurrentSound currentAmbient = new CurrentSound();
+    private readonly CurrentSound currentMusic = new CurrentSound();
 
     public void win(){
-        changeCurrentFast(winBgm);
+        changeCurrent(winBgm, fadeFast, 0);
     }
 
     public void lose(){
-        changeCurrentFast(loseBgm);
+        changeCurrent(loseBgm, fadeFast, 0);
     }
 
-    private Sound getCurrent(SoundType type){
+    private void Update(){
+        currentAmbient.checkStartNew();
+        currentMusic.checkStartNew();
+    }
+
+    public void updateCurrent(GameObject newSound){
+        Sound sound = newSound.GetComponent<Sound>();
+        getCurrent(sound.type).sound = sound;
+    }
+
+    public void changeCurrentSlow(GameObject newSound){
+        changeCurrent(newSound, fadeSlow, shiftDelay);
+    }
+
+    private CurrentSound getCurrent(SoundType type){
         if (type == SoundType.Music) return currentMusic;
         if (type == SoundType.Ambient) return currentAmbient;
         return null;
     }
 
-    public void updateCurrent(GameObject newSound){
-        updateCurrent(newSound.GetComponent<Sound>());
+    private void changeCurrent(GameObject newSound, float fade, float delay){
+        Sound sound = newSound.GetComponent<Sound>();
+        getCurrent(sound.type).setStartNew(newSound, fade, delay);
     }
 
-    public void updateCurrent(Sound newSound){
-        SoundType type = newSound.type;
-        if (type == SoundType.Music) currentMusic = newSound;
-        if (type == SoundType.Ambient) currentAmbient = newSound;
-    }
+    private class CurrentSound{
+        public Sound sound;
+        public float shiftTime = float.PositiveInfinity;
+        public GameObject next;
 
-    // return true if current is null
-    private bool fadeCurrent(SoundType type, float fade){
-        Sound current = getCurrent(type);
-        if (current != null) current.startFading(fade);
-        return current == null;
-    }
-
-    private void changeCurrentFast(GameObject newSound){
-        fadeCurrent(newSound.GetComponent<Sound>().type, fadeFast);
-        updateCurrent(Instantiate(newSound));
-    }
-
-    public void changeCurrentSlow(GameObject newSound){
-        if (fadeCurrent(newSound.GetComponent<Sound>().type, fadeSlow)){
-            updateCurrent(Instantiate(newSound));
-        } else{
-            StartCoroutine(startNew(newSound));
+        public void setStartNew(GameObject newSound, float fade, float delay){
+            next = newSound;
+            if (sound == null){
+                shiftTime = Time.realtimeSinceStartup;
+            } else{
+                if (sound.startFading(fade)) shiftTime = Time.realtimeSinceStartup + delay;
+            }
         }
-    }
 
-    private IEnumerator startNew(GameObject newSound){
-        yield return new WaitForSecondsRealtime(bgmShiftDelay);
-        updateCurrent(Instantiate(newSound));
+        public void checkStartNew(){
+            if (Time.realtimeSinceStartup > shiftTime){
+                sound = Instantiate(next).GetComponent<Sound>();
+                shiftTime = float.PositiveInfinity;
+            }
+        }
     }
 }

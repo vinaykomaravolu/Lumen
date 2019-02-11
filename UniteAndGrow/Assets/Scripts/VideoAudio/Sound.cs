@@ -30,11 +30,12 @@ public class Sound : MonoBehaviour{
         Destroy(gameObject);
     }
 
-    public void startFading(float length){
-        if (fading) return;
+    public bool startFading(float length){
+        if (fading) return false;
         fadingStart = Time.realtimeSinceStartup;
         fadingLength = length;
         fading = true;
+        return true;
     }
 
     private void fade(){
