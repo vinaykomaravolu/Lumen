@@ -29,11 +29,13 @@ public class GameControl : MonoBehaviour{
     private FormControl playerForm;
     private Rigidbody playerBody;
     private ContactHandler playerContact;
-    private bool paused;
+    public bool paused;
 
     private int collected = 0;
 
     private void Start(){
+//        Global.isMac = Application.platform == RuntimePlatform.OSXPlayer 
+//                       || Application.platform == RuntimePlatform.OSXEditor;
         Global.gameControl = this;
         Global.soundControl = Instantiate(soundControl);
         Global.gravity = gravity;

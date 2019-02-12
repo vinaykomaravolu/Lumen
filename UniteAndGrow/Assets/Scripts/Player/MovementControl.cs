@@ -35,6 +35,7 @@ public class MovementControl : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
+        if (Global.gameControl.paused) return;
         //reset double jump when on ground
         if (contactMode == ContactMode.Ground) canDoubleJump = true;
         jumpMove();

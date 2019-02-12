@@ -1,4 +1,9 @@
+using UnityEngine;
+
 public static class Global{
+
+    public static readonly bool isMac = Application.platform == RuntimePlatform.OSXPlayer 
+                               || Application.platform == RuntimePlatform.OSXEditor;
     
     public const string playerTag = "Player";
     public const string endPointTag = "Finish";
@@ -14,6 +19,11 @@ public static class Global{
     public const string moveHorizontalButton = "Horizontal";
     public const string moveVerticalButton = "Vertical";
     public const string pauseButton = "Cancel";
+    public const string confirmButton = "Submit";
+    public const string camHorizontalMouse = "Mouse X";
+    public const string camVerticalMouse = "Mouse Y";
+    public static readonly string camHorizontalStick = "Camera X " + (isMac ? "Mac" : "Win");
+    public static readonly string camVerticalStick = "Camera Y " + (isMac ? "Mac" : "Win");
 
     public static float gravity;
     

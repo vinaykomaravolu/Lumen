@@ -15,8 +15,10 @@ public class CameraRotation : MonoBehaviour {
     }
 
     void Update() {
-        float deltaHorizontal = Input.GetAxis("Mouse X") + Input.GetAxis("Controller X");
-        float deltaVertical = Input.GetAxis("Mouse Y") + Input.GetAxis("Controller Y");
+        float deltaHorizontal = Input.GetAxis(Global.camHorizontalMouse)
+                                + Input.GetAxis(Global.camHorizontalStick);
+        float deltaVertical = Input.GetAxis(Global.camVerticalMouse)
+                              + Input.GetAxis(Global.camVerticalStick);
         if (invertCamera) deltaVertical *= -1;
         
         rotation.y += deltaHorizontal * inputSensitivity * Time.deltaTime;
