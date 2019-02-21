@@ -6,7 +6,8 @@ public class UIControl : MonoBehaviour{
     
     public Text debugInfo;
     public GameObject pauseMenu;
-    
+    public GameObject endMenu;
+    public GameObject dieMenu;
     
     public void showPause(bool show){
         if (show) ;
