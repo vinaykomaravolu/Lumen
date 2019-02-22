@@ -25,7 +25,7 @@ public class FormControl : MonoBehaviour{
         return size * size;
     }
 
-    private void Update(){
+    private void FixedUpdate(){
         if (volume < minVolume) Global.gameControl.lose();
     }
 

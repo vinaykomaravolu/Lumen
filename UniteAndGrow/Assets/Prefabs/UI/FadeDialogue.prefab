@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 577133959484174327}
   - component: {fileID: 577133959484174330}
   - component: {fileID: 577133959484174325}
-  - component: {fileID: 577133959484174324}
   m_Layer: 5
   m_Name: FadePanel
   m_TagString: Untagged
@@ -108,18 +107,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!225 &577133959484174324
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577133959484174326}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &577133959675457126
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +120,7 @@ GameObject:
   - component: {fileID: 577133959675457124}
   - component: {fileID: 577133959675457127}
   m_Layer: 5
-  m_Name: FadeText
+  m_Name: FadeTextCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,10 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -297,7 +284,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hello
+  m_Text: lorem Ipsum
 --- !u!1 &577133959941628066
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +375,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999994, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &577133959941628071
 MonoBehaviour:
@@ -402,4 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 135ea9a14203dd245abd2d05784d9921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiElement: {fileID: 577133959484174324}
+  uiElement: {fileID: 577133959484174326}
+  initAlpha: 0
+  targetAlpha: 0
+  speed: 2

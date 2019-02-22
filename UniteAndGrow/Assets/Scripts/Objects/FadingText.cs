@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadingText : MonoBehaviour
-{
-    public CanvasGroup uiElement;
+public class FadingText : MonoBehaviour{
+    
+    private CanvasGroup canvasGroup;
+    public GameObject uiElement;
+    public float initAlpha;
     public float targetAlpha;
     public float speed;
 
+    private void Start(){
+        canvasGroup = uiElement.AddComponent<CanvasGroup>();
+        canvasGroup.alpha = initAlpha;
+    }
+
     private void Update(){
-        uiElement.alpha = Mathf.MoveTowards(uiElement.alpha, targetAlpha, speed * Time.deltaTime);
+        canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, targetAlpha, speed * Time.unscaledDeltaTime);
     }
 
     public void OnTriggerEnter(Collider other){

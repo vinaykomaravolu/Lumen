@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 5568091503150996245}
   - component: {fileID: 6296737379055289181}
   - component: {fileID: 110376265346311863}
+  - component: {fileID: 1844450938}
   m_Layer: 5
   m_Name: You Died
   m_TagString: Untagged
@@ -137,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8679245, g: 0.21698113, b: 0.21698113, a: 0}
+  m_Color: {r: 0.8679245, g: 0.21698113, b: 0.21698113, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -158,6 +159,22 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 0
   m_Text: Y O U  D I E D
+--- !u!114 &1844450938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650912058534470773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135ea9a14203dd245abd2d05784d9921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiElement: {fileID: 650912058534470773}
+  initAlpha: 0
+  targetAlpha: 0
+  speed: 2
 --- !u!1 &825495278207239835
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +184,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 678094385160524399}
-  - component: {fileID: 4008992993778727931}
   m_Layer: 0
   m_Name: Die
   m_TagString: Untagged
@@ -191,20 +207,6 @@ Transform:
   m_Father: {fileID: 1889674003160710268}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4008992993778727931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825495278207239835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d173055a25e45ae47a28c5e0a30465ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiText: {fileID: 110376265346311863}
-  backgroundImage: {fileID: 7765738304131841735}
 --- !u!1 &1866869626725533209
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,9 +470,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugInfo: {fileID: 1889674003332453092}
   pauseMenu: {fileID: 2608239277763978557}
-  endMenu: {fileID: 4038165759228524291}
-  dieMenu: {fileID: 825495278207239835}
-  scoreBoard: {fileID: 0}
+  winMenu: {fileID: 4038165759228524291}
+  scoreBoard: {fileID: 2164029326197403535}
+  loseMenu: {fileID: 825495278207239835}
+  loseBackground: {fileID: 677795946}
+  loseTextDelay: 0
+  loseText: {fileID: 1844450938}
 --- !u!1 &1889674003332453094
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +676,7 @@ GameObject:
   - component: {fileID: 3976405782897847332}
   - component: {fileID: 6754617560053484118}
   - component: {fileID: 7765738304131841735}
+  - component: {fileID: 677795946}
   m_Layer: 0
   m_Name: Black Stripe
   m_TagString: Untagged
@@ -718,7 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -734,6 +740,22 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &677795946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951305640261572468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135ea9a14203dd245abd2d05784d9921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiElement: {fileID: 2951305640261572468}
+  initAlpha: 0
+  targetAlpha: 0
+  speed: 2
 --- !u!1 &3808708004346027740
 GameObject:
   m_ObjectHideFlags: 0
