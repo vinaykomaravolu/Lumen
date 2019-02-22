@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -3730,3 +3730,87 @@ MonoBehaviour:
   killOnDry: 1
   volume: 100
   volumePerSecond: 0.5
+--- !u!1001 &577133958722825442
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 577133959383873914, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_Name
+      value: FadeDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.1955094
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.5600846
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.29188263
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959383873915, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959675457126, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_Name
+      value: FadeTextCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959675457130, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959891343941, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_Text
+      value: lorem Ipsum
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 716d719df8d1b3b4a931024d99d27bf8, type: 3}
