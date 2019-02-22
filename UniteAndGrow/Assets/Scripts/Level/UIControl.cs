@@ -8,16 +8,19 @@ public class UIControl : MonoBehaviour{
     public GameObject pauseMenu;
     public GameObject endMenu;
     public GameObject dieMenu;
+    public Text scoreBoard;
     
     public void showPause(bool show){
-        if (show) ;
+        pauseMenu.SetActive(show);
     }
 
     public void showWin(){
+        endMenu.SetActive(true);
     }
 
     public void showLose(){
-        restart();
+        dieMenu.SetActive(true);
+//        restart();
     }
 
     public void restart(){
@@ -30,5 +33,9 @@ public class UIControl : MonoBehaviour{
 
     public void next(){
         SceneManager.LoadScene(Global.gameControl.nextScene);
+    }
+
+    private void setScoreBoard(){
+        scoreBoard.text = "Total Score: " + Global.gameControl.getScore(Time.timeSinceLevelLoad);
     }
 }
