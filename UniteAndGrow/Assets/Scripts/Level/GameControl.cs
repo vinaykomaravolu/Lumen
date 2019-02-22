@@ -15,7 +15,7 @@ public class GameControl : MonoBehaviour{
     public GameObject canvas;
     public GameObject playerPrefab;
     public GameObject cameraPrefab;
-    public SoundControl soundControl;
+    public SoundControl soundControlPrefab;
 
     [Header("Score")]
     public float timeScoreBase;
@@ -37,7 +37,7 @@ public class GameControl : MonoBehaviour{
 //        Global.isMac = Application.platform == RuntimePlatform.OSXPlayer 
 //                       || Application.platform == RuntimePlatform.OSXEditor;
         Global.gameControl = this;
-        Global.soundControl = Instantiate(soundControl);
+        Global.soundControl = Instantiate(soundControlPrefab);
         Global.gravity = gravity;
         
         uiControl = Instantiate(canvas).GetComponent<UIControl>();
@@ -67,13 +67,13 @@ public class GameControl : MonoBehaviour{
 
     public void win(){
         uiControl.showWin();
-        soundControl.win();
+        Global.soundControl.win();
         Time.timeScale = 0;
     }
 
     public void lose(){
         uiControl.showLose();
-        soundControl.lose();
+        Global.soundControl.lose();
         Time.timeScale = 0;
     }
 
@@ -87,7 +87,7 @@ public class GameControl : MonoBehaviour{
         collected++;
     }
 
-    private int getScore(float time){
+    public int getScore(float time){
         return (int)(collected * collectScoreBase + getTimeScore(time));
     }
 

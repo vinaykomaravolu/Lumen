@@ -56,6 +56,8 @@ public class SoundControl : MonoBehaviour{
         public GameObject next;
 
         public void setStartNew(GameObject newSound, float fade, float delay){
+            if (sound != null && 
+                sound.audio.clip.name == newSound.GetComponent<AudioSource>().clip.name) return;
             next = newSound;
             if (sound == null){
                 shiftTime = Time.realtimeSinceStartup;
