@@ -5,47 +5,18 @@ using UnityEngine;
 public class FadingText : MonoBehaviour
 {
     public CanvasGroup uiElement;
+    public float targetAlpha;
+    public float speed;
 
-    public void FadeOut()
-    {
-        StartCoroutine(FadeCanvasGroup(uiElement, uiElement.alpha, 0));
+    private void Update(){
+        uiElement.alpha = Mathf.MoveTowards(uiElement.alpha, targetAlpha, speed * Time.deltaTime);
     }
 
-    public void FadeIn()
-    {
-        StartCoroutine(FadeCanvasGroup(uiElement, uiElement.alpha, 1));
+    public void OnTriggerEnter(Collider other){
+        targetAlpha = 1;
     }
-
-    public IEnumerator FadeCanvasGroup(CanvasGroup cg, float start, float end, float lerpTime = 0.5f)
-    {
-        float _timeStartedLerping = Time.time;
-        float timeSinceStarted = Time.time - _timeStartedLerping;
-        float percentageComplete = timeSinceStarted / lerpTime;
-
-        while (true)
-        {
-            timeSinceStarted = Time.time - _timeStartedLerping;
-            percentageComplete = timeSinceStarted / lerpTime;
-
-            float currentValue = Mathf.Lerp(start, end, percentageComplete);
-
-            cg.alpha = currentValue;
-
-            if (percentageComplete >= 1) break;
-
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        FadeIn();
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        FadeOut();
-
-
+    
+    public void OnTriggerExit(Collider other){
+        targetAlpha = 0;
     }
 }

@@ -907,7 +907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &455446533
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3811,6 +3811,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: lorem Ipsum
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959675457124, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959675457124, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959675457124, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959675457124, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959941628067, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959941628071, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 577133959484174324, guid: 716d719df8d1b3b4a931024d99d27bf8,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 716d719df8d1b3b4a931024d99d27bf8, type: 3}
