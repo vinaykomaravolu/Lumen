@@ -9,7 +9,29 @@ public class UIControl : MonoBehaviour{
     public GameObject endMenu;
     public GameObject dieMenu;
     public Text scoreBoard;
-    
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            showPause(true);
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            showWin();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            showLose();
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            pauseMenu.SetActive(false);
+            endMenu.SetActive(false);
+            dieMenu.SetActive(false);
+        }
+    }
+
     public void showPause(bool show){
         pauseMenu.SetActive(show);
     }
@@ -20,7 +42,7 @@ public class UIControl : MonoBehaviour{
 
     public void showLose(){
         dieMenu.SetActive(true);
-//        restart();
+        StartCoroutine(dieMenu.GetComponent<DeathUIFade>().FadeTextToFullAlpha(1f));
     }
 
     public void restart(){
