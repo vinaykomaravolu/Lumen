@@ -18,7 +18,7 @@ public class DeathUIFade : MonoBehaviour
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
             yield return null;
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         j.color = new Color(j.color.r, j.color.g, j.color.b, 0);
         while (j.color.a < 1.0f)
         {
