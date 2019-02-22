@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8679245, g: 0.21698113, b: 0.21698113, a: 1}
+  m_Color: {r: 0.8679245, g: 0.21698113, b: 0.21698113, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -167,6 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 678094385160524399}
+  - component: {fileID: 4008992993778727931}
   m_Layer: 0
   m_Name: Die
   m_TagString: Untagged
@@ -187,10 +188,23 @@ Transform:
   m_Children:
   - {fileID: 3976405782897847332}
   - {fileID: 5568091503150996245}
-  - {fileID: 1324900286087696137}
   m_Father: {fileID: 1889674003160710268}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4008992993778727931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825495278207239835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d173055a25e45ae47a28c5e0a30465ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiText: {fileID: 110376265346311863}
+  backgroundImage: {fileID: 7765738304131841735}
 --- !u!1 &1866869626725533209
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +470,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 2608239277763978557}
   endMenu: {fileID: 4038165759228524291}
   dieMenu: {fileID: 825495278207239835}
+  scoreBoard: {fileID: 0}
 --- !u!1 &1889674003332453094
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1036,51 +1051,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!1 &7400982895416136074
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1324900286087696137}
-  - component: {fileID: 5563497348200527550}
-  m_Layer: 0
-  m_Name: Death Fade
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1324900286087696137
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7400982895416136074}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 678094385160524399}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5563497348200527550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7400982895416136074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d173055a25e45ae47a28c5e0a30465ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiText: {fileID: 110376265346311863}
-  backgroundImage: {fileID: 7765738304131841735}
 --- !u!1 &9022635977256861197
 GameObject:
   m_ObjectHideFlags: 0
