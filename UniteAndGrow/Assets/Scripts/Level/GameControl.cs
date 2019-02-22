@@ -30,6 +30,7 @@ public class GameControl : MonoBehaviour{
     private Rigidbody playerBody;
     private ContactHandler playerContact;
     public bool paused;
+    public bool end;
 
     private int collected = 0;
 
@@ -60,17 +61,19 @@ public class GameControl : MonoBehaviour{
 
     private void Update(){
         if (debug) updateDebugInfo();
-        if (Input.GetButtonDown(Global.pauseButton) || 
-            Input.GetButtonDown(Global.altPauseButton)) pause();
+        if (!end && (Input.GetButtonDown(Global.pauseButton) || 
+            Input.GetButtonDown(Global.altPauseButton))) pause();
     }
 
     public void win(){
+        end = true;
         uiControl.showWin();
         Global.soundControl.win();
         Time.timeScale = 0;
     }
 
     public void lose(){
+        end = true;
         uiControl.showLose();
         Global.soundControl.lose();
         Time.timeScale = 0;
