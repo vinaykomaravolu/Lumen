@@ -24,6 +24,7 @@ public static class Global{
     public const string camVerticalMouse = "Mouse Y";
     public static readonly string camHorizontalStick = "Camera X " + (isMac ? "Mac" : "Win");
     public static readonly string camVerticalStick = "Camera Y " + (isMac ? "Mac" : "Win");
+    public static readonly string altPauseButton = "Cancel " + (isMac ? "Mac" : "Win");
 
     public static float gravity;
     

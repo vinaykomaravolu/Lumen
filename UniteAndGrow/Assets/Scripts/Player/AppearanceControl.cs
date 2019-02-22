@@ -36,7 +36,7 @@ public class AppearanceControl: MonoBehaviour {
         inner.transform.rotation = Quaternion.Lerp(
             inner.transform.rotation,
             Quaternion.LookRotation(forward, Vector3.up),
-            rotationSpeed);
+            rotationSpeed * Time.deltaTime);
     }
 
     private void restoreOuterShape(){
