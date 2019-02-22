@@ -13,7 +13,8 @@ public class CameraDistance : MonoBehaviour{
     void Update(){
         Vector3 maxPose = transform.parent.position - transform.forward * maxDistance;
         RaycastHit hit;
-        distance = Physics.Linecast(transform.parent.position, maxPose, out hit)
+        // ignore layer 9
+        distance = Physics.Linecast(transform.parent.position, maxPose, out hit, -1 - (1 << 9))
             ? Mathf.Clamp(hit.distance, minDistance, maxDistance)
             : maxDistance;
         transform.localPosition = 

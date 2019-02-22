@@ -34,8 +34,6 @@ public class GameControl : MonoBehaviour{
     private int collected = 0;
 
     private void Start(){
-//        Global.isMac = Application.platform == RuntimePlatform.OSXPlayer 
-//                       || Application.platform == RuntimePlatform.OSXEditor;
         Global.gameControl = this;
         Global.soundControl = Instantiate(soundControlPrefab);
         Global.gravity = gravity;
