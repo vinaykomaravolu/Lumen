@@ -11,7 +11,7 @@ public class DeathUIFade : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            StartCoroutine(FadeTextToFullAlpha(1f, this.uiText, this.backgroundImage));
+            StartCoroutine(FadeTextToFullAlpha(1f));
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -20,10 +20,10 @@ public class DeathUIFade : MonoBehaviour
         }
     }
 
-
-
-    public IEnumerator FadeTextToFullAlpha(float t, Text j, Image i)
+    public IEnumerator FadeTextToFullAlpha(float t)
     {
+        Text j = this.uiText;
+        Image i = this.backgroundImage;
         i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
         while (i.color.a < 0.85f)
         {
