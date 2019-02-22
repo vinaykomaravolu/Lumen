@@ -60,7 +60,8 @@ public class GameControl : MonoBehaviour{
 
     private void Update(){
         if (debug) updateDebugInfo();
-        if (Input.GetButtonDown(Global.pauseButton)) pause();
+        if (Input.GetButtonDown(Global.pauseButton) || 
+            Input.GetButtonDown(Global.altPauseButton)) pause();
     }
 
     public void win(){

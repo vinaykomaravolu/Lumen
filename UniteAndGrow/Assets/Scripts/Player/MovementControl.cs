@@ -8,7 +8,6 @@ public class MovementControl : MonoBehaviour{
     public float superJumpFactor;
     public float maxJumpSpeed;
     public float pushForce; // push force when in mid air
-    public float gravity; // gravity scale
     public float jumpBackFactor; // jump back scale during wall jump
     public float dragForce;
     public float wallDrag;

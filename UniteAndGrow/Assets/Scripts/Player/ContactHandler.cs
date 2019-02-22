@@ -1,7 +1,8 @@
 using UnityEngine;
 
 public class ContactHandler : MonoBehaviour{
-    
+
+    public float landSoundThreshold;
     private const float wallSlope = 0.7f; // if contactNorm.y is less than this value, it's a wall
 
     public ContactSurface contactSurface{ get; private set; }
@@ -40,7 +41,8 @@ public class ContactHandler : MonoBehaviour{
     private void OnCollisionEnter(Collision collision){
         getContactInfo(collision);
         contactVelocity = collision.relativeVelocity;
-        Instantiate(Global.soundControl.landing);
+        if (collision.impulse.magnitude > landSoundThreshold) Instantiate(Global.soundControl.landing);
+        transform.parent = collision.transform.parent;
     }
 
     private void OnCollisionStay(Collision other){

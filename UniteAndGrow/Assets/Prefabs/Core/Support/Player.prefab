@@ -297,7 +297,6 @@ MonoBehaviour:
   superJumpFactor: 1
   maxJumpSpeed: 30
   pushForce: 80
-  gravity: 40
   jumpBackFactor: 1
   dragForce: 50
   wallDrag: 2
@@ -347,6 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ea89389a8b4caea01f64a187a41e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landSoundThreshold: 8
 --- !u!1 &8520301979331774721
 GameObject:
   m_ObjectHideFlags: 0

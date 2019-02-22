@@ -20,27 +20,24 @@ public class UIControl : MonoBehaviour{
     public float loseTextDelay;
     public FadingText loseText;
 
-//    void Update()
-//    {
-//        if (Input.GetKeyDown(KeyCode.Q))
-//        {
-//            showPause(true);
-//        }
-//        if (Input.GetKeyDown(KeyCode.W))
-//        {
-//            showWin();
-//        }
-//        if (Input.GetKeyDown(KeyCode.E))
-//        {
-//            showLose();
-//        }
-//        if (Input.GetKeyDown(KeyCode.Z))
-//        {
-//            pauseMenu.SetActive(false);
-//            winMenu.SetActive(false);
-//            loseMenu.SetActive(false);
-//        }
-//    }
+    void Update() {
+        if (Global.gameControl.debug){
+            if (Input.GetKeyDown("1")) {
+                showPause(true);
+            }
+            if (Input.GetKeyDown("2")) {
+                showWin();
+            }
+            if (Input.GetKeyDown("3")) {
+                showLose();
+            }
+            if (Input.GetKeyDown("4")) {
+                pauseMenu.SetActive(false);
+                winMenu.SetActive(false);
+                loseMenu.SetActive(false);
+            }
+        }
+    }
 
     public void showPause(bool show){
         pauseMenu.SetActive(show);
@@ -56,11 +53,9 @@ public class UIControl : MonoBehaviour{
     }
 
     IEnumerator _showLose(){
-        print(1);
         loseBackground.targetAlpha = 1;
         yield return new WaitForSeconds(loseTextDelay);
         loseText.targetAlpha = 1;
-        print(2);
     }
 
     public void restart(){
