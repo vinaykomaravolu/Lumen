@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2847144352879337142}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,11 +208,12 @@ MonoBehaviour:
     type: 3}
   cameraPrefab: {fileID: 5300799474710276756, guid: 903c66caba2c2bc4a93b59ea3b28aa0a,
     type: 3}
-  soundControl: {fileID: 8692058220471073133, guid: 3c415a246435048f6a529ede927ec17f,
+  soundControlPrefab: {fileID: 8692058220471073133, guid: 3c415a246435048f6a529ede927ec17f,
     type: 3}
   timeScoreBase: 1000
   timeScoreFactor: 119000
   collectScoreBase: 1000
+  paused: 0
 --- !u!1 &7861355476063444690
 GameObject:
   m_ObjectHideFlags: 0

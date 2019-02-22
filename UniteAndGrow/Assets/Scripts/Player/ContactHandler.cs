@@ -22,11 +22,14 @@ public class ContactHandler : MonoBehaviour{
         form = GetComponent<FormControl>();
     }
 
+    private void OnTriggerStay(Collider other){
+        if (other.CompareTag(Global.sizeChangerTag)) form.checkSizeChange(other.gameObject);
+    }
+
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag(Global.endPointTag)) Global.gameControl.win();
         if (other.CompareTag(Global.killZoneTag)) Global.gameControl.lose();
         if (other.CompareTag(Global.collectibleTag)) Global.gameControl.collect();
-        if (other.CompareTag(Global.sizeChangerTag)) form.checkSizeChange(other.gameObject);
     }
 
     private void OnCollisionExit(Collision collision){

@@ -480,7 +480,7 @@ PrefabInstance:
     - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
         type: 3}
       propertyPath: gravity
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1166716301095698716, guid: 92c1bf2f38d8642f893e956b31deae79,
         type: 3}
@@ -1082,7 +1082,7 @@ Transform:
 --- !u!199 &369439006
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
