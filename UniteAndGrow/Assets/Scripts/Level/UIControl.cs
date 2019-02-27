@@ -21,7 +21,7 @@ public class UIControl : MonoBehaviour{
     public FadingText loseText;
 
     void Update() {
-        if (Global.gameControl.debug){
+        if (Debug.isDebugBuild) {
             if (Input.GetKeyDown("1")) {
                 showPause(true);
             }
@@ -35,6 +35,8 @@ public class UIControl : MonoBehaviour{
                 pauseMenu.SetActive(false);
                 winMenu.SetActive(false);
                 loseMenu.SetActive(false);
+                loseBackground.reset();
+                loseText.reset();
             }
         }
     }
@@ -48,14 +50,15 @@ public class UIControl : MonoBehaviour{
     }
 
     public void showLose(){
-        loseMenu.SetActive(true);
         StartCoroutine(_showLose());
     }
 
     IEnumerator _showLose(){
+        loseMenu.SetActive(true);
         loseBackground.targetAlpha = 1;
         yield return new WaitForSeconds(loseTextDelay);
         loseText.targetAlpha = 1;
+        yield return null;
     }
 
     public void restart(){
