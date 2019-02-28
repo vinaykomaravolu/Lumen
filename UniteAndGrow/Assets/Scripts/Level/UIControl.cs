@@ -66,12 +66,27 @@ public class UIControl : MonoBehaviour{
 
     public void showLose(){
         StartCoroutine(_showLose());
+        EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(GameObject.Find("Try Again"));
+        Button tryBtn = GameObject.Find("Try Again").GetComponent<Button>();
+        tryBtn.onClick.AddListener(() => {
+            loseMenu.SetActive(false);
+            this.restart();
+        });
+        Button returnBtn = GameObject.Find("Return").GetComponent<Button>();
+        returnBtn.onClick.AddListener(() => {
+            loseMenu.SetActive(false);
+            this.exit();
+        });
     }
 
     IEnumerator _showLose(){
         loseMenu.SetActive(true);
         loseBackground.targetAlpha = 1;
-        yield return new WaitForSeconds(loseTextDelay);
+        float start = Time.realtimeSinceStartup;
+        while (Time.realtimeSinceStartup < start + loseTextDelay)
+        {
+            yield return null;
+        }
         loseText.targetAlpha = 1;
         yield return null;
     }
