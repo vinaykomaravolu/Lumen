@@ -294,7 +294,6 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   speed: 10
   jumpSpeed: 10
-  wallJumpSpeed: 15
   superJumpFactor: 1
   maxJumpSpeed: 30
   pushForce: 80
@@ -318,6 +317,8 @@ MonoBehaviour:
   volume: 1
   minSize: 0.2
   maxSize: 2
+  sizeChangeInterval: 0.5
+  shrinkEffect: {fileID: 0}
 --- !u!114 &8520301978439430542
 MonoBehaviour:
   m_ObjectHideFlags: 0

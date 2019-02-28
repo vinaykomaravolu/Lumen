@@ -24,7 +24,7 @@ public class ContactHandler : MonoBehaviour{
     }
 
     private void OnTriggerStay(Collider other){
-        if (other.CompareTag(Global.sizeChangerTag)) form.checkSizeChange(other.gameObject);
+        if (other.CompareTag(Global.sizeChangerTag)) form.setSizeChange(other.gameObject);
     }
 
     private void OnTriggerEnter(Collider other){
@@ -46,7 +46,7 @@ public class ContactHandler : MonoBehaviour{
 
     private void OnCollisionStay(Collision other){
         getContactInfo(other);
-        if (other.gameObject.CompareTag(Global.sizeChangerTag)) form.checkSizeChange(other.gameObject);
+        if (other.gameObject.CompareTag(Global.sizeChangerTag)) form.setSizeChange(other.gameObject);
     }
 
     private void getContactInfo(Collision collision){

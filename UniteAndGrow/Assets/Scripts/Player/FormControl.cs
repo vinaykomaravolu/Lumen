@@ -9,12 +9,23 @@ public class FormControl : MonoBehaviour{
     public float size => volumeToSize(volume);
     public float minSize;
     public float maxSize;
+    public float sizeChangeInterval;
+
+    [Header("Particle")]
+    public ParticleSystem shrinkEffect;
 
     private Rigidbody body;
+    private SizeChanger sizeChanger;
+    private float sizeChangeTime = float.NegativeInfinity;
 
     private void Start(){
         body = GetComponent<Rigidbody>();
         body.mass = volume;
+    }
+
+    private void Update(){
+        checkSizeChange();
+        if (volume < minVolume) Global.gameControl.lose();
     }
 
     private float volumeToSize(float volume){
@@ -25,9 +36,9 @@ public class FormControl : MonoBehaviour{
         return size * size;
     }
 
-    private void FixedUpdate(){
-        if (volume < minVolume) Global.gameControl.lose();
-    }
+//    private void FixedUpdate(){
+//        if (volume < minVolume) Global.gameControl.lose();
+//    }
 
     private void changeVolume(float change){
         volume = Mathf.Clamp(volume + change, 0, maxVolume);
@@ -35,9 +46,14 @@ public class FormControl : MonoBehaviour{
         transform.localScale = new Vector3(size, size, size);
     }
 
-    public void checkSizeChange(GameObject other){
-        SizeChanger sizeChanger = other.GetComponent<SizeChanger>();
+    private void checkSizeChange(){
+        if (Time.timeSinceLevelLoad > sizeChangeTime + sizeChangeInterval) return;
         changeVolume(sizeChanger.contact());
-        sizeChanger.postContact();
+        if (sizeChanger.checkDeath()) sizeChangeTime = float.NegativeInfinity;
+    }
+
+    public void setSizeChange(GameObject other){
+        sizeChanger = other.GetComponent<SizeChanger>();
+        sizeChangeTime = Time.timeSinceLevelLoad;
     }
 }

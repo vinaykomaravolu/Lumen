@@ -15,7 +15,11 @@ public class SizeChanger : MonoBehaviour{
         return grow ? deltaVolume : -deltaVolume;
     }
 
-    public void postContact(){
-        if (killOnDry && volume <= 0) Destroy(gameObject);
+    public bool checkDeath(){
+        if (killOnDry && volume <= 0){
+            Destroy(gameObject);
+            return true;
+        }
+        return false;
     }
 }
