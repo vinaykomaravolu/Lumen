@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 6296737379055289181}
   - component: {fileID: 110376265346311863}
   - component: {fileID: 1844450938}
+  - component: {fileID: 3838678507211542976}
   m_Layer: 5
   m_Name: You Died
   m_TagString: Untagged
@@ -175,6 +176,21 @@ MonoBehaviour:
   initAlpha: 0
   targetAlpha: 0
   speed: 2
+--- !u!114 &3838678507211542976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650912058534470773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cadac9a34adaea54ab6149a452e08aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initSize: 80
+  targetSize: 80
+  delay: 2
 --- !u!1 &825495278207239835
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +494,7 @@ MonoBehaviour:
   loseBackground: {fileID: 677795946}
   loseTextDelay: 0.5
   loseText: {fileID: 1844450938}
+  loseTextGrow: {fileID: 3838678507211542976}
 --- !u!1 &1889674003332453094
 GameObject:
   m_ObjectHideFlags: 0
