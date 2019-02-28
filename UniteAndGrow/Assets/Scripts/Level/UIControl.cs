@@ -64,6 +64,17 @@ public class UIControl : MonoBehaviour{
 
     public void showWin(){
         winMenu.SetActive(true);
+        EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(GameObject.Find("Try Again"));
+        Button tryBtn = GameObject.Find("Try Again").GetComponent<Button>();
+        tryBtn.onClick.AddListener(() => {
+            winMenu.SetActive(false);
+            this.restart();
+        });
+        Button returnBtn = GameObject.Find("Return").GetComponent<Button>();
+        returnBtn.onClick.AddListener(() => {
+            winMenu.SetActive(false);
+            this.exit();
+        });
     }
 
     public void showLose(){
