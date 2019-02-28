@@ -8,6 +8,7 @@ public class GameControl : MonoBehaviour{
     [Header("General")]
     public bool debug;
     public GameObject startPoint;
+    public int checkPointIndex;
     public string nextScene;
     public float gravity;
     
@@ -29,6 +30,7 @@ public class GameControl : MonoBehaviour{
     private FormControl playerForm;
     private Rigidbody playerBody;
     private ContactHandler playerContact;
+    private GameObject camera;
     public bool paused;
     public bool end;
 
@@ -41,9 +43,18 @@ public class GameControl : MonoBehaviour{
         
         uiControl = Instantiate(canvas).GetComponent<UIControl>();
         debugInfo = uiControl.debugInfo;
+        
+        spawnPlayer();
+        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
+        Time.timeScale = 1;
+    }
+
+    private void spawnPlayer(){
         player = Instantiate(playerPrefab, startPoint.transform.position, startPoint.transform.rotation);
-        GameObject camera = Instantiate(cameraPrefab, startPoint.transform.position, startPoint.transform.rotation);
+        camera = Instantiate(cameraPrefab, startPoint.transform.position, startPoint.transform.rotation);
         
         playerForm = player.GetComponent<FormControl>();
         playerBody = player.GetComponent<Rigidbody>();
@@ -52,17 +63,18 @@ public class GameControl : MonoBehaviour{
         
         camera.GetComponentInChildren<CameraDistance>().form = playerForm;
         camera.GetComponent<CameraRotation>().player = player;
-        
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        Time.timeScale = 1;
     }
 
     private void Update(){
         if (debug) updateDebugInfo();
         if (!end && (Input.GetButtonDown(Global.pauseButton) || 
             Input.GetButtonDown(Global.altPauseButton))) pause();
+    }
+
+    public void respawn(){
+        Destroy(player);
+        Destroy(camera);
+        spawnPlayer();
     }
 
     public void win(){
