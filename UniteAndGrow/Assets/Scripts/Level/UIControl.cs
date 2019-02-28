@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class UIControl : MonoBehaviour{
     
@@ -43,6 +44,20 @@ public class UIControl : MonoBehaviour{
 
     public void showPause(bool show){
         pauseMenu.SetActive(show);
+        if(show)
+        {
+            EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(GameObject.Find("Resume"));
+            Button resumeBtn = GameObject.Find("Resume").GetComponent<Button>();
+            resumeBtn.onClick.AddListener(() => {
+                pauseMenu.SetActive(false);
+                Global.gameControl.pause();
+            });
+            Button returnBtn = GameObject.Find("Return").GetComponent<Button>();
+            returnBtn.onClick.AddListener(() => {
+                pauseMenu.SetActive(false);
+                this.exit();
+            });
+        }
     }
 
     public void showWin(){
