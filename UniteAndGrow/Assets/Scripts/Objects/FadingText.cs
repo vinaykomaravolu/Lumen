@@ -26,4 +26,9 @@ public class FadingText : MonoBehaviour{
     public void OnTriggerExit(Collider other){
         targetAlpha = 0;
     }
+
+    public void reset() {
+        canvasGroup.alpha = initAlpha;
+        targetAlpha = 0;
+    }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class UIControl : MonoBehaviour{
     
@@ -19,9 +20,10 @@ public class UIControl : MonoBehaviour{
     public FadingText loseBackground;
     public float loseTextDelay;
     public FadingText loseText;
+    public GrowingText loseTextGrow;
 
     void Update() {
-        if (Global.gameControl.debug){
+        if (Debug.isDebugBuild) {
             if (Input.GetKeyDown("1")) {
                 showPause(true);
             }
@@ -35,12 +37,29 @@ public class UIControl : MonoBehaviour{
                 pauseMenu.SetActive(false);
                 winMenu.SetActive(false);
                 loseMenu.SetActive(false);
+                loseBackground.reset();
+                loseText.reset();
+                loseTextGrow.reset();
             }
         }
     }
 
     public void showPause(bool show){
         pauseMenu.SetActive(show);
+        if(show)
+        {
+            EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(GameObject.Find("Resume"));
+            Button resumeBtn = GameObject.Find("Resume").GetComponent<Button>();
+            resumeBtn.onClick.AddListener(() => {
+                pauseMenu.SetActive(false);
+                Global.gameControl.pause();
+            });
+            Button returnBtn = GameObject.Find("Return").GetComponent<Button>();
+            returnBtn.onClick.AddListener(() => {
+                pauseMenu.SetActive(false);
+                this.exit();
+            });
+        }
     }
 
     public void showWin(){
@@ -48,14 +67,31 @@ public class UIControl : MonoBehaviour{
     }
 
     public void showLose(){
-        loseMenu.SetActive(true);
         StartCoroutine(_showLose());
+        EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(GameObject.Find("Try Again"));
+        Button tryBtn = GameObject.Find("Try Again").GetComponent<Button>();
+        tryBtn.onClick.AddListener(() => {
+            loseMenu.SetActive(false);
+            this.restart();
+        });
+        Button returnBtn = GameObject.Find("Return").GetComponent<Button>();
+        returnBtn.onClick.AddListener(() => {
+            loseMenu.SetActive(false);
+            this.exit();
+        });
     }
 
     IEnumerator _showLose(){
+        loseMenu.SetActive(true);
         loseBackground.targetAlpha = 1;
-        yield return new WaitForSeconds(loseTextDelay);
+        float start = Time.realtimeSinceStartup;
+        while (Time.realtimeSinceStartup < start + loseTextDelay)
+        {
+            yield return null;
+        }
+        loseTextGrow.targetSize = 120;
         loseText.targetAlpha = 1;
+        yield return null;
     }
 
     public void restart(){
