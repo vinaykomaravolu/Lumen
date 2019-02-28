@@ -1039,6 +1039,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -54.4
       objectReference: {fileID: 0}
+    - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
+        type: 3}
+      propertyPath: nextScene
+      value: Level 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c1bf2f38d8642f893e956b31deae79, type: 3}
 --- !u!1 &151422101
@@ -1147,6 +1152,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: df03ce6e6c492bd49a60a85c07c7bf4a, type: 3}
+    - target: {fileID: 7220498169373575871, guid: fd2c87efe0b92408abcb59df31573c47,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7220498169373575857, guid: fd2c87efe0b92408abcb59df31573c47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd2c87efe0b92408abcb59df31573c47, type: 3}
