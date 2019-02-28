@@ -46,50 +46,14 @@ public class UIControl : MonoBehaviour{
 
     public void showPause(bool show){
         pauseMenu.SetActive(show);
-        if(show)
-        {
-            EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(GameObject.Find("Resume"));
-            Button resumeBtn = GameObject.Find("Resume").GetComponent<Button>();
-            resumeBtn.onClick.AddListener(() => {
-                pauseMenu.SetActive(false);
-                Global.gameControl.pause();
-            });
-            Button returnBtn = GameObject.Find("Return").GetComponent<Button>();
-            returnBtn.onClick.AddListener(() => {
-                pauseMenu.SetActive(false);
-                this.exit();
-            });
-        }
     }
 
     public void showWin(){
         winMenu.SetActive(true);
-//        EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(GameObject.Find("Try Again"));
-//        Button tryBtn = GameObject.Find("Try Again").GetComponent<Button>();
-//        tryBtn.onClick.AddListener(() => {
-//            winMenu.SetActive(false);
-//            this.restart();
-//        });
-//        Button returnBtn = GameObject.Find("Return").GetComponent<Button>();
-//        returnBtn.onClick.AddListener(() => {
-//            winMenu.SetActive(false);
-//            this.exit();
-//        });
     }
 
     public void showLose(){
         StartCoroutine(_showLose());
-        EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(GameObject.Find("Try Again"));
-        Button tryBtn = GameObject.Find("Try Again").GetComponent<Button>();
-        tryBtn.onClick.AddListener(() => {
-            loseMenu.SetActive(false);
-            this.restart();
-        });
-        Button returnBtn = GameObject.Find("Return").GetComponent<Button>();
-        returnBtn.onClick.AddListener(() => {
-            loseMenu.SetActive(false);
-            this.exit();
-        });
     }
 
     IEnumerator _showLose(){
@@ -103,6 +67,10 @@ public class UIControl : MonoBehaviour{
         loseTextGrow.targetSize = 120;
         loseText.targetAlpha = 1;
         yield return null;
+    }
+
+    public void pause(){
+        Global.gameControl.pause();
     }
 
     public void restart(){
