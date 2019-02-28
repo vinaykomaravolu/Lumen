@@ -42,7 +42,6 @@ public class ContactHandler : MonoBehaviour{
         getContactInfo(collision);
         contactVelocity = collision.relativeVelocity;
         if (collision.impulse.magnitude > landSoundThreshold) Instantiate(Global.soundControl.landing);
-        transform.parent = collision.transform.parent;
     }
 
     private void OnCollisionStay(Collision other){

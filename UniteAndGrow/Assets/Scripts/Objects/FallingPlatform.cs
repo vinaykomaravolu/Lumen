@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Platform : MonoBehaviour{
+public class FallingPlatform : MonoBehaviour{
 
     public float massLimit;
     public float overMultiplier; // multiplier to make platform fall near limit
