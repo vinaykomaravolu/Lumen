@@ -1155,7 +1155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16152542677fa4912b4821eb1d0223f1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.416888
+      value: 4.95619
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 16152542677fa4912b4821eb1d0223f1, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8715,7 +8715,7 @@ PrefabInstance:
     - target: {fileID: 2758927754749887014, guid: 380714f3e126fb84cabe4ef7f8244147,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 168.9
+      value: 175.8
       objectReference: {fileID: 0}
     - target: {fileID: 2758927754749887014, guid: 380714f3e126fb84cabe4ef7f8244147,
         type: 3}
@@ -9849,7 +9849,7 @@ PrefabInstance:
     - target: {fileID: 2758927754749887014, guid: 380714f3e126fb84cabe4ef7f8244147,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35.97
+      value: 50.2
       objectReference: {fileID: 0}
     - target: {fileID: 2758927754749887014, guid: 380714f3e126fb84cabe4ef7f8244147,
         type: 3}
@@ -10678,15 +10678,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16152542677fa4912b4821eb1d0223f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16152542677fa4912b4821eb1d0223f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.7
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16152542677fa4912b4821eb1d0223f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 62.6
+      value: 70.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 16152542677fa4912b4821eb1d0223f1, type: 3}
       propertyPath: m_LocalRotation.x
@@ -13127,7 +13127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676151352}
   m_LocalRotation: {x: -0.095604785, y: -0.70644647, z: -0.7006138, w: 0.030552909}
-  m_LocalPosition: {x: -258.64, y: 23.25, z: 166.52}
+  m_LocalPosition: {x: -255.8, y: 23, z: 165.6}
   m_LocalScale: {x: 25.202364, y: 16.476942, z: 25.727335}
   m_Children: []
   m_Father: {fileID: 0}
@@ -22081,6 +22081,7 @@ GameObject:
   - component: {fileID: 8198721977588450660}
   - component: {fileID: 8198721977589777732}
   - component: {fileID: 8198721977590744964}
+  - component: {fileID: 8198721977588816197}
   m_Layer: 0
   m_Name: growplat
   m_TagString: Untagged
@@ -22088,6 +22089,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &8198721977588816197
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198721977588816196}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300004, guid: 147c23cb436ed62488b0ef78e191d3ae, type: 3}
 --- !u!1 &8198721977588816202
 GameObject:
   m_ObjectHideFlags: 0
