@@ -8453,8 +8453,8 @@ Transform:
   - {fileID: 559722186}
   - {fileID: 1935388317}
   - {fileID: 533784767}
-  - {fileID: 1298834753}
   - {fileID: 1776194674}
+  - {fileID: 1298834753}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12484,6 +12484,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.9758151
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 952ce8a78eb6ad04693fd8ae84c27665, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90dc1892d9d1a874f9e5f27fcd32d161, type: 2}
     - target: {fileID: 400000, guid: 952ce8a78eb6ad04693fd8ae84c27665, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12496,10 +12500,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 952ce8a78eb6ad04693fd8ae84c27665, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 90dc1892d9d1a874f9e5f27fcd32d161, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 952ce8a78eb6ad04693fd8ae84c27665, type: 3}
 --- !u!1001 &1192448300
@@ -18205,8 +18205,8 @@ GameObject:
   - component: {fileID: 2103055908}
   - component: {fileID: 2103055907}
   - component: {fileID: 2103055906}
-  - component: {fileID: 2103055905}
   - component: {fileID: 2103055904}
+  - component: {fileID: 2103055905}
   m_Layer: 0
   m_Name: ShrinkingCube
   m_TagString: SizeChanger
@@ -18230,8 +18230,8 @@ MonoBehaviour:
   killOnDry: 0
   volume: 100
   volumePerSecond: 1
---- !u!65 &2103055905
-BoxCollider:
+--- !u!64 &2103055905
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18240,9 +18240,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 5336d286c01478a4684bfa0b1742caf5, type: 3}
 --- !u!23 &2103055906
 MeshRenderer:
   m_ObjectHideFlags: 0
