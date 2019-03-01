@@ -17,15 +17,23 @@ public class FormControl : MonoBehaviour{
     private Rigidbody body;
     private SizeChanger sizeChanger;
     private float sizeChangeTime = float.NegativeInfinity;
+    private ContactHandler contact;
 
     private void Start(){
         body = GetComponent<Rigidbody>();
         body.mass = volume;
+        contact = GetComponent<ContactHandler>();
     }
 
     private void Update(){
         checkSizeChange();
         if (volume < minVolume) Global.gameControl.lose();
+//        if (contact.contactMode == ContactMode.Ground){
+//            if (!shrinkEffect.isPlaying) shrinkEffect.Play();
+//        } else{
+//            shrinkEffect.Stop();
+//            shrinkEffect.time = 0;
+//        }
     }
 
     private float volumeToSize(float volume){
@@ -35,10 +43,6 @@ public class FormControl : MonoBehaviour{
     private float sizeToVolume(float size){
         return size * size;
     }
-
-//    private void FixedUpdate(){
-//        if (volume < minVolume) Global.gameControl.lose();
-//    }
 
     private void changeVolume(float change){
         volume = Mathf.Clamp(volume + change, 0, maxVolume);

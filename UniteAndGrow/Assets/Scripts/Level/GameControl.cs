@@ -63,6 +63,8 @@ public class GameControl : MonoBehaviour{
         
         camera.GetComponentInChildren<CameraDistance>().form = playerForm;
         camera.GetComponent<CameraRotation>().player = player;
+
+        SizeIndicator.form = playerForm;
     }
 
     private void Update(){

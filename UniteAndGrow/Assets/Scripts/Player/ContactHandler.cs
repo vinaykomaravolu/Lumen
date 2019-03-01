@@ -8,6 +8,8 @@ public class ContactHandler : MonoBehaviour{
     public ContactSurface contactSurface{ get; private set; }
     public Vector3 contactNorm{ get; private set; } // contactNorm.y = -2 if in mid air
     public Vector3 contactVelocity{ get; private set; }
+    public ParticleSystem shrinkEffect;
+    public ParticleSystem growEffect;
 
     public ContactMode contactMode {
         get{
@@ -36,12 +38,23 @@ public class ContactHandler : MonoBehaviour{
     private void OnCollisionExit(Collision collision){
         contactNorm = new Vector3(0, -2, 0);
         contactSurface = ContactSurface.Other;
+        if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
+            ParticleSystem effect = collision.gameObject.GetComponent<SizeChanger>().grow ? 
+                growEffect : shrinkEffect;
+            if (!effect.isPlaying) effect.Play();
+        }
     }
 
     private void OnCollisionEnter(Collision collision){
         getContactInfo(collision);
         contactVelocity = collision.relativeVelocity;
         if (collision.impulse.magnitude > landSoundThreshold) Instantiate(Global.soundControl.landing);
+        if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
+            ParticleSystem effect = collision.gameObject.GetComponent<SizeChanger>().grow ? 
+                growEffect : shrinkEffect;
+            effect.Stop();
+            effect.time = 0;
+        }
     }
 
     private void OnCollisionStay(Collision other){
