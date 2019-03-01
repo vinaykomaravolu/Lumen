@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 774927235}
   - component: {fileID: 774927236}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: GrowEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4710,7 +4710,7 @@ GameObject:
   - component: {fileID: 921904866}
   - component: {fileID: 921904865}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: ShrinkEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9747,6 +9747,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landSoundThreshold: 8
+  shrinkEffect: {fileID: 921904866}
+  growEffect: {fileID: 774927235}
 --- !u!1 &8520301979331774721
 GameObject:
   m_ObjectHideFlags: 0

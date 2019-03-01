@@ -41,7 +41,8 @@ public class ContactHandler : MonoBehaviour{
         if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
             ParticleSystem effect = collision.gameObject.GetComponent<SizeChanger>().grow ? 
                 growEffect : shrinkEffect;
-            if (!effect.isPlaying) effect.Play();
+            effect.Stop();
+            effect.time = 0;
         }
     }
 
@@ -49,17 +50,16 @@ public class ContactHandler : MonoBehaviour{
         getContactInfo(collision);
         contactVelocity = collision.relativeVelocity;
         if (collision.impulse.magnitude > landSoundThreshold) Instantiate(Global.soundControl.landing);
-        if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
-            ParticleSystem effect = collision.gameObject.GetComponent<SizeChanger>().grow ? 
-                growEffect : shrinkEffect;
-            effect.Stop();
-            effect.time = 0;
-        }
     }
 
-    private void OnCollisionStay(Collision other){
-        getContactInfo(other);
-        if (other.gameObject.CompareTag(Global.sizeChangerTag)) form.setSizeChange(other.gameObject);
+    private void OnCollisionStay(Collision collision){
+        getContactInfo(collision);
+        if (collision.gameObject.CompareTag(Global.sizeChangerTag)) {
+            form.setSizeChange(collision.gameObject);
+            ParticleSystem effect = collision.gameObject.GetComponent<SizeChanger>().grow ? 
+                growEffect : shrinkEffect;
+            if (!effect.isPlaying) effect.Play();
+        }
     }
 
     private void getContactInfo(Collision collision){
