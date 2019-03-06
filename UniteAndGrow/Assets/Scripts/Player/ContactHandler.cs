@@ -8,8 +8,10 @@ public class ContactHandler : MonoBehaviour{
     public ContactSurface contactSurface{ get; private set; }
     public Vector3 contactNorm{ get; private set; } // contactNorm.y = -2 if in mid air
     public Vector3 contactVelocity{ get; private set; }
-    public ParticleSystem shrinkEffect;
-    public ParticleSystem growEffect;
+    public GameObject shrinkEffectPrefab;
+    public GameObject growEffectPrefab;
+    private GameObject shrinkEffect;
+    private GameObject growEffect;
 
     public ContactMode contactMode {
         get{
@@ -38,11 +40,10 @@ public class ContactHandler : MonoBehaviour{
     private void OnCollisionExit(Collision collision){
         contactNorm = new Vector3(0, -2, 0);
         contactSurface = ContactSurface.Other;
+        
         if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
-            ParticleSystem effect = collision.gameObject.GetComponent<SizeChanger>().grow ? 
-                growEffect : shrinkEffect;
-            effect.Stop();
-            effect.time = 0;
+            (collision.gameObject.GetComponent<SizeChanger>().grow ? 
+                growEffect : shrinkEffect).GetComponent<ParticleEmissionControl>().kill();
         }
     }
 
@@ -50,15 +51,30 @@ public class ContactHandler : MonoBehaviour{
         getContactInfo(collision);
         contactVelocity = collision.relativeVelocity;
         if (collision.impulse.magnitude > landSoundThreshold) Instantiate(Global.soundControl.landing);
+        
+        if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
+            if (collision.gameObject.GetComponent<SizeChanger>().grow){
+                growEffect = Instantiate(growEffectPrefab,
+                    transform.position,
+                    Quaternion.LookRotation(collision.GetContact(0).normal),
+                    transform);
+            } else{
+                shrinkEffect = Instantiate(shrinkEffectPrefab,
+                    transform.position,
+                    Quaternion.LookRotation(collision.GetContact(0).normal),
+                    transform);
+            }
+        }
     }
 
     private void OnCollisionStay(Collision collision){
         getContactInfo(collision);
-        if (collision.gameObject.CompareTag(Global.sizeChangerTag)) {
-            form.setSizeChange(collision.gameObject);
-            ParticleSystem effect = collision.gameObject.GetComponent<SizeChanger>().grow ? 
-                growEffect : shrinkEffect;
-            if (!effect.isPlaying) effect.Play();
+        if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
+            if (collision.gameObject.GetComponent<SizeChanger>().grow){
+                growEffect.transform.rotation = Quaternion.LookRotation(collision.GetContact(0).normal);
+            } else{
+                shrinkEffect.transform.rotation = Quaternion.LookRotation(collision.GetContact(0).normal);
+            }
         }
     }
 

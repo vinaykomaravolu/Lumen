@@ -16,12 +16,14 @@ public class SizeIndicator : MonoBehaviour{
     }
 
     private void Update(){
+        float limit = Mathf.Max(FormControl.sizeToVolume(sizeLimit), massLimit);
         // volume is the same as mass, one of the limit can be 0
-        if (form.size > sizeLimit && form.volume > massLimit){
-            //over limit
-            colorModule.color = overLimitGradient;
+        if (form.volume > limit){
+            colorModule.color = overLimitGradient.Evaluate(
+                (form.volume - limit) / (form.maxSize - limit));
         } else{
-            colorModule.color = underLimitGradient;
+            colorModule.color = underLimitGradient.Evaluate(
+                form.volume / limit);
         }
     }
 }

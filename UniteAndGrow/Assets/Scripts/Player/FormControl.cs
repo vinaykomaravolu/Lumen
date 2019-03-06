@@ -11,36 +11,25 @@ public class FormControl : MonoBehaviour{
     public float maxSize;
     public float sizeChangeInterval;
 
-    [Header("Particle")]
-    public ParticleSystem shrinkEffect;
-
     private Rigidbody body;
     private SizeChanger sizeChanger;
     private float sizeChangeTime = float.NegativeInfinity;
-    private ContactHandler contact;
 
     private void Start(){
         body = GetComponent<Rigidbody>();
         body.mass = volume;
-        contact = GetComponent<ContactHandler>();
     }
 
     private void Update(){
         checkSizeChange();
         if (volume < minVolume) Global.gameControl.lose();
-//        if (contact.contactMode == ContactMode.Ground){
-//            if (!shrinkEffect.isPlaying) shrinkEffect.Play();
-//        } else{
-//            shrinkEffect.Stop();
-//            shrinkEffect.time = 0;
-//        }
     }
 
-    private float volumeToSize(float volume){
+    public static float volumeToSize(float volume){
         return Mathf.Sqrt(volume);
     }
 
-    private float sizeToVolume(float size){
+    public static float sizeToVolume(float size){
         return size * size;
     }
 
