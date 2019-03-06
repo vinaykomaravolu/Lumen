@@ -70,6 +70,7 @@ public class ContactHandler : MonoBehaviour{
     private void OnCollisionStay(Collision collision){
         getContactInfo(collision);
         if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
+            form.setSizeChange(collision.gameObject);
             if (collision.gameObject.GetComponent<SizeChanger>().grow){
                 growEffect.transform.rotation = Quaternion.LookRotation(collision.GetContact(0).normal);
             } else{
