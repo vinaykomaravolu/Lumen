@@ -12,6 +12,7 @@ public static class Global{
     public const string groundTag = "Ground";
     public const string sizeChangerTag = "SizeChanger";
     public const string superJumpTag = "SuperJump";
+    public const string wallTag = "Wall";
     
     public const string mainMenuName = "mainMenu";
     

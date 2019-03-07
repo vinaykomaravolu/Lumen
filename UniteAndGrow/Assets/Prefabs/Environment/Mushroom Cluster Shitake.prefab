@@ -10,11 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6292922658005225799}
   - component: {fileID: 2037110644625360044}
-  - component: {fileID: 6583742416429411096}
-  - component: {fileID: 1732258464283038936}
   m_Layer: 0
   m_Name: Mushroom Cluster Shitake
-  m_TagString: SizeChanger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,36 +48,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.74
   m_Center: {x: -1.11, y: -1.38, z: -0.41}
---- !u!114 &6583742416429411096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6292922658005225798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adce7372783cb4166a8cac8d93b1f8bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grow: 0
-  killOnDry: 0
-  volume: Infinity
-  volumePerSecond: 1
---- !u!114 &1732258464283038936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6292922658005225798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6063875d62433fb232ec6e95dc0aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 50
-  forceRange: 3
 --- !u!1 &6292922658236871835
 GameObject:
   m_ObjectHideFlags: 0

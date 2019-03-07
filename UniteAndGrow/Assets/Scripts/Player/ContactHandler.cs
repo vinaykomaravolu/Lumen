@@ -28,7 +28,10 @@ public class ContactHandler : MonoBehaviour{
     }
 
     private void OnTriggerStay(Collider other){
-        if (other.CompareTag(Global.sizeChangerTag)) form.setSizeChange(other.gameObject);
+        if (other.CompareTag(Global.sizeChangerTag)){
+            form.setSizeChange(other.gameObject);
+            contactSurface = ContactSurface.SizeChanger;
+        }
     }
 
     private void OnTriggerEnter(Collider other){
@@ -83,20 +86,25 @@ public class ContactHandler : MonoBehaviour{
         //looking for the flattest contact surface
         for (int i = 0; i < collision.contactCount; i++){
             Vector3 norm = collision.GetContact(i).normal;
-            if (norm.y <= contactNorm.y) continue;
-            contactNorm = norm;
+            if (norm.y > contactNorm.y) contactNorm = norm;
             switch (collision.gameObject.tag){
                 case Global.groundTag:
-                    contactSurface = ContactSurface.Ground;
+                    if (contactSurface == ContactSurface.Other)
+                        contactSurface = ContactSurface.Ground; // Ground has lower priority
                     break;
                 case Global.sizeChangerTag:
-                    contactSurface = ContactSurface.SizeChanger;
+                    contactSurface = ContactSurface.SizeChanger; // Top priority
                     break;
                 case Global.superJumpTag:
-                    contactSurface = ContactSurface.SuperJump;
+                    contactSurface = ContactSurface.SuperJump; // Top priority
+                    break;
+                case Global.wallTag:
+                    if (contactSurface == ContactSurface.Ground)
+                        contactSurface = ContactSurface.Other; // Other has lower priority
                     break;
                 default:
-                    contactSurface = ContactSurface.Ground;
+                    if (contactSurface == ContactSurface.Other)
+                        contactSurface = ContactSurface.Ground; // Ground has lower priority
                     break;
             }
         }

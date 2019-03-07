@@ -14,10 +14,12 @@ public class FormControl : MonoBehaviour{
     private Rigidbody body;
     private SizeChanger sizeChanger;
     private float sizeChangeTime = float.NegativeInfinity;
+    private ContactHandler contact;
 
     private void Start(){
         body = GetComponent<Rigidbody>();
         body.mass = volume;
+        contact = GetComponent<ContactHandler>();
     }
 
     private void Update(){
@@ -40,6 +42,8 @@ public class FormControl : MonoBehaviour{
     }
 
     private void checkSizeChange(){
+        if (contact.contactMode == ContactMode.Ground && contact.contactSurface != ContactSurface.SizeChanger)
+            sizeChangeTime = float.NegativeInfinity;
         if (Time.timeSinceLevelLoad > sizeChangeTime + sizeChangeInterval) return;
         changeVolume(sizeChanger.contact());
         if (sizeChanger.checkDeath()) sizeChangeTime = float.NegativeInfinity;

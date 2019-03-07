@@ -6,7 +6,6 @@ class CheckPoint : MonoBehaviour{
     public GameObject spawnPoint;
         
     private void OnTriggerEnter(Collider other){
-        print("hi");
         if (Global.gameControl.checkPointIndex < checkPointIndex){
             Global.gameControl.startPoint = spawnPoint;
             Global.gameControl.checkPointIndex = checkPointIndex;
