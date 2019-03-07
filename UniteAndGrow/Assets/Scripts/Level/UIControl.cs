@@ -77,6 +77,10 @@ public class UIControl : MonoBehaviour{
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void respawn(){
+        Global.gameControl.respawn();
+    }
+
     public void exit(){
         SceneManager.LoadScene(Global.mainMenuName);
     }

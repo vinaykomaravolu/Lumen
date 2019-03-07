@@ -11,7 +11,7 @@ public static class Global{
     public const string collectibleTag = "Collectible";
     public const string groundTag = "Ground";
     public const string sizeChangerTag = "SizeChanger";
-    public const string mushroomTag = "Mushroom";
+    public const string superJumpTag = "SuperJump";
     
     public const string mainMenuName = "mainMenu";
     

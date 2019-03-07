@@ -92,11 +92,11 @@ public class ContactHandler : MonoBehaviour{
                 case Global.sizeChangerTag:
                     contactSurface = ContactSurface.SizeChanger;
                     break;
-                case Global.mushroomTag:
-                    contactSurface = ContactSurface.Mushroom;
+                case Global.superJumpTag:
+                    contactSurface = ContactSurface.SuperJump;
                     break;
                 default:
-                    contactSurface = ContactSurface.Other;
+                    contactSurface = ContactSurface.Ground;
                     break;
             }
         }
@@ -106,4 +106,4 @@ public class ContactHandler : MonoBehaviour{
 // surface contacting with the player
 public enum ContactMode{Air, Ground, Wall}
 
-public enum ContactSurface{Ground, SizeChanger, Mushroom, Other}
+public enum ContactSurface{Ground, SizeChanger, SuperJump, Other}

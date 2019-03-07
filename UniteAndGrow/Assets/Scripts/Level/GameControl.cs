@@ -41,18 +41,13 @@ public class GameControl : MonoBehaviour{
         Global.soundControl = Instantiate(soundControlPrefab);
         Global.gravity = gravity;
         
+        spawn();
+    }
+
+    private void spawn(){
         uiControl = Instantiate(canvas).GetComponent<UIControl>();
         debugInfo = uiControl.debugInfo;
         
-        spawnPlayer();
-        
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        Time.timeScale = 1;
-    }
-
-    private void spawnPlayer(){
         player = Instantiate(playerPrefab, startPoint.transform.position, startPoint.transform.rotation);
         camera = Instantiate(cameraPrefab, startPoint.transform.position, startPoint.transform.rotation);
         
@@ -65,6 +60,13 @@ public class GameControl : MonoBehaviour{
         camera.GetComponent<CameraRotation>().player = player;
 
         SizeIndicator.form = playerForm;
+        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        Time.timeScale = 1;
+        end = false;
+        paused = false;
     }
 
     private void Update(){
@@ -76,7 +78,8 @@ public class GameControl : MonoBehaviour{
     public void respawn(){
         Destroy(player);
         Destroy(camera);
-        spawnPlayer();
+        Destroy(uiControl.gameObject);
+        spawn();
     }
 
     public void win(){

@@ -77,7 +77,7 @@ public class MovementControl : MonoBehaviour{
     }
 
     private void jumpMove(){
-        if (contactMode == ContactMode.Ground && contact.contactSurface == ContactSurface.Mushroom){
+        if (contactMode == ContactMode.Ground && contact.contactSurface == ContactSurface.SuperJump){
             float speed = Mathf.Clamp(contact.contactVelocity.y * superJumpFactor, jumpSpeed, maxJumpSpeed);
             initialJump(speed);
         }
