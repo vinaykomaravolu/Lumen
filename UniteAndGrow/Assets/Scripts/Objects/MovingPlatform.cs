@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour{
 
+    public bool checkPlayerParent;
     public Vector2 randomStart;
     public Vector4[] locations;
     [Header("Quick Setting")]
@@ -34,13 +35,13 @@ public class MovingPlatform : MonoBehaviour{
     }
 
     private void OnCollisionEnter(Collision other){
-        if (other.gameObject.CompareTag(Global.playerTag)){
+        if (checkPlayerParent && other.gameObject.CompareTag(Global.playerTag)){
             other.transform.parent = transform;
         }
     }
 
     private void OnCollisionExit(Collision other){
-        if (other.gameObject.CompareTag(Global.playerTag)){
+        if (checkPlayerParent && other.gameObject.CompareTag(Global.playerTag)){
             other.transform.parent = null;
         }
     }

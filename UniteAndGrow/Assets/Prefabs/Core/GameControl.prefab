@@ -199,8 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f74eb8263f4ee79147c0eea8810cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
   startPoint: {fileID: 4328519485919039883}
+  checkPointIndex: 0
   nextScene: 
   gravity: 40
   canvas: {fileID: 1889674003160710264, guid: 4713d81de5b64493d9ef14f2fd5ef050, type: 3}
@@ -214,6 +215,7 @@ MonoBehaviour:
   timeScoreFactor: 119000
   collectScoreBase: 1000
   paused: 0
+  end: 0
 --- !u!1 &7861355476063444690
 GameObject:
   m_ObjectHideFlags: 0

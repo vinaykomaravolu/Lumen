@@ -57,11 +57,13 @@ public class ContactHandler : MonoBehaviour{
         
         if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
             if (collision.gameObject.GetComponent<SizeChanger>().grow){
+                if (growEffect != null) Destroy(growEffect.gameObject);
                 growEffect = Instantiate(growEffectPrefab,
                     transform.position,
                     Quaternion.LookRotation(collision.GetContact(0).normal),
                     transform);
             } else{
+                if (shrinkEffect != null) Destroy(shrinkEffect.gameObject);
                 shrinkEffect = Instantiate(shrinkEffectPrefab,
                     transform.position,
                     Quaternion.LookRotation(collision.GetContact(0).normal),
