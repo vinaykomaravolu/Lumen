@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 
 // in charge of size and liquid or solid
 public class FormControl : MonoBehaviour{
@@ -9,8 +9,10 @@ public class FormControl : MonoBehaviour{
     public float size => volumeToSize(volume);
     public float minSize;
     public float maxSize;
+    public float volumeSizeFactor;
     public float sizeChangeInterval;
 
+    private static float _volumeSizeFactor;
     private Rigidbody body;
     private SizeChanger sizeChanger;
     private float sizeChangeTime = float.NegativeInfinity;
@@ -20,6 +22,7 @@ public class FormControl : MonoBehaviour{
         body = GetComponent<Rigidbody>();
         body.mass = volume;
         contact = GetComponent<ContactHandler>();
+        _volumeSizeFactor = volumeSizeFactor;
     }
 
     private void Update(){
@@ -28,11 +31,11 @@ public class FormControl : MonoBehaviour{
     }
 
     public static float volumeToSize(float volume){
-        return Mathf.Sqrt(volume);
+        return Mathf.Pow(volume, 1 / _volumeSizeFactor);
     }
 
     public static float sizeToVolume(float size){
-        return size * size;
+        return Mathf.Pow(size, _volumeSizeFactor);
     }
 
     private void changeVolume(float change){

@@ -20,7 +20,5 @@ public class CameraDistance : MonoBehaviour{
             : maxDistance;
         transform.localPosition = 
             Vector3.Lerp(transform.localPosition, Vector3.back * distance, Time.deltaTime * smooth);
-        if (Physics.Linecast(position, maxPose, out hit, -1 - (1 << 9) - (1 << 2))) 
-            print(hit.collider.gameObject);
     }
 }

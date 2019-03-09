@@ -10,8 +10,6 @@ public class ContactHandler : MonoBehaviour{
     public Vector3 contactVelocity{ get; private set; }
     public GameObject shrinkEffectPrefab;
     public GameObject growEffectPrefab;
-    private GameObject shrinkEffect;
-    private GameObject growEffect;
 
     public ContactMode contactMode {
         get{
@@ -28,10 +26,7 @@ public class ContactHandler : MonoBehaviour{
     }
 
     private void OnTriggerStay(Collider other){
-        if (other.CompareTag(Global.sizeChangerTag)){
-            form.setSizeChange(other.gameObject);
-            contactSurface = ContactSurface.SizeChanger;
-        }
+        if (other.CompareTag(Global.sizeChangerTag))form.setSizeChange(other.gameObject);
     }
 
     private void OnTriggerEnter(Collider other){
@@ -45,8 +40,7 @@ public class ContactHandler : MonoBehaviour{
         contactSurface = ContactSurface.Other;
         
         if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
-            (collision.gameObject.GetComponent<SizeChanger>().grow ? 
-                growEffect : shrinkEffect).GetComponent<ParticleEmissionControl>().kill();
+            collision.gameObject.GetComponent<SizeChanger>().effect.kill();
         }
     }
 
@@ -56,19 +50,12 @@ public class ContactHandler : MonoBehaviour{
         if (collision.impulse.magnitude > landSoundThreshold) Instantiate(Global.soundControl.landing);
         
         if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
-            if (collision.gameObject.GetComponent<SizeChanger>().grow){
-                if (growEffect != null) Destroy(growEffect.gameObject);
-                growEffect = Instantiate(growEffectPrefab,
+            SizeChanger changer = collision.gameObject.GetComponent<SizeChanger>();
+            GameObject effect = changer.grow ? growEffectPrefab : shrinkEffectPrefab;
+            changer.effect = Instantiate(effect,
                     transform.position,
                     Quaternion.LookRotation(collision.GetContact(0).normal),
-                    transform);
-            } else{
-                if (shrinkEffect != null) Destroy(shrinkEffect.gameObject);
-                shrinkEffect = Instantiate(shrinkEffectPrefab,
-                    transform.position,
-                    Quaternion.LookRotation(collision.GetContact(0).normal),
-                    transform);
-            }
+                    transform).GetComponent<ParticleEmissionControl>();
         }
     }
 
@@ -76,11 +63,8 @@ public class ContactHandler : MonoBehaviour{
         getContactInfo(collision);
         if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
             form.setSizeChange(collision.gameObject);
-            if (collision.gameObject.GetComponent<SizeChanger>().grow){
-                growEffect.transform.rotation = Quaternion.LookRotation(collision.GetContact(0).normal);
-            } else{
-                shrinkEffect.transform.rotation = Quaternion.LookRotation(collision.GetContact(0).normal);
-            }
+            collision.gameObject.GetComponent<SizeChanger>().effect.transform.rotation = 
+                Quaternion.LookRotation(collision.GetContact(0).normal);
         }
     }
 

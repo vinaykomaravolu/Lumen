@@ -6,6 +6,7 @@ public class SizeChanger : MonoBehaviour{
     public bool killOnDry;
     public float volume;
     public float volumePerSecond;
+    public ParticleEmissionControl effect;
 
     // call this when contact with the size changer, return change in volume of the player
     public float contact(){
@@ -18,6 +19,7 @@ public class SizeChanger : MonoBehaviour{
     public bool checkDeath(){
         if (killOnDry && volume <= 0){
             Destroy(gameObject);
+            effect.kill();
             return true;
         }
         return false;
