@@ -1,4 +1,5 @@
-﻿﻿using UnityEngine;
+﻿﻿using UnityEditor;
+ using UnityEngine;
 
 // in charge of size and liquid or solid
 public class FormControl : MonoBehaviour{
@@ -10,12 +11,12 @@ public class FormControl : MonoBehaviour{
     public float minSize;
     public float maxSize;
     public float volumeSizeFactor;
-    public float sizeChangeInterval;
+    public float sizeChangeDistance;
 
     private static float _volumeSizeFactor;
+    private bool sizeChanged;
+    private bool contactedChanger;
     private Rigidbody body;
-    private SizeChanger sizeChanger;
-    private float sizeChangeTime = float.NegativeInfinity;
     private ContactHandler contact;
 
     private void Start(){
@@ -28,6 +29,7 @@ public class FormControl : MonoBehaviour{
     private void Update(){
         checkSizeChange();
         if (volume < minVolume) Global.gameControl.lose();
+        sizeChanged = false;
     }
 
     public static float volumeToSize(float volume){
@@ -45,15 +47,22 @@ public class FormControl : MonoBehaviour{
     }
 
     private void checkSizeChange(){
-        if (contact.contactMode == ContactMode.Ground && contact.contactSurface != ContactSurface.SizeChanger)
-            sizeChangeTime = float.NegativeInfinity;
-        if (Time.timeSinceLevelLoad > sizeChangeTime + sizeChangeInterval) return;
-        changeVolume(sizeChanger.contact());
-        if (sizeChanger.checkDeath()) sizeChangeTime = float.NegativeInfinity;
+        if (contactedChanger && !sizeChanged &&
+            Physics.Raycast(transform.position, Vector3.down, out var hit, sizeChangeDistance)
+            && hit.collider.CompareTag(Global.sizeChangerTag)){
+            sizeChange(hit.collider.gameObject);
+        }
     }
 
-    public void setSizeChange(GameObject other){
-        sizeChanger = other.GetComponent<SizeChanger>();
-        sizeChangeTime = Time.timeSinceLevelLoad;
+    public void sizeChange(GameObject other){
+        if (other is null){
+            contactedChanger = false;
+            return;
+        }
+        SizeChanger sizeChanger = other.GetComponent<SizeChanger>();
+        changeVolume(sizeChanger.contact());
+        sizeChanger.checkDeath();
+        contactedChanger = true;
+        sizeChanged = true;
     }
 }

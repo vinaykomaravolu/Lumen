@@ -26,7 +26,7 @@ public class ContactHandler : MonoBehaviour{
     }
 
     private void OnTriggerStay(Collider other){
-        if (other.CompareTag(Global.sizeChangerTag))form.setSizeChange(other.gameObject);
+        if (other.CompareTag(Global.sizeChangerTag)) form.sizeChange(other.gameObject);
     }
 
     private void OnTriggerEnter(Collider other){
@@ -56,13 +56,15 @@ public class ContactHandler : MonoBehaviour{
                     transform.position,
                     Quaternion.LookRotation(collision.GetContact(0).normal),
                     transform).GetComponent<ParticleEmissionControl>();
+        } else{
+            form?.sizeChange(null);
         }
     }
 
     private void OnCollisionStay(Collision collision){
         getContactInfo(collision);
         if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
-            form.setSizeChange(collision.gameObject);
+            form.sizeChange(collision.gameObject);
             collision.gameObject.GetComponent<SizeChanger>().effect.transform.rotation = 
                 Quaternion.LookRotation(collision.GetContact(0).normal);
         }
@@ -77,9 +79,6 @@ public class ContactHandler : MonoBehaviour{
                 case Global.groundTag:
                     if (contactSurface == ContactSurface.Other)
                         contactSurface = ContactSurface.Ground; // Ground has lower priority
-                    break;
-                case Global.sizeChangerTag:
-                    contactSurface = ContactSurface.SizeChanger; // Top priority
                     break;
                 case Global.superJumpTag:
                     contactSurface = ContactSurface.SuperJump; // Top priority
@@ -100,4 +99,4 @@ public class ContactHandler : MonoBehaviour{
 // surface contacting with the player
 public enum ContactMode{Air, Ground, Wall}
 
-public enum ContactSurface{Ground, SizeChanger, SuperJump, Other}
+public enum ContactSurface{Ground, SuperJump, Other}

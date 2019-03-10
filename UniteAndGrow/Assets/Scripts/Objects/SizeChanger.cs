@@ -16,12 +16,10 @@ public class SizeChanger : MonoBehaviour{
         return grow ? deltaVolume : -deltaVolume;
     }
 
-    public bool checkDeath(){
+    public void checkDeath(){
         if (killOnDry && volume <= 0){
             Destroy(gameObject);
             effect.kill();
-            return true;
         }
-        return false;
     }
 }
