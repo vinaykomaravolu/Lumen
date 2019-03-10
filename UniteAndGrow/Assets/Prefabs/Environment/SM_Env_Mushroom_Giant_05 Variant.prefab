@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!64 &2677454242231065851
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974408472001336260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+--- !u!1001 &4974408472001303908
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Mushroom_Giant_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 115.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.06926164
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9975985
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -367.943
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.0596762
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.683338
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3515517
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a0810be54bb756549b61851f702b5d68, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0009069052d553c40befa83ad3c9081b, type: 3}
+--- !u!1 &4974408472001336260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 0009069052d553c40befa83ad3c9081b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4974408472001303908}
+  m_PrefabAsset: {fileID: 0}
