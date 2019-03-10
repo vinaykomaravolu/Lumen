@@ -292,16 +292,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
+  forceOnly: 0
   speed: 10
+  dragForce: 50
+  wallDrag: 2
+  jumpBackFactor: 0.6
+  wallMoveThreshold: 0.2
+  pushForce: 80
   jumpSpeed: 10
   superJumpFactor: 1
   maxJumpSpeed: 30
-  pushForce: 80
-  jumpBackFactor: 0.6
-  dragForce: 50
-  wallDrag: 2
-  holdJumpDuration: 0.2
-  forceOnly: 0
+  holdJumpDuration: 0.1
 --- !u!114 &8520301978439430543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +319,7 @@ MonoBehaviour:
   minSize: 0.2
   maxSize: 2
   volumeSizeFactor: 1.5
-  sizeChangeDistance: 5
+  sizeChangeDistance: 6
 --- !u!114 &8520301978439430542
 MonoBehaviour:
   m_ObjectHideFlags: 0
