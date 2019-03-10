@@ -19,7 +19,7 @@ public class SizeChanger : MonoBehaviour{
     public void checkDeath(){
         if (killOnDry && volume <= 0){
             Destroy(gameObject);
-            effect.kill();
+            effect?.kill();
         }
     }
 }

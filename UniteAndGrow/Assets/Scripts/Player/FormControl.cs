@@ -28,8 +28,11 @@ public class FormControl : MonoBehaviour{
 
     private void Update(){
         checkSizeChange();
-        if (volume < minVolume) Global.gameControl.lose();
         sizeChanged = false;
+    }
+
+    private void FixedUpdate(){
+        if (volume < minVolume) Global.gameControl.lose(); // don't check when time scale is 0
     }
 
     public static float volumeToSize(float volume){

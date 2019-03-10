@@ -1841,6 +1841,7 @@ MonoBehaviour:
   killOnDry: 1
   volume: 100
   volumePerSecond: Infinity
+  effect: {fileID: 0}
 --- !u!65 &695356014
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2462,7 +2463,7 @@ GameObject:
   - component: {fileID: 974070262}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Finish
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2738,6 +2739,7 @@ MonoBehaviour:
   killOnDry: 0
   volume: 100
   volumePerSecond: 0.2
+  effect: {fileID: 0}
 --- !u!1 &1159794248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,6 +3253,7 @@ MonoBehaviour:
   killOnDry: 0
   volume: Infinity
   volumePerSecond: 10
+  effect: {fileID: 0}
 --- !u!65 &1283409708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4047,6 +4050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
+        type: 3}
+      propertyPath: debug
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c1bf2f38d8642f893e956b31deae79, type: 3}
@@ -5011,6 +5019,7 @@ MonoBehaviour:
   killOnDry: 0
   volume: Infinity
   volumePerSecond: 10
+  effect: {fileID: 0}
 --- !u!65 &1883511737
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5497,6 +5506,7 @@ MonoBehaviour:
   killOnDry: 0
   volume: 100
   volumePerSecond: 0.2
+  effect: {fileID: 0}
 --- !u!65 &2083726454
 BoxCollider:
   m_ObjectHideFlags: 0
