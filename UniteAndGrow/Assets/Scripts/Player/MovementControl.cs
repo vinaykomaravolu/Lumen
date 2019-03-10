@@ -53,7 +53,9 @@ public class MovementControl : MonoBehaviour{
     }
 
     private void wallSlide(){
-        if (contactMode != ContactMode.Wall || body.velocity.y > -wallDrag) return;
+        if (contactMode != ContactMode.Wall 
+            || contact.contactSurface == ContactSurface.Ground 
+            || body.velocity.y > -wallDrag) return;
         Vector3 velocity = body.velocity;
         velocity.y = -wallDrag;
         body.velocity = velocity;

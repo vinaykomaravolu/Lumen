@@ -297,12 +297,12 @@ MonoBehaviour:
   dragForce: 50
   wallDrag: 2
   jumpBackFactor: 0.6
-  wallMoveThreshold: 0.2
+  wallMoveThreshold: 0.1
   pushForce: 80
   jumpSpeed: 10
   superJumpFactor: 1
   maxJumpSpeed: 30
-  holdJumpDuration: 0.1
+  holdJumpDuration: 0.2
 --- !u!114 &8520301978439430543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
   minSize: 0.2
   maxSize: 2
   volumeSizeFactor: 1.5
-  sizeChangeDistance: 6
+  sizeChangeDistance: 5
 --- !u!114 &8520301978439430542
 MonoBehaviour:
   m_ObjectHideFlags: 0
