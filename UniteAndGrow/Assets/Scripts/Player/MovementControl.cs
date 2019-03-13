@@ -3,10 +3,11 @@ using UnityEngine;
 public class MovementControl : MonoBehaviour{
 
     public GameObject playerCamera;
-    public bool forceOnly; //use force even on ground
     [Header("Ground")]
     public float speed; // movement speed on ground
+    public float dashSpeed;
     public float dragForce;
+    public bool forceOnly; //use force even on ground
     [Header("Wall")]
     public float wallDrag;
     public float jumpBackFactor; // jump back scale during wall jump
@@ -29,12 +30,14 @@ public class MovementControl : MonoBehaviour{
     private ContactHandler contact;
     private ContactMode contactMode => contact.contactMode;
     private Vector3 contactNorm => contact.contactNorm;
+    private FormControl form;
     
     // Start is called before the first frame update
     void Start(){
         body = GetComponent<Rigidbody>();
         appearance = GetComponent<AppearanceControl>();
         contact = GetComponent<ContactHandler>();
+        form = GetComponent<FormControl>();
     }
 
     // Update is called once per frame
@@ -65,26 +68,33 @@ public class MovementControl : MonoBehaviour{
         Vector3 velocity = body.velocity;
         Vector3 controlStick = getControl();
         velocity.y = 0;
-        
-        if (contactMode == ContactMode.Ground && !forceOnly){
-            velocity.x = getSpeed(controlStick.x * speed, velocity.x);
-            velocity.z = getSpeed(controlStick.z * speed, velocity.z);
-        } else if (contactMode == ContactMode.Wall){
-            Vector3 sideControl = 
-                Vector3.Project(controlStick, Vector3.Cross(jumpNorm, Vector3.up));
-            Vector3 forwardSpeed = Vector3.Project(velocity, jumpNorm);
-            float magDiff = sideControl.magnitude - wallMoveThreshold;
-            if (magDiff > 0){
-                velocity = sideControl.normalized * magDiff * speed + forwardSpeed;
-            } else{
-                velocity = forwardSpeed;
-            }
-        } else{
-            velocity += controlStick * pushForce * Time.deltaTime;
-        }
 
-        //max horizontal speed
-        velocity = Vector3.ClampMagnitude(velocity, speed);
+        if (Input.GetButton(Global.dashButton)){
+            velocity.x = getSpeed(controlStick.x * dashSpeed, velocity.x);
+            velocity.z = getSpeed(controlStick.z * dashSpeed, velocity.z);
+            //max horizontal speed
+            velocity = Vector3.ClampMagnitude(velocity, dashSpeed);
+            form.dash();
+        } else{
+            if (contactMode == ContactMode.Ground && !forceOnly){
+                velocity.x = getSpeed(controlStick.x * speed, velocity.x);
+                velocity.z = getSpeed(controlStick.z * speed, velocity.z);
+            } else if (contactMode == ContactMode.Wall){
+                Vector3 sideControl =
+                    Vector3.Project(controlStick, Vector3.Cross(jumpNorm, Vector3.up));
+                Vector3 forwardSpeed = Vector3.Project(velocity, jumpNorm);
+                float magDiff = sideControl.magnitude - wallMoveThreshold;
+                if (magDiff > 0){
+                    velocity = sideControl.normalized * magDiff * speed + forwardSpeed;
+                } else{
+                    velocity = forwardSpeed;
+                }
+            } else{
+                velocity += controlStick * pushForce * Time.deltaTime;
+            }
+            //max horizontal speed
+            velocity = Vector3.ClampMagnitude(velocity, speed);
+        }
 
         //set drag
         velocity.x += getDrag(controlStick.x, velocity.x);

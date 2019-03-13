@@ -4642,7 +4642,7 @@ ParticleSystem:
 --- !u!199 &1236670623322817641
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 4677899188559437001, guid: 617532a6ae5934e6a9b076c65dc725d3,
     type: 3}
   m_PrefabInstance: {fileID: 5891471262848194720}
@@ -4891,11 +4891,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4677899188559437006, guid: 617532a6ae5934e6a9b076c65dc725d3,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4677899188559437007, guid: 617532a6ae5934e6a9b076c65dc725d3,
         type: 3}
       propertyPath: m_Name
@@ -4905,6 +4900,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677899188559437006, guid: 617532a6ae5934e6a9b076c65dc725d3,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 617532a6ae5934e6a9b076c65dc725d3, type: 3}

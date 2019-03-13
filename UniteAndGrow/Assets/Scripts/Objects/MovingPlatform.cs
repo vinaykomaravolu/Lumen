@@ -11,8 +11,10 @@ public class MovingPlatform : MonoBehaviour{
     public Vector4 shift;
     private float delta;
     private float totalTime;
+    private FallingPlatform fallingPlatform;
 
     private void Start(){
+        fallingPlatform = GetComponent<FallingPlatform>();
         delta = Random.Range(randomStart.x, randomStart.y);
         if (locations.Length < 2){
             Vector4 startPos = transform.position;
@@ -31,7 +33,14 @@ public class MovingPlatform : MonoBehaviour{
         float cosValue = Mathf.Cos(Mathf.PI * 
             (relativeTime - locations[start].w) / (locations[start + 1].w - locations[start].w));
         cosValue = -(cosValue - 1) / 2;
-        transform.position = (Vector4.Lerp(locations[start], locations[start + 1], cosValue));
+        Vector3 newPos = (Vector4.Lerp(locations[start], locations[start + 1], cosValue));
+        if (fallingPlatform is null){
+            transform.position = newPos;
+        } else{
+            fallingPlatform.baseHeight = newPos.y;
+            newPos.y = transform.position.y;
+            transform.position = newPos;
+        }
     }
 
     private void OnCollisionEnter(Collision other){

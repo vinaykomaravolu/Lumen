@@ -12,17 +12,16 @@ public class FormControl : MonoBehaviour{
     public float maxSize;
     public float volumeSizeFactor;
     public float sizeChangeDistance;
+    public float dashShrink;
 
     private static float _volumeSizeFactor;
     private bool sizeChanged;
     private bool contactedChanger;
     private Rigidbody body;
-    private ContactHandler contact;
 
     private void Start(){
         body = GetComponent<Rigidbody>();
         body.mass = volume;
-        contact = GetComponent<ContactHandler>();
         _volumeSizeFactor = volumeSizeFactor;
     }
 
@@ -55,6 +54,10 @@ public class FormControl : MonoBehaviour{
             && hit.collider.CompareTag(Global.sizeChangerTag)){
             sizeChange(hit.collider.gameObject);
         }
+    }
+
+    public void dash(){
+        changeVolume(dashShrink * Time.deltaTime);
     }
 
     public void sizeChange(GameObject other){

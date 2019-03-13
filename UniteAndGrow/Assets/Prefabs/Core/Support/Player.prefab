@@ -292,9 +292,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
-  forceOnly: 0
   speed: 10
+  dashSpeed: 20
   dragForce: 50
+  forceOnly: 0
   wallDrag: 2
   jumpBackFactor: 0.6
   wallMoveThreshold: 0.1
@@ -320,6 +321,7 @@ MonoBehaviour:
   maxSize: 2
   volumeSizeFactor: 1.5
   sizeChangeDistance: 5
+  dashShrink: -0.5
 --- !u!114 &8520301978439430542
 MonoBehaviour:
   m_ObjectHideFlags: 0
