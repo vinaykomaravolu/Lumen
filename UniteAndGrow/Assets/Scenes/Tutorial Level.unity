@@ -24,9 +24,9 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: d07d2172e76d3fa429e80a14d2ae3616, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e980bc7fbb00dc34b86b95ac842d1920, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1734,6 +1734,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269381749}
     m_Modifications:
+    - target: {fileID: 100000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Cave_Curved_01_DoubleSided (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
       propertyPath: m_LocalPosition.x
       value: -36.882
@@ -1789,14 +1797,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.0365452
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Cave_Curved_01_DoubleSided (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -15368,6 +15368,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269381749}
     m_Modifications:
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Rock_Spike_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalPosition.x
       value: -49.252
@@ -15423,14 +15431,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4685
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Rock_Spike_03
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -16451,6 +16451,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269381749}
     m_Modifications:
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Rock_Spike_03 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalPosition.x
       value: -49.252
@@ -16506,14 +16514,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4685
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Rock_Spike_03 (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -18366,6 +18366,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269381749}
     m_Modifications:
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Rock_Spike_03 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalPosition.x
       value: -49.252
@@ -18422,14 +18430,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 2.4685
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Rock_Spike_03 (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_TagString
-      value: Ground
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -18443,6 +18443,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269381749}
     m_Modifications:
+    - target: {fileID: 100000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Cave_Curved_01_DoubleSided
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.78
@@ -18498,14 +18506,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.0921005
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Cave_Curved_01_DoubleSided
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 2e08abfe3bf4d8d40a0e61064e85d059, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -19198,6 +19198,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269381749}
     m_Modifications:
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_Name
+      value: Shrink Sruface (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_TagString
+      value: SizeChanger
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalPosition.x
       value: -74.16977
@@ -19253,14 +19261,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7441301
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_Name
-      value: Shrink Sruface (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_TagString
-      value: SizeChanger
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -20034,6 +20034,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269381749}
     m_Modifications:
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Rock_Spike_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalPosition.x
       value: -49.252
@@ -20089,14 +20097,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4685
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Rock_Spike_03 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -20949,6 +20949,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269381749}
     m_Modifications:
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Rock_Spike_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalPosition.x
       value: -49.252
@@ -21004,14 +21012,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4685
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Rock_Spike_03 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -21550,6 +21550,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269381749}
     m_Modifications:
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_Name
+      value: Shrink Sruface
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
+      propertyPath: m_TagString
+      value: SizeChanger
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.17
@@ -21605,14 +21613,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7441293
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_Name
-      value: Shrink Sruface
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
-      propertyPath: m_TagString
-      value: SizeChanger
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: dfa6d1e3e66e3b1488d5f403caa27e75, type: 3}
       propertyPath: m_Materials.Array.data[0]
