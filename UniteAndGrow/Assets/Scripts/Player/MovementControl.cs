@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovementControl : MonoBehaviour{
 
-    public GameObject playerCamera;
+    public CameraBase playerCamera;
     [Header("Ground")]
     public float speed; // movement speed on ground
     public float dashSpeed;
@@ -75,7 +75,9 @@ public class MovementControl : MonoBehaviour{
             //max horizontal speed
             velocity = Vector3.ClampMagnitude(velocity, dashSpeed);
             form.dash();
+            playerCamera.dashing = true;
         } else{
+            playerCamera.dashing = false;
             if (contactMode == ContactMode.Ground && !forceOnly){
                 velocity.x = getSpeed(controlStick.x * speed, velocity.x);
                 velocity.z = getSpeed(controlStick.z * speed, velocity.z);

@@ -30,7 +30,7 @@ public class GameControl : MonoBehaviour{
     private FormControl playerForm;
     private Rigidbody playerBody;
     private ContactHandler playerContact;
-    private GameObject camera;
+    private CameraBase cameraBase;
     public bool paused;
     public bool end;
 
@@ -49,15 +49,16 @@ public class GameControl : MonoBehaviour{
         debugInfo = uiControl.debugInfo;
         
         player = Instantiate(playerPrefab, startPoint.transform.position, startPoint.transform.rotation);
-        camera = Instantiate(cameraPrefab, startPoint.transform.position, startPoint.transform.rotation);
+        cameraBase = Instantiate(cameraPrefab, startPoint.transform.position, startPoint.transform.rotation)
+            .GetComponent<CameraBase>();
         
         playerForm = player.GetComponent<FormControl>();
         playerBody = player.GetComponent<Rigidbody>();
-        player.GetComponent<MovementControl>().playerCamera = camera;;
+        player.GetComponent<MovementControl>().playerCamera = cameraBase;
+        
         playerContact = player.GetComponent<ContactHandler>();
         
-        camera.GetComponentInChildren<CameraDistance>().form = playerForm;
-        camera.GetComponent<CameraRotation>().player = player;
+        cameraBase.player = player;
 
         SizeIndicator.form = playerForm;
         
@@ -77,7 +78,7 @@ public class GameControl : MonoBehaviour{
 
     public void respawn(){
         Destroy(player);
-        Destroy(camera);
+        Destroy(cameraBase.gameObject);
         Destroy(uiControl.gameObject);
         spawn();
     }
