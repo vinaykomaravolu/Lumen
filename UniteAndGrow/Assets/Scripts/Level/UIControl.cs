@@ -22,7 +22,7 @@ public class UIControl : MonoBehaviour{
     public FadingText loseText;
     public Text loseTextContent;
     private string[] deathDialogueOptions = { "Better luck next time!", "Yikes!", "You're not very good at this are you?", "Wowzers!", "Why are you still trying?",
-        "Are you playing with your hands or your feet?" };
+        "Are you playing with your hands or your feet?", "You again? I thought you would've passed by now", "Are you even trying?", "Was that on purpose?" };
 
     void Update() {
         if (Debug.isDebugBuild) {
