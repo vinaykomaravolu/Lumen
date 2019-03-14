@@ -20,7 +20,9 @@ public class UIControl : MonoBehaviour{
     public FadingText loseBackground;
     public float loseTextDelay;
     public FadingText loseText;
-    public GrowingText loseTextGrow;
+    public Text loseTextContent;
+    private string[] deathDialogueOptions = { "Better luck next time!", "Yikes!", "You're not very good at this are you?", "Wowzers!", "Why are you still trying?",
+        "Are you playing with your hands or your feet?" };
 
     void Update() {
         if (Debug.isDebugBuild) {
@@ -39,7 +41,6 @@ public class UIControl : MonoBehaviour{
                 loseMenu.SetActive(false);
                 loseBackground.reset();
                 loseText.reset();
-                loseTextGrow.reset();
             }
         }
     }
@@ -53,6 +54,9 @@ public class UIControl : MonoBehaviour{
     }
 
     public void showLose(){
+        int rnd = Random.Range(0, deathDialogueOptions.Length);
+        string dialogue = deathDialogueOptions[rnd];
+        loseTextContent.text = dialogue;
         StartCoroutine(_showLose());
     }
 
@@ -64,7 +68,6 @@ public class UIControl : MonoBehaviour{
         {
             yield return null;
         }
-        loseTextGrow.targetSize = 120;
         loseText.targetAlpha = 1;
         yield return null;
     }
