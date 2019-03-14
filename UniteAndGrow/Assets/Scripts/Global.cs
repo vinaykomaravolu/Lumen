@@ -14,7 +14,9 @@ public static class Global{
     public const string superJumpTag = "SuperJump";
     public const string wallTag = "Wall";
     
-    public const string mainMenuName = "mainMenu";
+    public const string mainMenuName = "Main Menu";
+    public const string tutorialName = "Tutorial Level";
+    public const string levelOneName = "Level 1";
     
     public const string jumpButton = "Jump";
     public const string moveHorizontalButton = "Horizontal";
