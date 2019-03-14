@@ -1,4 +1,3 @@
-using Objects;
 using UnityEngine;
 
 class CheckPoint : MonoBehaviour{
@@ -8,9 +7,12 @@ class CheckPoint : MonoBehaviour{
     public CheckPointMarker[] markers;
         
     private void OnTriggerEnter(Collider other){
-        if (Global.gameControl.checkPointIndex < checkPointIndex){
+        if (other.CompareTag(Global.playerTag) && Global.gameControl.checkPointIndex < checkPointIndex){
             Global.gameControl.startPoint = spawnPoint;
             Global.gameControl.checkPointIndex = checkPointIndex;
+            foreach (var marker in markers){
+                marker.activate();
+            }
         }
     }
     
