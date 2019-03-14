@@ -56,11 +56,11 @@ MonoBehaviour:
       reflection:
         blendType: 0
         reflectionQuality: 2
-        maxDistance: 100
-        iterationCount: 256
+        maxDistance: 0.1
+        iterationCount: 583
         stepSize: 3
         widthModifier: 0.5
-        reflectionBlur: 1
+        reflectionBlur: 2.57
         reflectBackfaces: 0
       intensity:
         reflectionMultiplier: 1
@@ -73,10 +73,10 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       focusDistance: 10
-      aperture: 5.6
-      focalLength: 50
+      aperture: 1.7
+      focalLength: 25
       useCameraFov: 0
-      kernelSize: 1
+      kernelSize: 0
   motionBlur:
     m_Enabled: 0
     m_Settings:
@@ -301,7 +301,7 @@ MonoBehaviour:
         e_CurveG: 0
         e_CurveB: 0
   userLut:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       lut: {fileID: 0}
       contribution: 1
