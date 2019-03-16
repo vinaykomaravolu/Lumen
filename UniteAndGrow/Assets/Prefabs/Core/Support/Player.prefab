@@ -297,12 +297,12 @@ MonoBehaviour:
   dragForce: 50
   forceOnly: 0
   wallDrag: 2
-  jumpBackFactor: 0.6
+  jumpBackFactor: 50
   wallMoveThreshold: 0.1
-  pushForce: 80
-  jumpSpeed: 10
-  superJumpFactor: 1
-  maxJumpSpeed: 30
+  pushForce: 50
+  jumpSpeed: 15
+  superJumpFactor: 2
+  maxJumpSpeed: 20
   holdJumpDuration: 0.2
 --- !u!114 &8520301978439430543
 MonoBehaviour:
@@ -316,12 +316,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fbee10e6ba5a24eb665b82213584dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 1
+  volume: 0.2
   minSize: 0.2
   maxSize: 3
   volumeSizeFactor: 1.5
   sizeChangeDistance: 5
-  dashShrink: -0.5
+  dashShrink: 1
 --- !u!114 &8520301978439430542
 MonoBehaviour:
   m_ObjectHideFlags: 0
