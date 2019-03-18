@@ -40,7 +40,6 @@ public class GameControl : MonoBehaviour{
         Global.gameControl = this;
         Global.soundControl = Instantiate(soundControlPrefab);
         Global.gravity = gravity;
-        
         spawn();
     }
 
@@ -71,7 +70,10 @@ public class GameControl : MonoBehaviour{
     }
 
     private void Update(){
-        if (debug) updateDebugInfo();
+        if (debug){
+            updateDebugInfo();
+            if (Input.GetKeyDown("c") && Input.GetKeyDown("l")) PlayerPrefs.DeleteAll();
+        }
         if (!end && (Input.GetButtonDown(Global.pauseButton) || 
             Input.GetButtonDown(Global.altPauseButton))) pause();
     }

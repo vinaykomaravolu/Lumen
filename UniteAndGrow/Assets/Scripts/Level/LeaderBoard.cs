@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public static class LeaderBoard{
     private const string timePreFix = "top-time-";
 
     // only need to call this once
-    public static void load(){
+    private static void load(){
         scores = new List<Score>();
         for (int i = 0; i < maxSize; i++){
             if (!PlayerPrefs.HasKey(namePrefix + i)) break;
@@ -24,12 +25,14 @@ public static class LeaderBoard{
     }
 
     public static void add(Score score){
+        if (scores is null) load();
         scores.Add(score);
         scores.Sort();
         save();
     }
 
     public static List<Score> get(){
+        if (scores is null) load();
         return scores;
     }
 
@@ -43,5 +46,4 @@ public static class LeaderBoard{
         }
         PlayerPrefs.Save();
     }
-
 }
