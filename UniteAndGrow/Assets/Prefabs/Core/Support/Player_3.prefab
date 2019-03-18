@@ -292,15 +292,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
-  speed: 20
+  speed: 15
   dashSpeed: 25
   dragForce: 25
   forceOnly: 0
   wallDrag: 2
   jumpBackFactor: 20
   wallMoveThreshold: 0.1
-  pushForce: 75
-  jumpSpeed: 15
+  pushForce: 500
+  jumpSpeed: 20
   superJumpFactor: 1.5
   maxJumpSpeed: 25
   holdJumpDuration: 0.2
