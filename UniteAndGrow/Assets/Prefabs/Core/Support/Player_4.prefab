@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 8520301978439430542}
   - component: {fileID: 8716958241916032647}
   m_Layer: 2
-  m_Name: Player
+  m_Name: Player_4
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,14 +292,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
-  speed: 20
+  dashEffectPrefab: {fileID: 0}
+  sensitivityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  groundSpeed: 19
   dashSpeed: 25
   dragForce: 25
   forceOnly: 0
   wallDrag: 2
-  jumpBackFactor: 20
+  jumpBackFactor: 1
   wallMoveThreshold: 0.1
   pushForce: 75
+  dashForce: 50
   jumpSpeed: 15
   superJumpFactor: 1.5
   maxJumpSpeed: 25
