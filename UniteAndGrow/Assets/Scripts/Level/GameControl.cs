@@ -95,7 +95,6 @@ public class GameControl : MonoBehaviour{
     public void lose(){
         end = true;
         uiControl.showLose();
-        Global.soundControl.lose();
     }
 
     public void pause(){

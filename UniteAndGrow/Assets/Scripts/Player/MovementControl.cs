@@ -3,8 +3,10 @@ using UnityEngine;
 public class MovementControl : MonoBehaviour{
 
     public CameraBase playerCamera;
+    public GameObject dashEffectPrefab;
+    public AnimationCurve sensitivityCurve;
     [Header("Ground")]
-    public float speed; // movement speed on ground
+    public float groundSpeed; // movement speed on ground
     public float dashSpeed;
     public float dragForce;
     public bool forceOnly; //use force even on ground
@@ -14,6 +16,7 @@ public class MovementControl : MonoBehaviour{
     public float wallMoveThreshold;
     [Header("Air")]
     public float pushForce; // push force when in mid air
+    public float dashForce; // dash force when in mid air
     [Header("Jump")]
     public float jumpSpeed;
     public float superJumpFactor;
@@ -22,8 +25,10 @@ public class MovementControl : MonoBehaviour{
 
     private bool canWallJump => contact.contactSurface != ContactSurface.Ground;
     private bool canDoubleJump = true;
+    private bool canDash => form.volume > form.minVolume;
     private Vector3 jumpNorm;
     private float jumpStartTime;
+    private ParticleEmissionControl dashEffect;
     
     private Rigidbody body;
     private AppearanceControl appearance;
@@ -47,12 +52,32 @@ public class MovementControl : MonoBehaviour{
         if (contactMode == ContactMode.Ground) canDoubleJump = true;
         jumpMove();
         wallSlide();
+        // button down is only reliable in update
+        if (canDash && Input.GetButton(Global.dashButton)){
+            if (dashEffect is null){
+                dashEffect = Instantiate(dashEffectPrefab,
+                    transform.position,
+                    Quaternion.identity,
+                    transform).GetComponent<ParticleEmissionControl>();
+            }
+            dashEffect.transform.rotation = Quaternion.LookRotation(body.velocity);
+        } else {
+            dashEffect?.kill();
+            dashEffect = null;
+        }
     }
 
     // IMPORTANT! contact is not reliable in FixedUpdate
     void FixedUpdate(){
         body.AddForce(Vector3.down * Global.gravity * body.mass); // add gravity
-        horizontalMove();
+        if (canDash && Input.GetButton(Global.dashButton)){
+            horizontalMove(dashSpeed, dashForce);
+            form.dash();
+            playerCamera.dashing = true;
+        } else{
+            horizontalMove(groundSpeed, pushForce);
+            playerCamera.dashing = false;
+        }
     }
 
     private void wallSlide(){
@@ -64,24 +89,18 @@ public class MovementControl : MonoBehaviour{
         body.velocity = velocity;
     }
 
-    private void horizontalMove(){
+    private void horizontalMove(float speed, float force){
         Vector3 velocity = body.velocity;
         Vector3 controlStick = getControl();
         velocity.y = 0;
+        float originalSpeed = velocity.magnitude;
 
-        if (Input.GetButton(Global.dashButton)){
-            velocity.x = getSpeed(controlStick.x * dashSpeed, velocity.x);
-            velocity.z = getSpeed(controlStick.z * dashSpeed, velocity.z);
-            //max horizontal speed
-            velocity = Vector3.ClampMagnitude(velocity, dashSpeed);
-            form.dash();
-            playerCamera.dashing = true;
+        if (contactMode == ContactMode.Ground && !forceOnly){
+            velocity.x = getSpeed(controlStick.x * speed, velocity.x);
+            velocity.z = getSpeed(controlStick.z * speed, velocity.z);
+            velocity = Vector3.ClampMagnitude(velocity, speed);
         } else{
-            playerCamera.dashing = false;
-            if (contactMode == ContactMode.Ground && !forceOnly){
-                velocity.x = getSpeed(controlStick.x * speed, velocity.x);
-                velocity.z = getSpeed(controlStick.z * speed, velocity.z);
-            } else if (contactMode == ContactMode.Wall){
+            if (contactMode == ContactMode.Wall){
                 Vector3 sideControl =
                     Vector3.Project(controlStick, Vector3.Cross(jumpNorm, Vector3.up));
                 Vector3 forwardSpeed = Vector3.Project(velocity, jumpNorm);
@@ -92,10 +111,9 @@ public class MovementControl : MonoBehaviour{
                     velocity = forwardSpeed;
                 }
             } else{
-                velocity += controlStick * pushForce * Time.deltaTime;
+                velocity += controlStick * force * Time.fixedDeltaTime;
             }
-            //max horizontal speed
-            velocity = Vector3.ClampMagnitude(velocity, speed);
+            velocity = Vector3.ClampMagnitude(velocity, Mathf.Max(speed, originalSpeed));
         }
 
         //set drag
@@ -175,8 +193,11 @@ public class MovementControl : MonoBehaviour{
         Vector3 right = playerCamera.transform.right;
         right.y = 0;
         right.Normalize();
-        return right * Input.GetAxis(Global.moveHorizontalButton)
-               + forward * Input.GetAxis(Global.moveVerticalButton);
+        print(Input.GetAxis(Global.moveHorizontalButton));
+        float horizontal = Input.GetAxis(Global.moveHorizontalButton);
+        float vertical = Input.GetAxis(Global.moveVerticalButton);
+        return right * sensitivityCurve.Evaluate(Mathf.Abs(horizontal)) * Mathf.Sign(horizontal) 
+               + forward * sensitivityCurve.Evaluate(Mathf.Abs(vertical)) * Mathf.Sign(vertical);
     }
 
     // return control if control is trying to move towards the opposite direction

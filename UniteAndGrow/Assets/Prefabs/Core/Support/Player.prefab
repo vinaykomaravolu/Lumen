@@ -292,15 +292,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
-  speed: 10
+  dashEffectPrefab: {fileID: 6544923261382412073, guid: 2718d2bc616234087be24259393b027c,
+    type: 3}
+  sensitivityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2.7677855
+      outSlope: 2.7677855
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.03664124
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  groundSpeed: 10
   dashSpeed: 20
   dragForce: 50
   forceOnly: 0
   wallDrag: 2
-  jumpBackFactor: 50
+  jumpBackFactor: 1.2
   wallMoveThreshold: 0.1
   pushForce: 50
-  jumpSpeed: 15
+  dashForce: 100
+  jumpSpeed: 10
   superJumpFactor: 2
   maxJumpSpeed: 20
   holdJumpDuration: 0.2
@@ -316,12 +343,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fbee10e6ba5a24eb665b82213584dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 0.2
+  volume: 1
   minSize: 0.2
   maxSize: 3
   volumeSizeFactor: 1.5
   sizeChangeDistance: 5
-  dashShrink: 1
+  dashShrink: -0.5
 --- !u!114 &8520301978439430542
 MonoBehaviour:
   m_ObjectHideFlags: 0
