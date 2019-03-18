@@ -29,6 +29,6 @@ public class FadingText : MonoBehaviour{
 
     public void reset() {
         canvasGroup.alpha = initAlpha;
-        targetAlpha = 0;
+        targetAlpha = initAlpha;
     }
 }

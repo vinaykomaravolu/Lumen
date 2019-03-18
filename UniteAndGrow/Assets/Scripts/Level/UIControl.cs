@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -14,15 +15,9 @@ public class UIControl : MonoBehaviour{
     [Header("Win")]
     public GameObject winMenu;
     public Text scoreBoard;
-    
-    [Header("Lose")]
-    public GameObject loseMenu;
+
+    [Header("Lose")] 
     public FadingText loseBackground;
-    public float loseTextDelay;
-    public FadingText loseText;
-    public Text loseTextContent;
-    private string[] deathDialogueOptions = { "Better luck next time!", "Yikes!", "You're not very good at this are you?", "Wowzers!", "Why are you still trying?",
-        "Are you playing with your hands or your feet?", "You again? I thought you would've passed by now", "Are you even trying?", "Was that on purpose?" };
 
     void Update() {
         if (Debug.isDebugBuild) {
@@ -38,12 +33,11 @@ public class UIControl : MonoBehaviour{
             if (Input.GetKeyDown("4")) {
                 pauseMenu.SetActive(false);
                 winMenu.SetActive(false);
-                loseMenu.SetActive(false);
                 loseBackground.reset();
-                loseText.reset();
             }
         }
     }
+    //leader: name:time:score:timestamp
 
     public void showPause(bool show){
         pauseMenu.SetActive(show);
@@ -54,22 +48,13 @@ public class UIControl : MonoBehaviour{
     }
 
     public void showLose(){
-        int rnd = Random.Range(0, deathDialogueOptions.Length);
-        string dialogue = deathDialogueOptions[rnd];
-        loseTextContent.text = dialogue;
         StartCoroutine(_showLose());
     }
 
     IEnumerator _showLose(){
-        loseMenu.SetActive(true);
         loseBackground.targetAlpha = 1;
-        float start = Time.realtimeSinceStartup;
-        while (Time.realtimeSinceStartup < start + loseTextDelay)
-        {
-            yield return null;
-        }
-        loseText.targetAlpha = 1;
-        yield return null;
+        yield return new WaitForSecondsRealtime(1 / loseBackground.speed);
+        respawn();
     }
 
     public void pause(){
@@ -93,6 +78,24 @@ public class UIControl : MonoBehaviour{
     }
 
     private void setScoreBoard(){
-        scoreBoard.text = "Total Score: " + Global.gameControl.getScore(Time.timeSinceLevelLoad);
+        scoreBoard.text = "Total Score: " + Global.gameControl.getScore();
+        float time = Time.timeSinceLevelLoad;
+        int collectible = Global.gameControl.collected;
+    }
+
+    private void setLeaderBoard(){
+        List<Score> scores = LeaderBoard.get();
+        for (int i = 0; i < scores.Count; i++){
+            Score score = scores[i];
+            string time = score.getTimeString();
+        }
+    }
+
+    public void addToLeaderBoard(){
+        LeaderBoard.add(new Score{
+            name = "name",
+            time = Time.timeSinceLevelLoad,
+            score = Global.gameControl.getScore()
+        });
     }
 }

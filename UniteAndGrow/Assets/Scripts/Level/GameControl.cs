@@ -34,7 +34,7 @@ public class GameControl : MonoBehaviour{
     public bool paused;
     public bool end;
 
-    private int collected = 0;
+    public int collected{ get; private set; }
 
     private void Start(){
         Global.gameControl = this;
@@ -94,7 +94,6 @@ public class GameControl : MonoBehaviour{
         end = true;
         uiControl.showLose();
         Global.soundControl.lose();
-        Time.timeScale = 0;
     }
 
     public void pause(){
@@ -107,8 +106,8 @@ public class GameControl : MonoBehaviour{
         collected++;
     }
 
-    public int getScore(float time){
-        return (int)(collected * collectScoreBase + getTimeScore(time));
+    public int getScore(){
+        return (int)(collected * collectScoreBase + getTimeScore(Time.timeSinceLevelLoad));
     }
 
     private float getTimeScore(float time){
@@ -119,7 +118,7 @@ public class GameControl : MonoBehaviour{
         Vector3 groundSpeed = playerBody.velocity;
         groundSpeed.y = 0;
         debugInfo.text = "Time: " + Time.timeSinceLevelLoad +
-                         "\nScore: " + getScore(Time.timeSinceLevelLoad) +
+                         "\nScore: " + getScore() +
                          "\nSize: " + playerForm.size +
                          "\nVolume: " + playerForm.volume +
                          "\nDimension: " + player.transform.localScale +

@@ -11,10 +11,12 @@ public class Sound : MonoBehaviour{
     private float fadingLength;
     private float fadingStart;
     private bool instantiateNew; // true if want to instantiate new
+    private float initialVolume;
     public AudioSource audio;
 
     private void Start(){
         audio = GetComponent<AudioSource>();
+        initialVolume = audio.volume;
         instantiateNew = type != SoundType.Effect;
         StartCoroutine(life());
     }
@@ -35,13 +37,14 @@ public class Sound : MonoBehaviour{
         fadingStart = Time.realtimeSinceStartup;
         fadingLength = length;
         fading = true;
+        instantiateNew = false;
         return true;
     }
 
     private void fade(){
-        float volume = 1 - (Time.realtimeSinceStartup - fadingStart) / fadingLength;
-        audio.volume = volume < 0 ? 0 : volume;
-        instantiateNew = false;
+        float volume = initialVolume * (1 - (Time.realtimeSinceStartup - fadingStart) / fadingLength);
+        audio.volume = volume;
+        if (volume <= 0) Destroy(gameObject);
     }
 }
 
