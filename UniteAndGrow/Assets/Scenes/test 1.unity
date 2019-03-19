@@ -3339,7 +3339,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 200
-  forceRange: 2
 --- !u!1 &1373505084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,6 +4212,12 @@ PrefabInstance:
       propertyPath: debug
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
+        type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 8520301978439430534, guid: 57d18c30238cd7c4da444e19b583f308,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c1bf2f38d8642f893e956b31deae79, type: 3}
 --- !u!1 &1614641186
@@ -5160,7 +5165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 200
-  forceRange: 2
 --- !u!114 &1883511736
 MonoBehaviour:
   m_ObjectHideFlags: 0

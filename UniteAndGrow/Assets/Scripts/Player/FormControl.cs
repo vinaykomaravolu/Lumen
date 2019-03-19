@@ -10,6 +10,7 @@ public class FormControl : MonoBehaviour{
     public float size => volumeToSize(volume);
     public float minSize;
     public float maxSize;
+    public float killSize;
     public float volumeSizeFactor;
     public float sizeChangeDistance;
     public float dashShrink;
@@ -31,7 +32,7 @@ public class FormControl : MonoBehaviour{
     }
 
     private void FixedUpdate(){
-        if (volume < minVolume) Global.gameControl.lose(); // don't check when time scale is 0
+        if (volume < killSize) Global.gameControl.lose(); // don't check when time scale is 0
     }
 
     public static float volumeToSize(float volume){
@@ -43,7 +44,7 @@ public class FormControl : MonoBehaviour{
     }
 
     private void changeVolume(float change){
-        volume = Mathf.Clamp(volume + change, 0, maxVolume);
+        volume = Mathf.Clamp(volume + change, minVolume, maxVolume);
         body.mass = volume;
         transform.localScale = new Vector3(size, size, size);
     }

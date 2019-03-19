@@ -406,7 +406,6 @@ MonoBehaviour:
   pauseMenu: {fileID: 2608239277763978557}
   winMenu: {fileID: 4038165759228524291}
   scoreBoard: {fileID: 2164029326197403535}
-  respawnDelay: 0.5
   loseBackground: {fileID: 677795946}
 --- !u!1 &1889674003332453094
 GameObject:
@@ -425,7 +424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1889674003332453095
 RectTransform:
   m_ObjectHideFlags: 0

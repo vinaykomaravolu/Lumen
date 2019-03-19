@@ -292,25 +292,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
-  dashEffectPrefab: {fileID: 0}
+  dashEffectPrefab: {fileID: 6544923261382412073, guid: 2718d2bc616234087be24259393b027c,
+    type: 3}
   sensitivityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -319,14 +320,14 @@ MonoBehaviour:
     m_RotationOrder: 4
   groundSpeed: 15
   dashSpeed: 25
-  dragForce: 50
+  dragForce: 75
   forceOnly: 0
   wallDrag: 2
-  jumpBackFactor: 1
+  jumpBackFactor: 0.6
   wallMoveThreshold: 0.1
-  pushForce: 200
-  dashForce: 200
-  jumpSpeed: 15
+  pushForce: 50
+  dashForce: 150
+  jumpSpeed: 12
   superJumpFactor: 1.5
   maxJumpSpeed: 25
   holdJumpDuration: 0.2
@@ -342,12 +343,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fbee10e6ba5a24eb665b82213584dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 0.2
-  minSize: 0.2
+  volume: 1
+  minSize: 0.5
   maxSize: 3.5
+  killSize: 0.1
   volumeSizeFactor: 1.5
   sizeChangeDistance: 5
-  dashShrink: 1
+  dashShrink: -0.5
 --- !u!114 &8520301978439430542
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,7 +3,6 @@ using UnityEngine;
 public class Stick : MonoBehaviour{
 
     public float force;
-    public float forceRange;
     private GameObject target;
     private Rigidbody targetBody;
     private MovementControl targetMovement;
@@ -18,12 +17,7 @@ public class Stick : MonoBehaviour{
     }
 
     private void FixedUpdate(){
-        if (target == null) return;
-        if ((target.transform.position - transform.position).magnitude > forceRange){
-            target = null;
-            targetMovement.forceOnly = false;
-            return;
-        }
+        if (target is null) return;
         Vector3 direction = transform.position - target.transform.position;
         targetBody.AddForce(direction.normalized * force * targetBody.mass);
     }

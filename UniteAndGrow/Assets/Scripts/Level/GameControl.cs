@@ -30,6 +30,7 @@ public class GameControl : MonoBehaviour{
     private FormControl playerForm;
     private Rigidbody playerBody;
     private ContactHandler playerContact;
+    private MovementControl playerMovement;
     private CameraBase cameraBase;
     public bool paused;
     public bool end;
@@ -53,9 +54,9 @@ public class GameControl : MonoBehaviour{
         
         playerForm = player.GetComponent<FormControl>();
         playerBody = player.GetComponent<Rigidbody>();
-        player.GetComponent<MovementControl>().playerCamera = cameraBase;
-        
         playerContact = player.GetComponent<ContactHandler>();
+        playerMovement = player.GetComponent<MovementControl>();
+        playerMovement.playerCamera = cameraBase;
         
         cameraBase.player = player;
 
@@ -119,6 +120,7 @@ public class GameControl : MonoBehaviour{
         Vector3 groundSpeed = playerBody.velocity;
         groundSpeed.y = 0;
         debugInfo.text = "Time: " + Time.timeSinceLevelLoad +
+                         "\nControl" + playerMovement.getControl() + 
                          "\nScore: " + getScore() +
                          "\nSize: " + playerForm.size +
                          "\nVolume: " + playerForm.volume +

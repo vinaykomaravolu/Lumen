@@ -193,7 +193,6 @@ public class MovementControl : MonoBehaviour{
         Vector3 right = playerCamera.transform.right;
         right.y = 0;
         right.Normalize();
-        print(Input.GetAxis(Global.moveHorizontalButton));
         float horizontal = Input.GetAxis(Global.moveHorizontalButton);
         float vertical = Input.GetAxis(Global.moveVerticalButton);
         return right * sensitivityCurve.Evaluate(Mathf.Abs(horizontal)) * Mathf.Sign(horizontal) 
@@ -208,8 +207,8 @@ public class MovementControl : MonoBehaviour{
     }
 
     private float getDrag(float control, float speed){
-        if (Mathf.Abs(control) > 0.1f) return 0;
-        float deltaSpeed = dragForce * Time.deltaTime;
+        if (Mathf.Abs(control) > 0) return 0;
+        float deltaSpeed = dragForce * Time.fixedDeltaTime;
         if (Mathf.Abs(speed) < deltaSpeed) return -speed;
         return speed < 0 ? deltaSpeed : -deltaSpeed;
     }
