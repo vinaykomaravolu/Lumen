@@ -319,17 +319,17 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   groundSpeed: 15
-  dashSpeed: 25
+  dashSpeed: 20
   dragForce: 75
   forceOnly: 0
   wallDrag: 2
   jumpBackFactor: 0.6
-  wallMoveThreshold: 0.1
-  pushForce: 50
+  wallMoveThreshold: 0.5
+  pushForce: 100
   dashForce: 150
-  jumpSpeed: 12
+  jumpSpeed: 25
   superJumpFactor: 1.5
-  maxJumpSpeed: 25
+  maxJumpSpeed: 35
   holdJumpDuration: 0.2
 --- !u!114 &8520301978439430543
 MonoBehaviour:
