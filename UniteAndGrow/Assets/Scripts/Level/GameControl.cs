@@ -11,6 +11,7 @@ public class GameControl : MonoBehaviour{
     public int checkPointIndex;
     public string nextScene;
     public float gravity;
+    public bool canDash;
     
     [Header("Prefabs")]
     public GameObject canvas;

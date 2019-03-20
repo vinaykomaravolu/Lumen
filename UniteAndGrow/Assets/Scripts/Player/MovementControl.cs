@@ -25,7 +25,7 @@ public class MovementControl : MonoBehaviour{
 
     private bool canWallJump => contact.contactSurface != ContactSurface.Ground;
     private bool canDoubleJump = true;
-    private bool canDash => form.volume > form.minVolume;
+    private bool canDash => form.volume > form.minVolume && Global.gameControl.canDash;
     private Vector3 jumpNorm;
     private float jumpStartTime;
     private ParticleEmissionControl dashEffect;
