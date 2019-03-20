@@ -23598,11 +23598,6 @@ PrefabInstance:
       propertyPath: checkPointIndex
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8039603216975590148, guid: 66f08f245d885416d97b8aea8daa1c50,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3492015377774271639, guid: 66f08f245d885416d97b8aea8daa1c50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23657,6 +23652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039603216975590148, guid: 66f08f245d885416d97b8aea8daa1c50,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 6825115190555581623, guid: 66f08f245d885416d97b8aea8daa1c50,
         type: 3}
@@ -30021,7 +30021,7 @@ PrefabInstance:
     - target: {fileID: 6756468493831731132, guid: 380714f3e126fb84cabe4ef7f8244147,
         type: 3}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6756468493831731132, guid: 380714f3e126fb84cabe4ef7f8244147,
         type: 3}
