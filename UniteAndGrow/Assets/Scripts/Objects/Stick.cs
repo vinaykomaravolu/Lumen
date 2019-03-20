@@ -17,7 +17,7 @@ public class Stick : MonoBehaviour{
     }
 
     private void FixedUpdate(){
-        if (target is null) return;
+        if (target == null) return;
         Vector3 direction = transform.position - target.transform.position;
         targetBody.AddForce(direction.normalized * force * targetBody.mass);
     }

@@ -32,7 +32,7 @@ public class FormControl : MonoBehaviour{
     }
 
     private void FixedUpdate(){
-        if (volume < killSize) Global.gameControl.lose(); // don't check when time scale is 0
+        if (size < killSize) Global.gameControl.lose(); // don't check when time scale is 0
     }
 
     public static float volumeToSize(float volume){
@@ -43,8 +43,8 @@ public class FormControl : MonoBehaviour{
         return Mathf.Pow(size, _volumeSizeFactor);
     }
 
-    private void changeVolume(float change){
-        volume = Mathf.Clamp(volume + change, minVolume, maxVolume);
+    private void changeVolume(float min, float change){
+        volume = Mathf.Clamp(volume + change, min, maxVolume);
         body.mass = volume;
         transform.localScale = new Vector3(size, size, size);
     }
@@ -58,7 +58,7 @@ public class FormControl : MonoBehaviour{
     }
 
     public void dash(){
-        changeVolume(dashShrink * Time.deltaTime);
+        changeVolume(minVolume, dashShrink * Time.deltaTime);
     }
 
     public void sizeChange(GameObject other){
@@ -67,7 +67,7 @@ public class FormControl : MonoBehaviour{
             return;
         }
         SizeChanger sizeChanger = other.GetComponent<SizeChanger>();
-        changeVolume(sizeChanger.contact());
+        changeVolume(other.CompareTag(Global.instantKillTag) ? 0 : minVolume, sizeChanger.contact());
         sizeChanger.checkDeath();
         contactedChanger = true;
         sizeChanged = true;

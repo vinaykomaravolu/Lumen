@@ -26,21 +26,38 @@ public class ContactHandler : MonoBehaviour{
     }
 
     private void OnTriggerStay(Collider other){
-        if (other.CompareTag(Global.sizeChangerTag)) form.sizeChange(other.gameObject);
+        switch (other.tag){
+            case Global.sizeChangerTag:
+            case Global.instantKillTag:
+                form.sizeChange(other.gameObject);
+                break;
+        }
     }
 
     private void OnTriggerEnter(Collider other){
-        if (other.CompareTag(Global.endPointTag)) Global.gameControl.win();
-        if (other.CompareTag(Global.killZoneTag)) Global.gameControl.lose();
-        if (other.CompareTag(Global.collectibleTag)) Global.gameControl.collect();
+        switch (other.tag){
+            case Global.endPointTag:
+                Global.gameControl.win();
+                break;
+            case Global.killZoneTag:
+                Global.gameControl.lose();
+                break;
+            case Global.collectibleTag:
+                Global.gameControl.collect();
+                break;
+        }
     }
 
     private void OnCollisionExit(Collision collision){
         contactNorm = new Vector3(0, -2, 0);
         contactSurface = ContactSurface.Other;
-        
-        if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
-            collision.gameObject.GetComponent<SizeChanger>().effect.kill();
+
+        GameObject other = collision.gameObject;
+        switch (other.tag){
+            case Global.sizeChangerTag:
+            case Global.instantKillTag:
+                other.GetComponent<SizeChanger>().effect.kill();
+                break;
         }
     }
 
@@ -48,25 +65,34 @@ public class ContactHandler : MonoBehaviour{
         getContactInfo(collision);
         contactVelocity = collision.relativeVelocity;
         if (collision.impulse.magnitude > landSoundThreshold) Instantiate(Global.soundControl.landing);
-        
-        if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
-            SizeChanger changer = collision.gameObject.GetComponent<SizeChanger>();
-            GameObject effect = changer.grow ? growEffectPrefab : shrinkEffectPrefab;
-            changer.effect = Instantiate(effect,
+
+        GameObject other = collision.gameObject;
+        switch (other.tag){
+            case Global.sizeChangerTag:
+            case Global.instantKillTag:
+                SizeChanger changer = other.GetComponent<SizeChanger>();
+                GameObject effect = changer.grow ? growEffectPrefab : shrinkEffectPrefab;
+                changer.effect = Instantiate(effect,
                     transform.position,
                     Quaternion.LookRotation(collision.GetContact(0).normal),
                     transform).GetComponent<ParticleEmissionControl>();
-        } else{
-            form?.sizeChange(null);
+                break;
+            default:
+                form?.sizeChange(null);
+                break;
         }
     }
 
     private void OnCollisionStay(Collision collision){
         getContactInfo(collision);
-        if (collision.gameObject.CompareTag(Global.sizeChangerTag)){
-            form.sizeChange(collision.gameObject);
-            collision.gameObject.GetComponent<SizeChanger>().effect.transform.rotation = 
-                Quaternion.LookRotation(collision.GetContact(0).normal);
+        GameObject other = collision.gameObject;
+        switch (other.tag){
+            case Global.sizeChangerTag:
+            case Global.instantKillTag:
+                form.sizeChange(collision.gameObject);
+                collision.gameObject.GetComponent<SizeChanger>().effect.transform.rotation = 
+                    Quaternion.LookRotation(collision.GetContact(0).normal);
+                break;
         }
     }
 

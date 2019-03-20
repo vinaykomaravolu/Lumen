@@ -327,9 +327,9 @@ MonoBehaviour:
   wallMoveThreshold: 0.5
   pushForce: 100
   dashForce: 150
-  jumpSpeed: 25
+  jumpSpeed: 12
   superJumpFactor: 1.5
-  maxJumpSpeed: 35
+  maxJumpSpeed: 25
   holdJumpDuration: 0.2
 --- !u!114 &8520301978439430543
 MonoBehaviour:
@@ -346,7 +346,7 @@ MonoBehaviour:
   volume: 1
   minSize: 0.5
   maxSize: 3.5
-  killSize: 0.1
+  killSize: 0.4
   volumeSizeFactor: 1.5
   sizeChangeDistance: 5
   dashShrink: -0.5

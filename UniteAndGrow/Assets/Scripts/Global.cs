@@ -13,6 +13,7 @@ public static class Global{
     public const string sizeChangerTag = "SizeChanger";
     public const string superJumpTag = "SuperJump";
     public const string wallTag = "Wall";
+    public const string instantKillTag = "InstantKill";
     
     public const string mainMenuName = "Main Menu";
     public const string tutorialName = "Tutorial Level";
