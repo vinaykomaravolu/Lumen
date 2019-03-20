@@ -74,7 +74,17 @@ public class UIControl : MonoBehaviour{
     }
 
     public void next(){
-        SceneManager.LoadScene(Global.gameControl.nextScene);
+//        SceneManager.
+        SceneManager.LoadScene(Global.loadingSceneName);
+//        SceneManager.LoadScene(Global.gameControl.nextScene);
+//        StartCoroutine(loadNext());
+    }
+
+    IEnumerator loadNext(){
+        var loading = SceneManager.LoadSceneAsync(Global.gameControl.nextScene);
+        while (!loading.isDone){
+            yield return null;
+        }
     }
 
     private void setScoreBoard(){

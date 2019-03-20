@@ -11,7 +11,7 @@ class CheckPoint : MonoBehaviour{
             Global.gameControl.startPoint = spawnPoint;
             Global.gameControl.checkPointIndex = checkPointIndex;
             foreach (var marker in markers){
-                marker.activate();
+                marker?.activate();
             }
         }
     }
