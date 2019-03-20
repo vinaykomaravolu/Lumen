@@ -74,10 +74,9 @@ public class UIControl : MonoBehaviour{
     }
 
     public void next(){
-//        SceneManager.
-        SceneManager.LoadScene(Global.loadingSceneName);
+//        SceneManager.LoadScene(Global.loadingSceneName);
 //        SceneManager.LoadScene(Global.gameControl.nextScene);
-//        StartCoroutine(loadNext());
+        StartCoroutine(loadNext());
     }
 
     IEnumerator loadNext(){
