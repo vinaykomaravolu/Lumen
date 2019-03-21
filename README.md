@@ -5,7 +5,7 @@ Video Game project for CSC404 - Introduction to Video Game Design with Prof. Ste
 # Details
 
 - Built in Unity 2018.3.2
-- Team of 6 - 4 programmers and 2 artists.
+- Team of 7 - 4 programmers, 2 artists, and a music producer.
 
 # About
 
