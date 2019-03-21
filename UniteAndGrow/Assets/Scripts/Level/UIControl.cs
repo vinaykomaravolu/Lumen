@@ -18,6 +18,11 @@ public class UIControl : MonoBehaviour{
 
     [Header("Lose")] 
     public FadingText loseBackground;
+    public FadingText quipText;
+    public Text quipTextContent;
+
+    private string[] deathDialogueOptions = { "Better luck next time!", "Yikes!", "You're not very good at this are you?", "Wowzers!", "Why are you still trying?",
+        "Are you playing with your hands or your feet?", "You again? I thought you would've passed by now", "Pro tip: Stop falling off!", "Was that on purpose?" };
 
     void Update() {
         if (Debug.isDebugBuild) {
@@ -55,6 +60,21 @@ public class UIControl : MonoBehaviour{
         loseBackground.targetAlpha = 1;
         yield return new WaitForSecondsRealtime(1 / loseBackground.speed);
         respawn();
+    }
+
+    public void showQuip()
+    {
+        int rnd = Random.Range(0, deathDialogueOptions.Length);
+        string dialogue = deathDialogueOptions[rnd];
+        quipTextContent.text = dialogue;
+        StartCoroutine(_showQuip());
+    }
+
+    IEnumerator _showQuip()
+    {
+        quipText.targetAlpha = 1;
+        yield return new WaitForSecondsRealtime(1 / quipText.speed);
+        quipText.targetAlpha = 0;
     }
 
     public void pause(){
