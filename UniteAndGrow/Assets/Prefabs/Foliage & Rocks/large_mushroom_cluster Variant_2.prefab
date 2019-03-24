@@ -67,12 +67,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5932819115589569633, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
+    - target: {fileID: 6882813181722436191, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932819115591735470, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a0810be54bb756549b61851f702b5d68, type: 2}
-    - target: {fileID: 5932819115591735470, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
+    - target: {fileID: 5932819115589569633, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -82,20 +87,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a0810be54bb756549b61851f702b5d68, type: 2}
-    - target: {fileID: 6882813181722436191, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.36
-      objectReference: {fileID: 0}
     - target: {fileID: 6399567871392496314, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.48584908
+      value: 0.7216981
       objectReference: {fileID: 0}
     - target: {fileID: 6399567871392496314, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.90563756
+      value: 0.9685789
       objectReference: {fileID: 0}
     - target: {fileID: 6399567871392496314, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
         type: 3}
@@ -105,12 +105,12 @@ PrefabInstance:
     - target: {fileID: 6399567871392496314, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
         type: 3}
       propertyPath: m_Range
-      value: 28.661251
+      value: 30.73
       objectReference: {fileID: 0}
     - target: {fileID: 6399567871392496314, guid: 0cb3c6a5c1a0300449304cad1c7f4297,
         type: 3}
       propertyPath: m_Intensity
-      value: 9.1
+      value: 7.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb3c6a5c1a0300449304cad1c7f4297, type: 3}

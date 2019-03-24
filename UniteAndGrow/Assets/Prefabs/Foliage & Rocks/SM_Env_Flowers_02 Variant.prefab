@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25523322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.844, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 492429961032983318}
@@ -41,9 +41,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 0.99631876, b: 0.4764151, a: 1}
-  m_Intensity: 2.59
-  m_Range: 10
+  m_Color: {r: 0.8867924, g: 0.8867924, b: 0.6232645, a: 1}
+  m_Intensity: 1.59
+  m_Range: 13.3
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -78,7 +78,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 304dab16a7ca66744b8ebd9a5bd927c5, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Flowers_02
+      value: SM_Env_Flowers_02 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 304dab16a7ca66744b8ebd9a5bd927c5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 304dab16a7ca66744b8ebd9a5bd927c5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2268a019e1117204f90d2f1c8cfab57f, type: 2}
+      objectReference: {fileID: 2100000, guid: ac4f1ecf05993a54085b4afda442b595, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 304dab16a7ca66744b8ebd9a5bd927c5, type: 3}
 --- !u!4 &492429961032983318 stripped

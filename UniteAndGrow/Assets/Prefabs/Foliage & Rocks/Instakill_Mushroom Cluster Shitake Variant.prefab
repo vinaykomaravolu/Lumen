@@ -1,19 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!64 &4091045445973571806
-MeshCollider:
+--- !u!114 &7445276823407957190
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485437068010919736}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adce7372783cb4166a8cac8d93b1f8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grow: 0
+  killOnDry: 1
+  volume: Infinity
+  volumePerSecond: 1
+  effect: {fileID: 0}
 --- !u!1001 &5902087845949048446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26,20 +29,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Instakill_Mushroom Cluster Shitake Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6292922658005225798, guid: b5a9440944cee7a4b898cc4859c8d86d,
+        type: 3}
+      propertyPath: m_TagString
+      value: SizeChanger
+      objectReference: {fileID: 0}
     - target: {fileID: 6292922658005225799, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.499
+      value: 1.2602
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658005225799, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.0726
+      value: -7.1135
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658005225799, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.3402
+      value: 3.2068
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658005225799, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
@@ -84,42 +92,42 @@ PrefabInstance:
     - target: {fileID: 6292922658005225799, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.748529
+      value: 2.533374
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658005225799, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.748529
+      value: 2.533374
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658005225799, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.748529
+      value: 2.533374
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658236871833, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.5440897
+      value: 0.6021272
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658236871833, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.09812209
+      value: 0.07787468
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658236871833, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.5943396
+      value: 0.6603774
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658236871833, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_Intensity
-      value: 1.96
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658236871833, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_Range
-      value: 11.43
+      value: 14.8
       objectReference: {fileID: 0}
     - target: {fileID: 6292922657966123920, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
