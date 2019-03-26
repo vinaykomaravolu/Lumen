@@ -2659,8 +2659,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119735572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: -0.8, z: 7}
-  m_LocalScale: {x: 2, y: 1, z: 10}
+  m_LocalPosition: {x: 3.21, y: -0.8, z: 7}
+  m_LocalScale: {x: 5.3, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 966275677}
   m_RootOrder: 10
@@ -2929,18 +2929,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 966275677}
     m_Modifications:
-    - target: {fileID: 100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
-      propertyPath: m_Name
-      value: ground_musroom
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
-      propertyPath: m_TagString
-      value: SuperJump
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.7371254
@@ -2984,6 +2972,18 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
+      propertyPath: m_Name
+      value: ground_musroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
+      propertyPath: m_TagString
+      value: SuperJump
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
       propertyPath: m_Enabled
@@ -5640,8 +5640,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083726451}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: -0.85, z: 7}
-  m_LocalScale: {x: 2, y: 1, z: 10}
+  m_LocalPosition: {x: 10.52, y: -0.85, z: 6.99}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 966275677}
   m_RootOrder: 11

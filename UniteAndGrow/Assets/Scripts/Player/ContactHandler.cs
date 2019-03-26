@@ -10,6 +10,7 @@ public class ContactHandler : MonoBehaviour{
     public Vector3 contactVelocity{ get; private set; }
     public GameObject shrinkEffectPrefab;
     public GameObject growEffectPrefab;
+    private GameObject collider;
 
     public ContactMode contactMode {
         get{
@@ -74,7 +75,7 @@ public class ContactHandler : MonoBehaviour{
                 GameObject effect = changer.grow ? growEffectPrefab : shrinkEffectPrefab;
                 changer.effect = Instantiate(effect,
                     transform.position,
-                    Quaternion.LookRotation(collision.GetContact(0).normal),
+                    Quaternion.identity,
                     transform).GetComponent<ParticleEmissionControl>();
                 break;
             default:
@@ -90,8 +91,9 @@ public class ContactHandler : MonoBehaviour{
             case Global.sizeChangerTag:
             case Global.instantKillTag:
                 form.sizeChange(collision.gameObject);
-                collision.gameObject.GetComponent<SizeChanger>().effect.transform.rotation = 
-                    Quaternion.LookRotation(collision.GetContact(0).normal);
+                ParticleEmissionControl effect = collision.gameObject.GetComponent<SizeChanger>().effect;
+                effect.targetRotation = Quaternion.LookRotation(collision.GetContact(0).normal);
+                effect.size = form.size;
                 break;
         }
     }
@@ -100,7 +102,10 @@ public class ContactHandler : MonoBehaviour{
         //looking for the flattest contact surface
         for (int i = 0; i < collision.contactCount; i++){
             Vector3 norm = collision.GetContact(i).normal;
-            if (norm.y > contactNorm.y) contactNorm = norm;
+            if (norm.y > contactNorm.y || collider == collision.gameObject){
+                contactNorm = norm;
+                collider = collision.gameObject;
+            }
             switch (collision.gameObject.tag){
                 case Global.groundTag:
                     if (contactSurface == ContactSurface.Other)

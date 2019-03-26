@@ -60,7 +60,8 @@ public class MovementControl : MonoBehaviour{
                     Quaternion.identity,
                     transform).GetComponent<ParticleEmissionControl>();
             }
-            dashEffect.transform.rotation = Quaternion.LookRotation(body.velocity);
+            dashEffect.targetRotation = Quaternion.LookRotation(body.velocity);
+            dashEffect.size = form.size;
         } else {
             dashEffect?.kill();
             dashEffect = null;
@@ -101,14 +102,14 @@ public class MovementControl : MonoBehaviour{
             velocity = Vector3.ClampMagnitude(velocity, speed);
         } else{
             if (contactMode == ContactMode.Wall){
+                Vector3 forwardControl = Vector3.Project(controlStick, contactNorm);
+                velocity = Vector3.Project(velocity, contactNorm);
+                velocity += forwardControl * force * Time.fixedDeltaTime;
                 Vector3 sideControl =
-                    Vector3.Project(controlStick, Vector3.Cross(jumpNorm, Vector3.up));
-                Vector3 forwardSpeed = Vector3.Project(velocity, jumpNorm);
+                    Vector3.Project(controlStick, Vector3.Cross(contactNorm, Vector3.up));
                 float magDiff = sideControl.magnitude - wallMoveThreshold;
                 if (magDiff > 0){
-                    velocity = sideControl.normalized * magDiff * speed + forwardSpeed;
-                } else{
-                    velocity = forwardSpeed;
+                    velocity += sideControl.normalized * magDiff * speed;
                 }
             } else{
                 velocity += controlStick * force * Time.fixedDeltaTime;
