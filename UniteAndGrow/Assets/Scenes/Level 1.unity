@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.28711563, g: 0.3358623, b: 0.5218703, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -51,8 +51,8 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 0
-    m_EnableRealtimeLightmaps: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
@@ -88,7 +88,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 884437705e28f9c498645a7300df16a0,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -3844,11 +3845,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 534517736}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (12)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3918,6 +3914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.2377803
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (12)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -4468,16 +4469,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937836749}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4547,6 +4538,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.6349655
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -5200,11 +5201,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 465674031}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (12)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5274,6 +5270,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.2377803
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (12)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -6980,11 +6981,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 465674031}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7054,6 +7050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.8732653
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (8)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -8907,11 +8908,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937836749}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (11)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8981,6 +8977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.2582383
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (11)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -9611,11 +9612,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937836749}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (12)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9685,6 +9681,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.2377803
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (12)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -10071,11 +10072,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 534517736}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (10)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10145,6 +10141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.6349655
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (10)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -11423,16 +11424,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 534517736}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11502,6 +11493,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.2582383
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -12073,11 +12074,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 465674031}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (10)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12147,6 +12143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.6349655
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (10)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -13356,11 +13357,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937836749}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13430,6 +13426,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.253796
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -13611,11 +13612,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937836749}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (9)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13685,6 +13681,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.6349655
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (9)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -15552,11 +15553,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 534517736}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15627,6 +15623,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.8732653
       objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (8)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
 --- !u!4 &1149539966 stripped
@@ -15642,11 +15643,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 465674031}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (9)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15716,6 +15712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.6349655
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (9)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -17150,16 +17151,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1438023718}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17229,6 +17220,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.284468
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -18279,11 +18280,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 534517736}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (9)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18353,6 +18349,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.6349655
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (9)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -20498,11 +20499,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 534517736}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20572,6 +20568,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.253796
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -21638,11 +21639,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 465674031}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21712,6 +21708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.253796
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -25424,11 +25425,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 465674031}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (11)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25498,6 +25494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.2582383
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (11)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -27015,11 +27016,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937836749}
     m_Modifications:
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27089,6 +27085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.8732653
+      objectReference: {fileID: 0}
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (8)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
