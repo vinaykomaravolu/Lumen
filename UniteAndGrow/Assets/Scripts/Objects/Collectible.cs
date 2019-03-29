@@ -1,9 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Collectible : MonoBehaviour {
+public class Collectible : MonoBehaviour{
+
+    public Light light;
+    public float deltaIntensity;
+    public float targetIntensity;
+    public ParticleSystem collectEffect;
+    public ParticleSystem ambientEffect;
+    public float killDelay;
+    public GameObject model;
 
     void Update() {
-        transform.Rotate(new Vector3(0, 30, 0) * 5 * Time.deltaTime);
+        light.intensity = Mathf.MoveTowards(
+            light.intensity,
+            targetIntensity,
+            deltaIntensity * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other){
+        if (other.CompareTag(Global.playerTag)) StartCoroutine(kill());
+    }
+
+    private IEnumerator kill(){
+        ambientEffect?.Stop();
+        Destroy(model);          
+        Global.gameControl.collect();
+        targetIntensity = 0;
+        collectEffect.Play();
+        yield return new WaitForSeconds(killDelay);
+        Destroy(gameObject);
     }
 }

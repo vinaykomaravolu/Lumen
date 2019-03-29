@@ -43,9 +43,6 @@ public class ContactHandler : MonoBehaviour{
             case Global.killZoneTag:
                 Global.gameControl.lose();
                 break;
-            case Global.collectibleTag:
-                Global.gameControl.collect();
-                break;
         }
     }
 
