@@ -10,8 +10,7 @@ public class RandomRotation : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         transform.Rotate(new Vector3(1, 0, 0), rotation_x * Time.deltaTime);
         transform.Rotate(new Vector3(0, 1, 0), rotation_y * Time.deltaTime);
         transform.Rotate(new Vector3(0, 0, 1), rotation_z * Time.deltaTime);

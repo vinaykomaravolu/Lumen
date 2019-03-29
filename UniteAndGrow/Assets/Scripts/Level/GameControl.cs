@@ -84,9 +84,7 @@ public class GameControl : MonoBehaviour{
         Destroy(player);
         Destroy(cameraBase.gameObject);
         Destroy(uiControl.gameObject);
-        Debug.Log("Respawned");
         spawn();
-        uiControl.showQuip();
     }
 
     public void win(){

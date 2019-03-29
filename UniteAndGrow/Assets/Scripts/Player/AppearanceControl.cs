@@ -30,7 +30,7 @@ public class AppearanceControl: MonoBehaviour {
 
     private void rotateInner(){
         Vector3 forward = movement.getControl();
-        if (forward == Vector3.zero) forward = body.velocity;
+//        if (forward == Vector3.zero) forward = body.velocity;
         forward.y = 0;
         if (forward == Vector3.zero) return;
         inner.transform.rotation = Quaternion.Lerp(
