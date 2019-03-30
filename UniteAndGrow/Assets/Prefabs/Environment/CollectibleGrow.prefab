@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3727614373719732776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8388933534610022670}
@@ -241,9 +241,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
-  m_Range: 5
+  m_Color: {r: 0.48584908, g: 1, b: 0.97042924, a: 1}
+  m_Intensity: 2.14
+  m_Range: 5.84
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -5037,8 +5037,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fda0eaf31e196d9428bc07834a39474a, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 7dba07c546ef30d4faa4b8ed29792904, type: 2}
+  - {fileID: 2100000, guid: 7dba07c546ef30d4faa4b8ed29792904, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
