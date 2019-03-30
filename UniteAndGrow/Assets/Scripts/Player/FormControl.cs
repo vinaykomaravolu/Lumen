@@ -1,5 +1,6 @@
 ﻿﻿using UnityEditor;
  using UnityEngine;
+ using UnityEngine.UI;
 
 // in charge of size and liquid or solid
 public class FormControl : MonoBehaviour{
@@ -14,6 +15,7 @@ public class FormControl : MonoBehaviour{
     public float volumeSizeFactor;
     public float sizeChangeDistance;
     public float dashShrink;
+    public Image sizeIndicator;
 
     private static float _volumeSizeFactor;
     private bool sizeChanged;
@@ -24,6 +26,7 @@ public class FormControl : MonoBehaviour{
         body = GetComponent<Rigidbody>();
         body.mass = volume;
         _volumeSizeFactor = volumeSizeFactor;
+        changeVolume(0, 0);
     }
 
     private void Update(){
@@ -47,6 +50,7 @@ public class FormControl : MonoBehaviour{
         volume = Mathf.Clamp(volume + change, min, maxVolume);
         body.mass = volume;
         transform.localScale = new Vector3(size, size, size);
+        sizeIndicator.fillAmount = Mathf.Clamp01((volume - minVolume) / (maxVolume - minVolume));
     }
 
     private void checkSizeChange(){

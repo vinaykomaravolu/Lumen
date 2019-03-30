@@ -12,6 +12,7 @@ public class GameControl : MonoBehaviour{
     public string nextScene;
     public float gravity;
     public bool canDash;
+    public int totalCollectibles;
     
     [Header("Prefabs")]
     public GameObject canvas;
@@ -48,12 +49,20 @@ public class GameControl : MonoBehaviour{
     private void spawn(){
         uiControl = Instantiate(canvas).GetComponent<UIControl>();
         debugInfo = uiControl.debugInfo;
-        
+        for (int i = 0; i < totalCollectibles; i++){
+            uiControl.collectiblesIconBack[i].SetActive(true);
+        }
+
+        for (int i = 0; i < collected; i++){
+            uiControl.collectiblesIcon[i].transform.rotation = Quaternion.identity;
+        }
+
         player = Instantiate(playerPrefab, startPoint.transform.position, startPoint.transform.rotation);
         cameraBase = Instantiate(cameraPrefab, startPoint.transform.position, startPoint.transform.rotation)
             .GetComponent<CameraBase>();
         
         playerForm = player.GetComponent<FormControl>();
+        playerForm.sizeIndicator = uiControl.sizeIndicator;
         playerBody = player.GetComponent<Rigidbody>();
         playerContact = player.GetComponent<ContactHandler>();
         playerMovement = player.GetComponent<MovementControl>();
