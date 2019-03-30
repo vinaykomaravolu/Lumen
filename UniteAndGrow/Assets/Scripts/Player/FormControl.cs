@@ -15,7 +15,7 @@ public class FormControl : MonoBehaviour{
     public float volumeSizeFactor;
     public float sizeChangeDistance;
     public float dashShrink;
-    public Image sizeIndicator;
+    [HideInInspector] public Image sizeIndicator;
 
     private static float _volumeSizeFactor;
     private bool sizeChanged;

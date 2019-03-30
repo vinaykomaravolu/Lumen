@@ -9,8 +9,13 @@ public class UIControl : MonoBehaviour{
     
     public Text debugInfo;
     public Image sizeIndicator;
+    
+    [Header("Collectible")]
     public GameObject[] collectiblesIcon;
     public GameObject[] collectiblesIconBack;
+    public float rotateSpeed;
+    public float rotationTime;
+    private bool[] rotateColl;
     
     [Header("Pause")]
     public GameObject pauseMenu;
@@ -21,6 +26,10 @@ public class UIControl : MonoBehaviour{
 
     [Header("Lose")] 
     public FadingText loseBackground;
+
+    private void Start(){
+        rotateColl = new bool[collectiblesIcon.Length];
+    }
 
     void Update() {
         if (Debug.isDebugBuild) {
@@ -39,8 +48,25 @@ public class UIControl : MonoBehaviour{
                 loseBackground.reset();
             }
         }
+        for (int i = 0; i < Global.gameControl.collected; i++){
+            Transform collTrans = collectiblesIcon[i].transform;
+            if (rotateColl[i]){
+                collTrans.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
+            } else{
+                collTrans.rotation = Quaternion.RotateTowards(
+                    collTrans.rotation,
+                    Quaternion.identity,
+                    rotateSpeed * Time.deltaTime);
+            }
+        }
     }
     //leader: name:time:score:timestamp
+
+    public IEnumerator showCollectible(int index){
+        rotateColl[index] = true;
+        yield return new WaitForSeconds(rotationTime);
+        rotateColl[index] = false;
+    }
 
     public void showPause(bool show){
         pauseMenu.SetActive(show);

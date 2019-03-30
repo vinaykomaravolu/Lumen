@@ -115,6 +115,7 @@ public class GameControl : MonoBehaviour{
     }
 
     public void collect(){
+        StartCoroutine(uiControl.showCollectible(collected));
         collected++;
     }
 
