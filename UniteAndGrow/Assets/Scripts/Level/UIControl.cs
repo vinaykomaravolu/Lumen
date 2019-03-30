@@ -8,6 +8,9 @@ using UnityEngine.EventSystems;
 public class UIControl : MonoBehaviour{
     
     public Text debugInfo;
+    public Image sizeIndicator;
+    public GameObject[] collectiblesIcon;
+    public GameObject[] collectiblesIconBack;
     
     [Header("Pause")]
     public GameObject pauseMenu;
@@ -18,8 +21,6 @@ public class UIControl : MonoBehaviour{
 
     [Header("Lose")] 
     public FadingText loseBackground;
-    public FadingText quipText;
-    public Text quipTextContent;
 
     void Update() {
         if (Debug.isDebugBuild) {
@@ -57,13 +58,6 @@ public class UIControl : MonoBehaviour{
         loseBackground.targetAlpha = 1;
         yield return new WaitForSecondsRealtime(1 / loseBackground.speed);
         respawn();
-    }
-
-    IEnumerator _showQuip()
-    {
-        quipText.targetAlpha = 1;
-        yield return new WaitForSecondsRealtime(1 / quipText.speed);
-        quipText.targetAlpha = 0;
     }
 
     public void pause(){
