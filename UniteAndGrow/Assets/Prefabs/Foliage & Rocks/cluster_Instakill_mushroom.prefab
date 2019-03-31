@@ -82,7 +82,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.6021272, g: 0.07787468, b: 0.6603774, a: 1}
-  m_Intensity: 4.92
+  m_Intensity: 2.75
   m_Range: 14.8
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -632,7 +632,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8288718570766348506, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
 --- !u!4 &8757189355217953118 stripped
 Transform:
@@ -707,12 +708,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 485437067912868654, guid: 1cf76475e0983b1478728318cbd5ec0a,
+    - target: {fileID: 485437067965628437, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 485437067965628437, guid: 1cf76475e0983b1478728318cbd5ec0a,
+    - target: {fileID: 485437067912868654, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_IsActive
       value: 0

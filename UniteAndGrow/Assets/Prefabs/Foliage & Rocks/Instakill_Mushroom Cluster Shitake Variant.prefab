@@ -17,21 +17,7 @@ MonoBehaviour:
   volume: Infinity
   volumePerSecond: 1
   effect: {fileID: 0}
---- !u!64 &3959013313588425698
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485437067912868652}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
---- !u!114 &3204381975911365919
+--- !u!114 &5067639301785441798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,23 +32,9 @@ MonoBehaviour:
   grow: 0
   killOnDry: 1
   volume: Infinity
-  volumePerSecond: 1
+  volumePerSecond: Infinity
   effect: {fileID: 0}
---- !u!64 &7527587507737147210
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485437067912868650}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
---- !u!114 &6576139455705053351
+--- !u!114 &1473540428236528603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,22 +49,8 @@ MonoBehaviour:
   grow: 0
   killOnDry: 1
   volume: Infinity
-  volumePerSecond: 1
+  volumePerSecond: Infinity
   effect: {fileID: 0}
---- !u!64 &2987034509512214304
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485437067983378153}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
 --- !u!64 &8288718570766348506
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -107,7 +65,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
---- !u!114 &6066257119719327658
+--- !u!114 &271522999095019554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,23 +80,9 @@ MonoBehaviour:
   grow: 0
   killOnDry: 1
   volume: Infinity
-  volumePerSecond: 1
+  volumePerSecond: Infinity
   effect: {fileID: 0}
---- !u!64 &2669902036032551757
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485437067983378159}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
---- !u!114 &256864225392209843
+--- !u!114 &2998842202787166259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,23 +97,9 @@ MonoBehaviour:
   grow: 0
   killOnDry: 1
   volume: Infinity
-  volumePerSecond: 1
+  volumePerSecond: Infinity
   effect: {fileID: 0}
---- !u!64 &221330005104997170
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485437067965628439}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
---- !u!114 &5179558223251968195
+--- !u!114 &7805763653031811167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,23 +114,9 @@ MonoBehaviour:
   grow: 0
   killOnDry: 1
   volume: Infinity
-  volumePerSecond: 1
+  volumePerSecond: Infinity
   effect: {fileID: 0}
---- !u!64 &4793637685319623325
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485437067965628433}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
---- !u!114 &8210549245392026931
+--- !u!114 &5936493021428991788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,7 +131,7 @@ MonoBehaviour:
   grow: 0
   killOnDry: 1
   volume: Infinity
-  volumePerSecond: 1
+  volumePerSecond: Infinity
   effect: {fileID: 0}
 --- !u!1001 &5902087845949048446
 PrefabInstance:
@@ -232,7 +148,7 @@ PrefabInstance:
     - target: {fileID: 6292922658005225798, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
-      value: SizeChanger
+      value: InstantKill
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658005225799, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
@@ -304,20 +220,40 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.533374
       objectReference: {fileID: 0}
+    - target: {fileID: 6292922658236871835, guid: b5a9440944cee7a4b898cc4859c8d86d,
+        type: 3}
+      propertyPath: m_TagString
+      value: InstantKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292922657968059728, guid: b5a9440944cee7a4b898cc4859c8d86d,
+        type: 3}
+      propertyPath: m_TagString
+      value: InstantKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292922658032275605, guid: b5a9440944cee7a4b898cc4859c8d86d,
+        type: 3}
+      propertyPath: m_TagString
+      value: InstantKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292922658016691819, guid: b5a9440944cee7a4b898cc4859c8d86d,
+        type: 3}
+      propertyPath: m_TagString
+      value: InstantKill
+      objectReference: {fileID: 0}
     - target: {fileID: 6292922658236871833, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.6021272
+      value: 0.42575574
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658236871833, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.07787468
+      value: 0.07631719
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658236871833, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.6603774
+      value: 0.46226418
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658236871833, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
@@ -332,32 +268,32 @@ PrefabInstance:
     - target: {fileID: 6292922657968059730, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
-      value: SizeChanger
+      value: InstantKill
       objectReference: {fileID: 0}
     - target: {fileID: 6292922657968059732, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
-      value: SizeChanger
+      value: InstantKill
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658032275601, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
-      value: SizeChanger
+      value: InstantKill
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658032275607, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
-      value: SizeChanger
+      value: InstantKill
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658016691817, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
-      value: SizeChanger
+      value: InstantKill
       objectReference: {fileID: 0}
     - target: {fileID: 6292922658016691823, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
-      value: SizeChanger
+      value: InstantKill
       objectReference: {fileID: 0}
     - target: {fileID: 6292922657966123922, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
