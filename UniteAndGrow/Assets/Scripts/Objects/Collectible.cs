@@ -10,6 +10,7 @@ public class Collectible : MonoBehaviour{
     public ParticleSystem ambientEffect;
     public float killDelay;
     public GameObject model;
+    private bool killed;
 
     void Update() {
         light.intensity = Mathf.MoveTowards(
@@ -19,10 +20,15 @@ public class Collectible : MonoBehaviour{
     }
 
     private void OnTriggerEnter(Collider other){
-        if (other.CompareTag(Global.playerTag)) StartCoroutine(kill());
+        if (killed) return;
+        if (other.CompareTag(Global.playerTag)){
+            StartCoroutine(kill());
+            killed = true;
+        }
     }
 
     private IEnumerator kill(){
+        print("called");
         ambientEffect?.Stop();
         Destroy(model);          
         Global.gameControl.collect();

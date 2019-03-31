@@ -61,7 +61,6 @@ public class MovementControl : MonoBehaviour{
                     transform).GetComponent<ParticleEmissionControl>();
             }
             dashEffect.targetRotation = Quaternion.LookRotation(body.velocity);
-            dashEffect.size = form.size;
         } else {
             dashEffect?.kill();
             dashEffect = null;

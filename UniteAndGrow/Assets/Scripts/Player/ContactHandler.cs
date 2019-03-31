@@ -90,7 +90,6 @@ public class ContactHandler : MonoBehaviour{
                 form.sizeChange(collision.gameObject);
                 ParticleEmissionControl effect = collision.gameObject.GetComponent<SizeChanger>().effect;
                 effect.targetRotation = Quaternion.LookRotation(collision.GetContact(0).normal);
-                effect.size = form.size;
                 break;
         }
     }

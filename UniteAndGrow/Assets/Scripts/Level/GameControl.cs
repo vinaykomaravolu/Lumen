@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,6 @@ public class GameControl : MonoBehaviour{
     [Header("General")]
     public bool debug;
     public GameObject startPoint;
-    public int checkPointIndex;
     public string nextScene;
     public float gravity;
     public bool canDash;
@@ -34,15 +34,21 @@ public class GameControl : MonoBehaviour{
     private ContactHandler playerContact;
     private MovementControl playerMovement;
     private CameraBase cameraBase;
-    public bool paused;
-    public bool end;
+    
+    [HideInInspector] public int checkPointIndex;
+    [HideInInspector] public List<Respawnable> respawnObjs = new List<Respawnable>();
+    public bool paused{ get; private set; }
+    private bool end;
 
     public int collected{ get; private set; }
 
-    private void Start(){
+    private void Awake(){
         Global.gameControl = this;
         Global.soundControl = Instantiate(soundControlPrefab);
         Global.gravity = gravity;
+    }
+
+    private void Start(){
         spawn();
     }
 
@@ -94,6 +100,9 @@ public class GameControl : MonoBehaviour{
         Destroy(cameraBase.gameObject);
         Destroy(uiControl.gameObject);
         spawn();
+        foreach (var obj in respawnObjs) {
+            obj.spawn();
+        }
     }
 
     public void win(){
