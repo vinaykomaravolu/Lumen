@@ -6,9 +6,9 @@ public class SizeChanger : MonoBehaviour{
     public bool killOnDry;
     public float volume;
     public float volumePerSecond;
-    [HideInInspector] public ParticleEmissionControl effect;
     private Vector3 initScale;
     private float initVolume;
+    [HideInInspector] public ParticleEmissionControl effect;
 
     private void Start(){
         initScale = transform.localScale;

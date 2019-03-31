@@ -7,10 +7,9 @@ public class ParticleEmissionControl : MonoBehaviour{
     public ParticleSystem particle;
     public Quaternion targetRotation;
     public float rotationDelta;
-    public float size;
+    private bool killed;
 
     private void Update(){
-//        particle.transform.localScale = Vector3.one * size;
         transform.rotation = Quaternion.RotateTowards(
             transform.rotation,
             targetRotation,
@@ -18,7 +17,9 @@ public class ParticleEmissionControl : MonoBehaviour{
     }
 
     public void kill(){
+        if (killed) return;
         StartCoroutine(_kill());
+        killed = true;
     }
 
     private IEnumerator _kill(){
