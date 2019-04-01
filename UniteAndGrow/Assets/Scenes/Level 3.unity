@@ -18174,6 +18174,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
+        type: 3}
+      propertyPath: totalCollectibles
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c1bf2f38d8642f893e956b31deae79, type: 3}
 --- !u!1 &1025833027 stripped
@@ -18990,6 +18995,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1895438109}
     m_Modifications:
+    - target: {fileID: 2291006258118096647, guid: c29cc6598cfad6b4ebd968bfe2bf92a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill root_light
+      objectReference: {fileID: 0}
     - target: {fileID: 2291006258118191911, guid: c29cc6598cfad6b4ebd968bfe2bf92a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19059,11 +19069,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.1701424
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291006258118096647, guid: c29cc6598cfad6b4ebd968bfe2bf92a8,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill root_light
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c29cc6598cfad6b4ebd968bfe2bf92a8, type: 3}
@@ -32136,16 +32141,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.0285466
       objectReference: {fileID: 0}
-    - target: {fileID: 7213651105934096443, guid: 0fc6f317454e89748b95a8bffc7bba8f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 779585689544107794, guid: 0fc6f317454e89748b95a8bffc7bba8f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2047127399440949107, guid: 0fc6f317454e89748b95a8bffc7bba8f,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -32160,6 +32155,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -28.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213651105934096443, guid: 0fc6f317454e89748b95a8bffc7bba8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 779585689544107794, guid: 0fc6f317454e89748b95a8bffc7bba8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 779585689172160811, guid: 0fc6f317454e89748b95a8bffc7bba8f,
         type: 3}
