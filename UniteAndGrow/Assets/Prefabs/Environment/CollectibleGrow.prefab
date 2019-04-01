@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1046878301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.38, y: 1.38, z: 1.38}
   m_Children: []
   m_Father: {fileID: 8388933534610022670}
   m_RootOrder: 1
@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3727614373719732776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.36, z: 0}
+  m_LocalPosition: {x: 0, y: 0.946, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8388933534610022670}
@@ -242,12 +242,12 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.48584908, g: 1, b: 0.97042924, a: 1}
-  m_Intensity: 2.14
-  m_Range: 5.84
+  m_Intensity: 2
+  m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -392,8 +392,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8388933534610022664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 122.77, y: 103.64, z: 0.97}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: 122.77, y: 104.302, z: 0.97}
+  m_LocalScale: {x: 1.50352, y: 1.50352, z: 1.50352}
   m_Children:
   - {fileID: 2916361142827885036}
   - {fileID: 1046878302}
@@ -493,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7988461606848477686
 Transform:
   m_ObjectHideFlags: 0
@@ -516,7 +516,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8926143260004050705}
   serializedVersion: 6
-  lengthInSec: 2
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -1341,7 +1341,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 10
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5115,7 +5115,7 @@ ParticleSystem:
 --- !u!199 &1661929805325304903
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
