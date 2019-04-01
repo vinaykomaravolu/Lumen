@@ -1700,16 +1700,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
-        type: 3}
-      propertyPath: nextScene
-      value: Level 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
-        type: 3}
-      propertyPath: debug
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1166716301095698716, guid: 92c1bf2f38d8642f893e956b31deae79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1785,6 +1775,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
+        type: 3}
+      propertyPath: nextScene
+      value: Level 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
+        type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c1bf2f38d8642f893e956b31deae79, type: 3}
 --- !u!1 &151422101
@@ -1824,6 +1824,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 425494619}
     m_Modifications:
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1893,11 +1898,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6558146
-      objectReference: {fileID: 0}
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -4493,6 +4493,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 425494619}
     m_Modifications:
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4562,11 +4567,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6558146
-      objectReference: {fileID: 0}
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
@@ -15545,6 +15545,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 577788798}
     m_Modifications:
+    - target: {fileID: 100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
+      propertyPath: m_Name
+      value: jumping musroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
+      propertyPath: m_TagString
+      value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
+      propertyPath: m_TagString
+      value: Mushroom
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.8
@@ -15592,22 +15608,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1268
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
-      propertyPath: m_Name
-      value: jumping musroom
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
-      propertyPath: m_TagString
-      value: Mushroom
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
-      propertyPath: m_TagString
-      value: Mushroom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b218f71e4b297a4ab4ec101b5e8dfac, type: 3}
@@ -15854,6 +15854,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 425494619}
     m_Modifications:
+    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Instakill_Mushroom Cluster Shitake Variant (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 485437068010919737, guid: 1cf76475e0983b1478728318cbd5ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15923,11 +15928,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6558146
-      objectReference: {fileID: 0}
-    - target: {fileID: 485437068010919736, guid: 1cf76475e0983b1478728318cbd5ec0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Instakill_Mushroom Cluster Shitake Variant (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf76475e0983b1478728318cbd5ec0a, type: 3}
