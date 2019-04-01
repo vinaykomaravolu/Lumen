@@ -28,7 +28,6 @@ public class Collectible : MonoBehaviour{
     }
 
     private IEnumerator kill(){
-        print("called");
         ambientEffect?.Stop();
         Destroy(model);          
         Global.gameControl.collect();

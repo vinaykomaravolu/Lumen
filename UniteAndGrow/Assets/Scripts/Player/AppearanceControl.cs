@@ -1,16 +1,23 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class AppearanceControl: MonoBehaviour {
     
     // Start is called before the first frame update
     public GameObject outer;
     public GameObject inner;
+    public GameObject left;
+    public GameObject right;
     public float jumpStretch;
     public float outerRestoreSpeed;
+    public float lerpSpeed;
     public float rotationSpeed;
+    public float rotateDuration;
 
     private Rigidbody body;
     private MovementControl movement;
+    private bool doubleJumping;
+    private Vector3 preForward;
     
     void Start(){
         body = GetComponent<Rigidbody>();
@@ -19,7 +26,11 @@ public class AppearanceControl: MonoBehaviour {
 
     // Update is called once per frame
     void Update(){
-        rotateInner();
+        if (doubleJumping){
+            doubleJumpRotate();
+        } else{
+            rotateInner();
+        }
         restoreOuterShape();
     }
 
@@ -28,15 +39,30 @@ public class AppearanceControl: MonoBehaviour {
         outer.transform.localScale = Vector3.one + Vector3.forward * jumpStretch;
     }
 
+    public void doubleJump(){
+        StartCoroutine(_doubleJump());
+    }
+
+    private IEnumerator _doubleJump(){
+        doubleJumping = true;
+        Vector3 forward = transform.forward;
+        yield return new WaitForSeconds(rotateDuration);
+        preForward = forward;
+        doubleJumping = false;
+    }
+
+    private void doubleJumpRotate(){
+        inner.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+    }
+
     private void rotateInner(){
         Vector3 forward = movement.getControl();
-//        if (forward == Vector3.zero) forward = body.velocity;
         forward.y = 0;
         if (forward == Vector3.zero) return;
         inner.transform.rotation = Quaternion.Lerp(
             inner.transform.rotation,
             Quaternion.LookRotation(forward, Vector3.up),
-            rotationSpeed * Time.deltaTime);
+            lerpSpeed * Time.deltaTime);
     }
 
     private void restoreOuterShape(){

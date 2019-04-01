@@ -143,6 +143,7 @@ public class MovementControl : MonoBehaviour{
                 canDoubleJump = false;
                 velocity.y = jumpSpeed;
                 appearance.jump(Vector3.up);
+                appearance.doubleJump();
                 jumpNorm = Vector3.up;
                 break;
             case ContactMode.Ground:
