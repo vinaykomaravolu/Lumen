@@ -23,6 +23,8 @@ public class MovementControl : MonoBehaviour{
     public float maxJumpSpeed;
     public float holdJumpDuration;
 
+    public bool jumping{ get; private set; }
+
     private bool canWallJump => contact.contactSurface != ContactSurface.Ground;
     private bool canDoubleJump = true;
     private bool canDash => form.volume > form.minVolume && Global.gameControl.canDash;
@@ -124,25 +126,31 @@ public class MovementControl : MonoBehaviour{
     }
 
     private void jumpMove(){
+        jumping = false;
         if (contactMode == ContactMode.Ground && contact.contactSurface == ContactSurface.SuperJump){
             float speed = Mathf.Clamp(contact.contactVelocity.y * superJumpFactor, jumpSpeed, maxJumpSpeed);
-            initialJump(speed);
+            jumping = initialJump(speed);
+        } else if (Input.GetButtonDown(Global.jumpButton)){
+            jumping = initialJump(jumpSpeed);
+        } else if (Input.GetButton(Global.jumpButton)){
+            jumping = holdJump();
         }
-        if (Input.GetButtonDown(Global.jumpButton)) initialJump(jumpSpeed);
-        if (Input.GetButton(Global.jumpButton)) holdJump();
-        if (Input.GetButtonUp(Global.jumpButton)) jumpStartTime = float.NegativeInfinity; //disable hold jump
+        if (Input.GetButtonUp(Global.jumpButton)) {
+            jumpStartTime = float.NegativeInfinity; //disable hold jump
+        }
     }
 
-    private void initialJump(float jumpSpeed){
+    private bool initialJump(float jumpSpeed){
         Vector3 velocity = body.velocity;
-        if (jumpSpeed <= body.velocity.y) return;
+        if (jumpSpeed <= body.velocity.y) return false;
         
         switch (contactMode){
             case ContactMode.Air:
-                if (!canDoubleJump) return;
+                if (!canDoubleJump) return false;
                 canDoubleJump = false;
                 velocity.y = jumpSpeed;
                 appearance.jump(Vector3.up);
+                appearance.doubleJump();
                 jumpNorm = Vector3.up;
                 break;
             case ContactMode.Ground:
@@ -152,7 +160,7 @@ public class MovementControl : MonoBehaviour{
                 break;
             case ContactMode.Wall:
                 if (!canWallJump){
-                    if (!canDoubleJump) return;
+                    if (!canDoubleJump) return false;
                     canDoubleJump = false;
                 }
                 velocity.y = 0;
@@ -168,12 +176,13 @@ public class MovementControl : MonoBehaviour{
 
         jumpStartTime = Time.timeSinceLevelLoad;
         body.velocity = velocity;
+        return true;
     }
 
-    private void holdJump(){
-        if (Time.timeSinceLevelLoad - jumpStartTime > holdJumpDuration) return;
+    private bool holdJump(){
+        if (Time.timeSinceLevelLoad - jumpStartTime > holdJumpDuration) return false;
         Vector3 velocity = body.velocity;
-        if (jumpSpeed < velocity.y) return;
+        if (jumpSpeed < velocity.y) return true;
         if (jumpNorm == Vector3.up){
             velocity.y = jumpSpeed;
         } else{
@@ -183,6 +192,7 @@ public class MovementControl : MonoBehaviour{
         }
 
         body.velocity = velocity;
+        return true;
     }
 
     // get the vector3 of the movement input, relative to the world

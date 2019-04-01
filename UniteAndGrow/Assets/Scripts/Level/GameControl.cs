@@ -149,6 +149,7 @@ public class GameControl : MonoBehaviour{
                          "\nGround Speed: " + groundSpeed.magnitude +
                          "\nContact: " + playerContact.contactMode +
                          "\nNorm: " + playerContact.contactNorm +
+                         "\nJumping: " + playerMovement.jumping + 
                          "\nSurface: " + playerContact.contactSurface;
     }
 }

@@ -21,9 +21,11 @@ public class ContactHandler : MonoBehaviour{
     }
 
     private FormControl form;
+    private AppearanceControl appearance;
 
     private void Start(){
         form = GetComponent<FormControl>();
+        appearance = GetComponent<AppearanceControl>();
     }
 
     private void OnTriggerStay(Collider other){
@@ -62,7 +64,10 @@ public class ContactHandler : MonoBehaviour{
     private void OnCollisionEnter(Collision collision){
         getContactInfo(collision);
         contactVelocity = collision.relativeVelocity;
-        if (collision.impulse.magnitude > landSoundThreshold) Instantiate(Global.soundControl.landing);
+        if (collision.impulse.magnitude > landSoundThreshold){
+            Instantiate(Global.soundControl.landing);
+            appearance.land();
+        }
 
         GameObject other = collision.gameObject;
         switch (other.tag){
