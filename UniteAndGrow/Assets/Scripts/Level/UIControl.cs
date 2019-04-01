@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class UIControl : MonoBehaviour{
     
@@ -22,7 +23,7 @@ public class UIControl : MonoBehaviour{
     
     [Header("Win")]
     public GameObject winMenu;
-    public Text scoreBoard;
+    public TMP_Text scoreBoard;
 
     [Header("Lose")] 
     public FadingText loseBackground;
@@ -74,6 +75,7 @@ public class UIControl : MonoBehaviour{
 
     public void showWin(){
         winMenu.SetActive(true);
+        this.setScoreBoard();
     }
 
     public void showLose(){
@@ -103,8 +105,6 @@ public class UIControl : MonoBehaviour{
     }
 
     public void next(){
-//        SceneManager.LoadScene(Global.loadingSceneName);
-//        SceneManager.LoadScene(Global.gameControl.nextScene);
         StartCoroutine(loadNext());
     }
 
@@ -116,7 +116,7 @@ public class UIControl : MonoBehaviour{
     }
 
     private void setScoreBoard(){
-        scoreBoard.text = "Total Score: " + Global.gameControl.getScore();
+        scoreBoard.SetText("Total Score: " + Global.gameControl.getScore().ToString());
         float time = Time.timeSinceLevelLoad;
         int collectible = Global.gameControl.collected;
     }
