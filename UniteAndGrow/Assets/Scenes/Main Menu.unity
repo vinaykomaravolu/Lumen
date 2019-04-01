@@ -5004,11 +5004,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2758927754751656134, guid: 380714f3e126fb84cabe4ef7f8244147,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6756468493831731132, guid: 380714f3e126fb84cabe4ef7f8244147,
         type: 3}
       propertyPath: m_Convex
@@ -5018,6 +5013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CookingOptions
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758927754751656134, guid: 380714f3e126fb84cabe4ef7f8244147,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 380714f3e126fb84cabe4ef7f8244147, type: 3}
