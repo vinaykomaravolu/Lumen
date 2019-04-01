@@ -18,6 +18,8 @@ public static class Global{
     public const string mainMenuName = "Main Menu";
     public const string tutorialName = "Tutorial Level";
     public const string levelOneName = "Level 1";
+    public const string levelTwoName = "Level 2";
+    public const string levelThreeName = "Level 3";
     public const string loadingSceneName = "Loading Scene";
     
     public const string jumpButton = "Jump";
