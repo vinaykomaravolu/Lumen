@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Respawnable : MonoBehaviour{
 
     [HideInInspector] public bool instantiated;
+    private GameObject instance;
 
     private void Start(){
         if (instantiated) return;
@@ -13,6 +15,8 @@ public class Respawnable : MonoBehaviour{
     }
 
     public void spawn(){
-        Instantiate(gameObject, transform.parent).SetActive(true);
+        Destroy(instance);
+        instance = Instantiate(gameObject, transform.parent);
+        instance.SetActive(true);
     }
 }
