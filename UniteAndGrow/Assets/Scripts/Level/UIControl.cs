@@ -28,12 +28,22 @@ public class UIControl : MonoBehaviour{
     [Header("Lose")] 
     public FadingText loseBackground;
 
+    [Header("Leaderboard")]
+    public GameObject leaderBoard;
+    public TMP_Text score_text;
+
     private void Start(){
         rotateColl = new bool[collectiblesIcon.Length];
     }
 
     void Update() {
         if (Debug.isDebugBuild) {
+            if (Input.GetKeyDown("0"))
+            {
+                pauseMenu.SetActive(false);
+                winMenu.SetActive(false);
+                loseBackground.reset();
+            }
             if (Input.GetKeyDown("1")) {
                 showPause(true);
             }
@@ -43,26 +53,19 @@ public class UIControl : MonoBehaviour{
             if (Input.GetKeyDown("3")) {
                 showLose();
             }
-            if (Input.GetKeyDown("4")) {
-                pauseMenu.SetActive(false);
-                winMenu.SetActive(false);
-                loseBackground.reset();
+            if (Input.GetKeyDown("4"))
+            {
+                showLeaderBoard();
             }
             if (Input.GetKeyDown("5"))
             {
-                List<Score> scores = LeaderBoard.get();
-                for (int i = 0; i < scores.Count; i++)
-                {
-                    Score score = scores[i];
-                    string time = score.getTimeString();
-                    Debug.Log(score.ToString());
-                    Debug.Log(time);
-                    Debug.Log(name);
-                }
+                addToLeaderBoard("name here");
+                setLeaderBoard();
             }
             if (Input.GetKeyDown("6"))
             {
-                addToLeaderBoard();
+                LeaderBoard.reset();
+                setLeaderBoard();
             }
         }
         for (int i = 0; i < Global.gameControl.collected; i++){
@@ -104,6 +107,12 @@ public class UIControl : MonoBehaviour{
         respawn();
     }
 
+    public void showLeaderBoard()
+    {
+        setLeaderBoard();
+        leaderBoard.SetActive(true);
+    }
+
     public void pause(){
         Global.gameControl.pause();
     }
@@ -138,17 +147,19 @@ public class UIControl : MonoBehaviour{
     }
 
     private void setLeaderBoard(){
+        score_text.text = "";
         List<Score> scores = LeaderBoard.get();
         for (int i = 0; i < scores.Count; i++){
             Score score = scores[i];
             string time = score.getTimeString();
             string name = score.name;
+            score_text.text = score_text.text + "#" + (i+1) + " Name: " + name + " Score: " + score.score + " Time: " + time + "\n";
         }
     }
 
-    public void addToLeaderBoard(){
+    public void addToLeaderBoard(string name){
         LeaderBoard.add(new Score{
-            name = "name",
+            name = name,
             time = Time.timeSinceLevelLoad,
             score = Global.gameControl.getScore()
         });

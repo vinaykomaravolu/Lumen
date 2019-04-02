@@ -7,8 +7,8 @@ public class Score : IComparable<Score>{
     public float time;
 
     public int CompareTo(Score other){
-        if (other.score < score) return 1;
-        if (other.score > score) return -1;
+        if (other.score < score) return -1;
+        if (other.score > score) return 1;
         return 0;
     }
 
