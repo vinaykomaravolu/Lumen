@@ -20,6 +20,7 @@ public class SizeChanger : MonoBehaviour{
         float deltaVolume = volumePerSecond * Time.deltaTime;
         if (deltaVolume > volume) deltaVolume = volume;
         volume -= deltaVolume;
+        if (volume < 0) volume = 0;
         if (killOnDry) transform.localScale = initScale * (volume / initVolume);
         return grow ? deltaVolume : -deltaVolume;
     }
