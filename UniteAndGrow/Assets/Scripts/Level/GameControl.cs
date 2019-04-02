@@ -35,7 +35,6 @@ public class GameControl : MonoBehaviour{
     private MovementControl playerMovement;
     private CameraBase cameraBase;
     
-    [HideInInspector] public int checkPointIndex;
     [HideInInspector] public List<Respawnable> respawnObjs = new List<Respawnable>();
     public bool paused{ get; private set; }
     private bool end;
