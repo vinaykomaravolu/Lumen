@@ -10,9 +10,13 @@ public class SoundControl : MonoBehaviour{
 
     [Header("Effects")]
     public GameObject landing;
+    public GameObject collecting;
+    public GameObject jumping;
+    public AudioSource growing;
+    public AudioSource shrinking;
+    public AudioSource dashing;
     
     [Header("BGMs")]
-    public GameObject loseBgm;
     public GameObject winBgm;
     private readonly CurrentSound currentAmbient = new CurrentSound();
     private readonly CurrentSound currentMusic = new CurrentSound();
@@ -21,8 +25,28 @@ public class SoundControl : MonoBehaviour{
         changeCurrent(winBgm, fadeFast, 0);
     }
 
-    public void lose(){
-        changeCurrent(loseBgm, fadeFast, 0);
+    public void jump(){
+        Instantiate(jumping);
+    }
+
+    public void collect(){
+        Instantiate(collecting);
+    }
+
+    public void land(){
+        Instantiate(landing);
+    }
+
+    public void grow(bool enable){
+        play(null, enable);
+    }
+
+    public void play(AudioSource clip, bool enable){
+        if (enable){
+            clip.Play();
+        } else{
+            clip.Stop();
+        }
     }
 
     private void Update(){
