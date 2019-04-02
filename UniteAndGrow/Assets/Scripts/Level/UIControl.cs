@@ -48,6 +48,22 @@ public class UIControl : MonoBehaviour{
                 winMenu.SetActive(false);
                 loseBackground.reset();
             }
+            if (Input.GetKeyDown("5"))
+            {
+                List<Score> scores = LeaderBoard.get();
+                for (int i = 0; i < scores.Count; i++)
+                {
+                    Score score = scores[i];
+                    string time = score.getTimeString();
+                    Debug.Log(score.ToString());
+                    Debug.Log(time);
+                    Debug.Log(name);
+                }
+            }
+            if (Input.GetKeyDown("6"))
+            {
+                addToLeaderBoard();
+            }
         }
         for (int i = 0; i < Global.gameControl.collected; i++){
             Transform collTrans = collectiblesIcon[i].transform;
@@ -116,7 +132,7 @@ public class UIControl : MonoBehaviour{
     }
 
     private void setScoreBoard(){
-        scoreBoard.SetText("Total Score: " + Global.gameControl.getScore().ToString());
+        scoreBoard.SetText("Total Score: " + Global.gameControl.getScore() + "\nTotal Time: " + Time.timeSinceLevelLoad);
         float time = Time.timeSinceLevelLoad;
         int collectible = Global.gameControl.collected;
     }
@@ -126,6 +142,7 @@ public class UIControl : MonoBehaviour{
         for (int i = 0; i < scores.Count; i++){
             Score score = scores[i];
             string time = score.getTimeString();
+            string name = score.name;
         }
     }
 
