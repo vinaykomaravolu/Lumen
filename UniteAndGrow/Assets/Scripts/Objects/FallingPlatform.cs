@@ -7,7 +7,7 @@ public class FallingPlatform : MonoBehaviour{
     public float underMultiplier; // multiplier to make the platform float near limit
     public float restoreMultiplier; // multiplier to restore back to original height
 
-    public float baseHeight;
+    [HideInInspector] public float baseHeight;
     private Rigidbody body;
     private float multiplier = 1;
 

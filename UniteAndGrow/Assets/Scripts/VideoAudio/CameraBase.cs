@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Net.Mime;
+using UnityEngine;
 
 public class CameraBase : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class CameraBase : MonoBehaviour {
     public Camera camera;
     public float dashFieldOfView;
     public float deltaFieldOfView;
+    public GameObject rainEffect;
     [HideInInspector] public GameObject player;
     [HideInInspector] public bool dashing;
     
@@ -21,6 +23,7 @@ public class CameraBase : MonoBehaviour {
         rotation.x = initVertical;
         innerCamera.form = player.GetComponent<FormControl>();
         initFieldOfView = camera.fieldOfView;
+        rainEffect.SetActive(Global.gameControl.rain);
     }
 
     void Update() {
