@@ -12,7 +12,7 @@ public class Sound : MonoBehaviour{
     private float fadingStart;
     private bool instantiateNew; // true if want to instantiate new
     private float initialVolume;
-    public AudioSource audio;
+    [HideInInspector] public AudioSource audio;
 
     private void Start(){
         audio = GetComponent<AudioSource>();
