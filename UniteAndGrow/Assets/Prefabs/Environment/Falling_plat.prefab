@@ -92,10 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5ecb1b450248369dea70eec78d6d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  massLimit: 0
-  overMultiplier: 0
-  underMultiplier: 0
-  restoreMultiplier: 0
+  massLimit: 0.35
+  overMultiplier: 0.5
+  underMultiplier: 1.5
+  restoreMultiplier: 0.1
   baseHeight: 0
 --- !u!64 &6930329599852448287
 MeshCollider:
@@ -122,7 +122,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
