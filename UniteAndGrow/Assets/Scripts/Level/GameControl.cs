@@ -12,6 +12,7 @@ public class GameControl : MonoBehaviour{
     public string nextScene;
     public float gravity;
     public bool canDash;
+    public bool rain;
     public int totalCollectibles;
     
     [Header("Prefabs")]
