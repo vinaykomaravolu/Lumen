@@ -2,16 +2,16 @@
 
 public class CameraBase : MonoBehaviour {
 
-    public GameObject player;
-    public float clampAngle;
+    public Vector2 clampAngle;
     public float inputSensitivity;
     public bool invertCamera;
     public float initVertical;
     public CameraDistance innerCamera;
     public Camera camera;
-    public bool dashing;
     public float dashFieldOfView;
     public float deltaFieldOfView;
+    [HideInInspector] public GameObject player;
+    [HideInInspector] public bool dashing;
     
     private Vector3 rotation;
     private float initFieldOfView;
@@ -32,7 +32,7 @@ public class CameraBase : MonoBehaviour {
         
         rotation.y += deltaHorizontal * inputSensitivity * Time.deltaTime;
         rotation.x += deltaVertical * inputSensitivity * Time.deltaTime;
-        rotation.x = Mathf.Clamp(rotation.x, -clampAngle, clampAngle);
+        rotation.x = Mathf.Clamp(rotation.x, clampAngle.x, clampAngle.y);
 
         transform.rotation = Quaternion.Euler(rotation.x, rotation.y, 0.0f);
 

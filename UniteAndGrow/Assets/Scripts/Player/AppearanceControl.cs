@@ -23,13 +23,13 @@ public class AppearanceControl: MonoBehaviour {
     public Vector2 idlePosRange;
     public float jumpPos;
     public float landPos;
-    [FormerlySerializedAs("moveSpeed")] public float moveSpeedFast;
+    public float moveSpeedFast;
     public float moveSpeedSlow;
     
     [Header("Shell")] 
     public GameObject left;
     public GameObject right;
-    [FormerlySerializedAs("idleRange")] public Vector2 idleAngleRange;
+    public Vector2 idleAngleRange;
     public float jumpAngle;
     public float landAngle;
     public float deltaAngleFast;
