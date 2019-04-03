@@ -12,9 +12,6 @@ public class SoundControl : MonoBehaviour{
     public GameObject landing;
     public GameObject collecting;
     public GameObject jumping;
-    public AudioSource growing;
-    public AudioSource shrinking;
-    public AudioSource dashing;
     
     [Header("BGMs")]
     public GameObject winBgm;
@@ -35,18 +32,6 @@ public class SoundControl : MonoBehaviour{
 
     public void land(){
         Instantiate(landing);
-    }
-
-    public void grow(bool enable){
-        play(null, enable);
-    }
-
-    public void play(AudioSource clip, bool enable){
-        if (enable){
-            clip.Play();
-        } else{
-            clip.Stop();
-        }
     }
 
     private void Update(){

@@ -22,6 +22,7 @@ public class Collectible : MonoBehaviour{
     private void OnTriggerEnter(Collider other){
         if (killed) return;
         if (other.CompareTag(Global.playerTag)){
+            Global.soundControl.collect();
             StartCoroutine(kill());
             killed = true;
         }

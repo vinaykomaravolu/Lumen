@@ -176,6 +176,7 @@ public class MovementControl : MonoBehaviour{
 
         jumpStartTime = Time.timeSinceLevelLoad;
         body.velocity = velocity;
+        Global.soundControl.jump();
         return true;
     }
 
