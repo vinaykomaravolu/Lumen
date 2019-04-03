@@ -24073,6 +24073,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2100246565}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &845967210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7820602576859339837, guid: 0c58574eb418d4cadb134aee86ab7fac,
+    type: 3}
+  m_PrefabInstance: {fileID: 808605857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &845967211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845967210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decb66cdd05746e5b759ee19df216635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPrefab: {fileID: 4074151041426914326, guid: dcda3633eb198134994d9a5fed8a6149,
+    type: 3}
 --- !u!1 &849761270
 GameObject:
   m_ObjectHideFlags: 0
