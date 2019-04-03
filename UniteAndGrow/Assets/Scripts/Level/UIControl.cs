@@ -31,6 +31,7 @@ public class UIControl : MonoBehaviour{
     [Header("Leaderboard")]
     public GameObject leaderBoard;
     public TMP_Text score_text;
+    public string player_name;
 
     private void Start(){
         rotateColl = new bool[collectiblesIcon.Length];
@@ -63,7 +64,7 @@ public class UIControl : MonoBehaviour{
             }
             if (Input.GetKeyDown("5"))
             {
-                addToLeaderBoard("name here");
+                addToLeaderBoard();
                 setLeaderBoard();
             }
             if (Input.GetKeyDown("6"))
@@ -90,7 +91,13 @@ public class UIControl : MonoBehaviour{
                 }
             }
         }
-        
+        bool test = Input.GetButtonDown(Global.pauseButton) ||
+            Input.GetButtonDown(Global.altPauseButton);
+        if (test && leaderBoard.activeSelf)
+        {
+            leaderBoard.SetActive(false);
+        }
+
     }
     //leader: name:time:score:timestamp
 
@@ -169,11 +176,24 @@ public class UIControl : MonoBehaviour{
         }
     }
 
-    public void addToLeaderBoard(string name){
+    public void addToLeaderBoard(){
+        int score;
+        if (Global.gameControl)
+        {
+            score = score = Global.gameControl.getScore();
+        } else
+        {
+            score = 0;
+        }
         LeaderBoard.add(new Score{
-            name = name,
+            name = player_name,
             time = Time.timeSinceLevelLoad,
-            score = Global.gameControl.getScore()
+            score = score
         });
+    }
+
+    public void editName(string newName)
+    {
+        player_name = newName;
     }
 }
