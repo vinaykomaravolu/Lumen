@@ -34,6 +34,10 @@ public class UIControl : MonoBehaviour{
 
     private void Start(){
         rotateColl = new bool[collectiblesIcon.Length];
+        if (Global.gameControl)
+        {
+            sizeIndicator.transform.parent.gameObject.SetActive(true);
+        }
     }
 
     void Update() {
@@ -68,17 +72,25 @@ public class UIControl : MonoBehaviour{
                 setLeaderBoard();
             }
         }
-        for (int i = 0; i < Global.gameControl.collected; i++){
-            Transform collTrans = collectiblesIcon[i].transform;
-            if (rotateColl[i]){
-                collTrans.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
-            } else{
-                collTrans.rotation = Quaternion.RotateTowards(
-                    collTrans.rotation,
-                    Quaternion.identity,
-                    rotateSpeed * Time.deltaTime);
+        if (Global.gameControl)
+        {
+            for (int i = 0; i < Global.gameControl.collected; i++)
+            {
+                Transform collTrans = collectiblesIcon[i].transform;
+                if (rotateColl[i])
+                {
+                    collTrans.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    collTrans.rotation = Quaternion.RotateTowards(
+                        collTrans.rotation,
+                        Quaternion.identity,
+                        rotateSpeed * Time.deltaTime);
+                }
             }
         }
+        
     }
     //leader: name:time:score:timestamp
 
