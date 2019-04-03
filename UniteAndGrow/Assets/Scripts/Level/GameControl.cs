@@ -110,6 +110,8 @@ public class GameControl : MonoBehaviour{
         uiControl.showWin();
         Global.soundControl.win();
         Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void lose(){
@@ -121,6 +123,8 @@ public class GameControl : MonoBehaviour{
         paused = !paused;
         Time.timeScale = paused ? 0 : 1;
         uiControl.showPause(paused);
+        Cursor.visible = paused;
+        Cursor.lockState = paused ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     public void collect(){
