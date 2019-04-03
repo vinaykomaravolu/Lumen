@@ -23,7 +23,7 @@ public class SoundControl : MonoBehaviour{
     }
 
     public void jump(){
-        Instantiate(jumping);
+//        Instantiate(jumping);
     }
 
     public void collect(){
