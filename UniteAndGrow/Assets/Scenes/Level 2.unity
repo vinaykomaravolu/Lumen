@@ -2276,16 +2276,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 4.29
       objectReference: {fileID: 0}
-    - target: {fileID: 6472164406796501792, guid: 66f08f245d885416d97b8aea8daa1c50,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6733974285027737730, guid: 66f08f245d885416d97b8aea8daa1c50,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8039603217455093509, guid: 66f08f245d885416d97b8aea8daa1c50,
         type: 3}
       propertyPath: markers.Array.size
@@ -2335,6 +2325,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472164406796501792, guid: 66f08f245d885416d97b8aea8daa1c50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6733974285027737730, guid: 66f08f245d885416d97b8aea8daa1c50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66f08f245d885416d97b8aea8daa1c50, type: 3}
@@ -12350,15 +12350,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 431.15668
       objectReference: {fileID: 0}
-    - target: {fileID: 5491803532259200117, guid: 94b085e57c991174ca84bfebb87515f1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5777439017820049529, guid: 94b085e57c991174ca84bfebb87515f1,
         type: 3}
       propertyPath: m_Intensity
       value: 2.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491803532259200117, guid: 94b085e57c991174ca84bfebb87515f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b085e57c991174ca84bfebb87515f1, type: 3}
@@ -13924,15 +13924,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 553.26025
       objectReference: {fileID: 0}
-    - target: {fileID: 5491803532259200117, guid: 94b085e57c991174ca84bfebb87515f1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5777439017820049529, guid: 94b085e57c991174ca84bfebb87515f1,
         type: 3}
       propertyPath: m_Intensity
       value: 2.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491803532259200117, guid: 94b085e57c991174ca84bfebb87515f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b085e57c991174ca84bfebb87515f1, type: 3}
@@ -18428,7 +18428,7 @@ GameObject:
   - component: {fileID: 659199271}
   m_Layer: 0
   m_Name: plat
-  m_TagString: Untagged
+  m_TagString: SizeChanger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20187,15 +20187,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 773.5467
       objectReference: {fileID: 0}
-    - target: {fileID: 5491803532259200117, guid: 94b085e57c991174ca84bfebb87515f1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5777439017820049529, guid: 94b085e57c991174ca84bfebb87515f1,
         type: 3}
       propertyPath: m_Intensity
       value: 2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491803532259200117, guid: 94b085e57c991174ca84bfebb87515f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b085e57c991174ca84bfebb87515f1, type: 3}
@@ -30046,11 +30046,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
         type: 3}
-      propertyPath: debug
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495769144240718921, guid: 92c1bf2f38d8642f893e956b31deae79,
-        type: 3}
       propertyPath: totalCollectibles
       value: 3
       objectReference: {fileID: 0}
@@ -34646,7 +34641,7 @@ GameObject:
   - component: {fileID: 1217937161}
   m_Layer: 0
   m_Name: plat
-  m_TagString: Untagged
+  m_TagString: SizeChanger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43075,14 +43070,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 837.1643
       objectReference: {fileID: 0}
-    - target: {fileID: 5491803532259200117, guid: 94b085e57c991174ca84bfebb87515f1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5777439017820049529, guid: 94b085e57c991174ca84bfebb87515f1,
         type: 3}
       propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491803532259200117, guid: 94b085e57c991174ca84bfebb87515f1,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -52054,7 +52049,7 @@ GameObject:
   - component: {fileID: 1818700840}
   m_Layer: 0
   m_Name: plat
-  m_TagString: Untagged
+  m_TagString: SizeChanger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52495,7 +52490,7 @@ GameObject:
   - component: {fileID: 1828132216}
   m_Layer: 0
   m_Name: plat
-  m_TagString: Untagged
+  m_TagString: SizeChanger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

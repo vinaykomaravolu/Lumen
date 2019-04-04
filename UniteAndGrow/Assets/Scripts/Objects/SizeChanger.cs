@@ -21,7 +21,9 @@ public class SizeChanger : MonoBehaviour{
         if (deltaVolume > volume) deltaVolume = volume;
         volume -= deltaVolume;
         if (volume < 0) volume = 0;
-        if (killOnDry) transform.localScale = initScale * (volume / initVolume);
+        if (killOnDry && !float.IsInfinity(initVolume)){
+            transform.localScale = initScale * (volume / initVolume);
+        }
         return grow ? deltaVolume : -deltaVolume;
     }
 

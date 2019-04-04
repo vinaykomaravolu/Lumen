@@ -77,7 +77,7 @@ public class ContactHandler : MonoBehaviour{
                 GameObject effect = changer.grow ? growEffectPrefab : shrinkEffectPrefab;
                 changer.effect = Instantiate(effect,
                     transform.position,
-                    Quaternion.identity,
+                    Quaternion.LookRotation(collision.GetContact(0).normal),
                     transform).GetComponent<ParticleEmissionControl>();
                 break;
             default:

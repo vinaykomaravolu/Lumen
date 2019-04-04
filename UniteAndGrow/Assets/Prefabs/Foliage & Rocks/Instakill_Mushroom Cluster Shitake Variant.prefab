@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1096500516953961710
+--- !u!114 &1473540428236528603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485437068010919736}
+  m_GameObject: {fileID: 485437067912868650}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adce7372783cb4166a8cac8d93b1f8bc, type: 3}
@@ -15,7 +15,7 @@ MonoBehaviour:
   grow: 0
   killOnDry: 1
   volume: Infinity
-  volumePerSecond: 1
+  volumePerSecond: Infinity
   effect: {fileID: 0}
 --- !u!114 &5067639301785441798
 MonoBehaviour:
@@ -34,13 +34,30 @@ MonoBehaviour:
   volume: Infinity
   volumePerSecond: Infinity
   effect: {fileID: 0}
---- !u!114 &1473540428236528603
+--- !u!114 &5936493021428991788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485437067912868650}
+  m_GameObject: {fileID: 485437067965628433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adce7372783cb4166a8cac8d93b1f8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grow: 0
+  killOnDry: 1
+  volume: Infinity
+  volumePerSecond: Infinity
+  effect: {fileID: 0}
+--- !u!114 &7805763653031811167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485437067965628439}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adce7372783cb4166a8cac8d93b1f8bc, type: 3}
@@ -99,39 +116,22 @@ MonoBehaviour:
   volume: Infinity
   volumePerSecond: Infinity
   effect: {fileID: 0}
---- !u!114 &7805763653031811167
+--- !u!114 &1096500516953961710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485437067965628439}
+  m_GameObject: {fileID: 485437068010919736}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adce7372783cb4166a8cac8d93b1f8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grow: 0
-  killOnDry: 1
+  killOnDry: 0
   volume: Infinity
-  volumePerSecond: Infinity
-  effect: {fileID: 0}
---- !u!114 &5936493021428991788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485437067965628433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adce7372783cb4166a8cac8d93b1f8bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grow: 0
-  killOnDry: 1
-  volume: Infinity
-  volumePerSecond: Infinity
+  volumePerSecond: 1
   effect: {fileID: 0}
 --- !u!1001 &5902087845949048446
 PrefabInstance:
@@ -220,12 +220,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.533374
       objectReference: {fileID: 0}
-    - target: {fileID: 6292922658016691819, guid: b5a9440944cee7a4b898cc4859c8d86d,
-        type: 3}
-      propertyPath: m_TagString
-      value: InstantKill
-      objectReference: {fileID: 0}
-    - target: {fileID: 6292922658032275605, guid: b5a9440944cee7a4b898cc4859c8d86d,
+    - target: {fileID: 6292922658236871835, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
       value: InstantKill
@@ -235,27 +230,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: InstantKill
       objectReference: {fileID: 0}
-    - target: {fileID: 6292922658236871835, guid: b5a9440944cee7a4b898cc4859c8d86d,
+    - target: {fileID: 6292922658032275605, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
       value: InstantKill
       objectReference: {fileID: 0}
-    - target: {fileID: 6292922658016691823, guid: b5a9440944cee7a4b898cc4859c8d86d,
+    - target: {fileID: 6292922658016691819, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
       value: InstantKill
       objectReference: {fileID: 0}
-    - target: {fileID: 6292922658016691817, guid: b5a9440944cee7a4b898cc4859c8d86d,
-        type: 3}
-      propertyPath: m_TagString
-      value: InstantKill
-      objectReference: {fileID: 0}
-    - target: {fileID: 6292922658032275607, guid: b5a9440944cee7a4b898cc4859c8d86d,
-        type: 3}
-      propertyPath: m_TagString
-      value: InstantKill
-      objectReference: {fileID: 0}
-    - target: {fileID: 6292922658032275601, guid: b5a9440944cee7a4b898cc4859c8d86d,
+    - target: {fileID: 6292922657968059730, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
       value: InstantKill
@@ -265,7 +250,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: InstantKill
       objectReference: {fileID: 0}
-    - target: {fileID: 6292922657968059730, guid: b5a9440944cee7a4b898cc4859c8d86d,
+    - target: {fileID: 6292922658032275601, guid: b5a9440944cee7a4b898cc4859c8d86d,
+        type: 3}
+      propertyPath: m_TagString
+      value: InstantKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292922658032275607, guid: b5a9440944cee7a4b898cc4859c8d86d,
+        type: 3}
+      propertyPath: m_TagString
+      value: InstantKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292922658016691817, guid: b5a9440944cee7a4b898cc4859c8d86d,
+        type: 3}
+      propertyPath: m_TagString
+      value: InstantKill
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292922658016691823, guid: b5a9440944cee7a4b898cc4859c8d86d,
         type: 3}
       propertyPath: m_TagString
       value: InstantKill
