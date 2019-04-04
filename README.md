@@ -17,3 +17,8 @@ The backdrops for Lumen are composed of natural, worn-down environments with lev
 The goal of the game is to go through the various levels as quickly as possible, with higher scores awarded for shorter completion times. Collectibles can be found “off the beaten path” in a manner such that the player has to make a tradeoff between completion time and the extra points earned from the collectible.
 
 The player can traverse the levels using movement mechanics like double-jumping and wall-climbing. Certain routes through the level can become inaccessible depending on the size of the player, which changes based on the time they spend on surfaces that increase/decrease the player’s size.
+
+# Screenshots
+![](media/2.JPG)
+![](media/3.JPG)
+![](media/4.JPG)
