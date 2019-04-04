@@ -1,3 +1,4 @@
+![](media/1)
 # Lumen
 
 Video Game project for CSC404 - Introduction to Video Game Design with Prof. Steve Engels.
