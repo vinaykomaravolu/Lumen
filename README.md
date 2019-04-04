@@ -18,6 +18,10 @@ The goal of the game is to go through the various levels as quickly as possible,
 
 The player can traverse the levels using movement mechanics like double-jumping and wall-climbing. Certain routes through the level can become inaccessible depending on the size of the player, which changes based on the time they spend on surfaces that increase/decrease the player’s size.
 
+#Demo
+
+[Lumen Gameplay](https://youtu.be/0FUMgyIz1yk)
+
 # Screenshots
 ![](media/2.JPG)
 ![](media/3.JPG)
